@@ -1,0 +1,173 @@
+@import "tailwindcss";
+
+/* ============================================================
+   SANTOSH PETROCHEMICAL — Design Tokens
+   ============================================================ */
+
+@theme inline {
+  /* === Forest Green === */
+  --color-green-900: #1a3a2a;
+  --color-green-700: #235c3a;
+  --color-green-600: #2d7a4e;
+  --color-green-500: #3a9e64;
+  --color-green-400: #52c17e;
+  --color-green-200: #a8e6c0;
+  --color-green-100: #d6f5e6;
+
+  /* === Refined Amber === */
+  --color-amber-700: #b45309;
+  --color-amber-600: #d97706;
+  --color-amber-500: #f59e0b;
+  --color-amber-300: #fcd34d;
+  --color-amber-100: #fef3c7;
+
+  /* === Ink / Charcoal Foundation === */
+  --color-ink-950: #0a0b09;
+  --color-ink-900: #111410;
+  --color-ink-800: #1c1e18;
+  --color-ink-700: #242720;
+  --color-ink-600: #343629;
+  --color-ink-400: #5c6050;
+  --color-ink-200: #a8ad96;
+  --color-ink-100: #d4d8c8;
+  --color-ink-50: #f3f4ee;
+
+  /* === Surface === */
+  --color-warm-white: #faf9f6;
+  --color-warm-50: #f5f3ee;
+
+  /* === Typography === */
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-condensed: 'Barlow Condensed', sans-serif;
+  --font-body: 'Barlow', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* ============================================================
+   BASE STYLES
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #111410;
+  color: #d4d8c8;
+  font-family: 'Barlow', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   TYPOGRAPHY UTILITIES
+   ============================================================ */
+
+.font-display {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.font-condensed {
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+.font-body {
+  font-family: 'Barlow', sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ============================================================
+   SECTION LABEL — e.g. "01 · PROCESS"
+   ============================================================ */
+
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #f59e0b;
+}
+
+/* ============================================================
+   GRADIENT OVERLAYS & EFFECTS
+   ============================================================ */
+
+.gradient-radial-green {
+  background: radial-gradient(ellipse 60% 40% at 50% 100%, rgba(58, 158, 100, 0.15) 0%, transparent 70%);
+}
+
+.gradient-mesh {
+  background-image:
+    radial-gradient(ellipse 80% 50% at 20% 80%, rgba(58, 158, 100, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 20%, rgba(245, 158, 11, 0.05) 0%, transparent 60%);
+}
+
+/* Grid pattern overlay */
+.grid-overlay {
+  background-image:
+    linear-gradient(rgba(52, 54, 41, 0.4) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(52, 54, 41, 0.4) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ============================================================
+   SCROLLYTELLING HELPERS
+   ============================================================ */
+
+.sticky-section {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111410;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #343629;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3a9e64;
+}
+
+/* ============================================================
+   FOCUS STATES (Accessibility)
+   ============================================================ */
+
+:focus-visible {
+  outline: 2px solid #3a9e64;
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

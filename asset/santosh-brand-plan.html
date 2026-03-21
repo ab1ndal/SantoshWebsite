@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Santosh Petrochemical Innovations — Brand & Site Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* ── EVOLVED BRAND PALETTE ── */
+  --ink:          #111410;
+  --ink-800:      #1c1e18;
+  --ink-700:      #252720;
+  --ink-600:      #343629;
+  --ink-400:      #5c6050;
+  --ink-200:      #a8ad96;
+  --ink-100:      #d4d8c8;
+  --ink-50:       #f3f4ee;
+
+  /* Primary — evolved from logo lime-green → deep forest */
+  --green-900:    #1a3a2a;
+  --green-700:    #235c3a;
+  --green-600:    #2d7a4e;
+  --green-500:    #3a9e64;   /* primary CTA */
+  --green-400:    #52c17e;
+  --green-200:    #a8e6c0;
+  --green-100:    #d6f5e6;
+
+  /* Secondary — amber/gold (charcoal+amber direction) */
+  --amber-700:    #b45309;
+  --amber-600:    #d97706;
+  --amber-500:    #f59e0b;   /* accent */
+  --amber-300:    #fcd34d;
+  --amber-100:    #fef3c7;
+
+  /* Tertiary — warm white / off-white for sections */
+  --warm-white:   #faf9f6;
+  --warm-50:      #f5f3ee;
+
+  --font-display:   'Bebas Neue', sans-serif;
+  --font-condensed: 'Barlow Condensed', sans-serif;
+  --font-body:      'Barlow', sans-serif;
+  --font-mono:      'JetBrains Mono', monospace;
+
+  --radius:   6px;
+  --radius-lg: 12px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--ink);
+  color: var(--ink-100);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ══════════════════════════════════
+   NAV
+══════════════════════════════════ */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(17,20,16,0.96);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--ink-600);
+  padding: 0 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 60px;
+}
+.nav-logo {
+  font-family: var(--font-condensed);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.08em;
+  color: var(--green-400);
+  text-transform: uppercase;
+}
+.nav-logo span { color: var(--amber-500); }
+.nav-links {
+  display: flex; gap: 32px; list-style: none;
+}
+.nav-links a {
+  color: var(--ink-200);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--green-400); }
+
+/* ══════════════════════════════════
+   HERO
+══════════════════════════════════ */
+.hero {
+  min-height: 340px;
+  background: linear-gradient(135deg, var(--ink) 0%, var(--ink-800) 50%, var(--green-900) 100%);
+  position: relative;
+  overflow: hidden;
+  display: flex; align-items: center;
+  padding: 80px 48px 60px;
+  border-bottom: 1px solid var(--ink-600);
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 80% 50%, rgba(58,158,100,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 20% 80%, rgba(245,158,11,0.06) 0%, transparent 60%);
+}
+.hero-grid-overlay {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(58,158,100,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(58,158,100,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.hero-content { position: relative; z-index: 2; max-width: 780px; }
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--green-400);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 32px; height: 1px;
+  background: var(--green-500);
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 7vw, 82px);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  color: var(--warm-white);
+  margin-bottom: 12px;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--amber-500);
+  position: relative;
+}
+.hero-sub {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--ink-200);
+  max-width: 540px;
+  margin-top: 16px;
+  line-height: 1.6;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(58,158,100,0.15);
+  border: 1px solid rgba(58,158,100,0.35);
+  border-radius: 100px;
+  padding: 6px 16px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--green-400);
+  text-transform: uppercase;
+  margin-top: 24px;
+}
+.hero-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--green-500);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.4); }
+}
+
+/* ══════════════════════════════════
+   SECTIONS
+══════════════════════════════════ */
+section { padding: 72px 48px; }
+section:nth-child(even) { background: var(--ink-800); }
+section:nth-child(odd)  { background: var(--ink); }
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber-500);
+  margin-bottom: 8px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-label::after {
+  content: '';
+  flex: 1; max-width: 64px; height: 1px;
+  background: var(--amber-600);
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1;
+  color: var(--warm-white);
+  margin-bottom: 40px;
+}
+.section-title span { color: var(--green-400); }
+
+/* ══════════════════════════════════
+   COLOR PALETTE
+══════════════════════════════════ */
+.palette-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 48px;
+}
+.swatch {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--ink-600);
+}
+.swatch-color {
+  height: 80px;
+  position: relative;
+}
+.swatch-info {
+  background: var(--ink-700);
+  padding: 12px 14px;
+}
+.swatch-name {
+  font-family: var(--font-condensed);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  color: var(--ink-100);
+  margin-bottom: 2px;
+}
+.swatch-hex {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-400);
+}
+.swatch-role {
+  font-size: 11px;
+  color: var(--ink-200);
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* ══════════════════════════════════
+   TYPOGRAPHY
+══════════════════════════════════ */
+.type-specimen {
+  border: 1px solid var(--ink-600);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.type-header {
+  background: var(--ink-700);
+  padding: 14px 20px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.type-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--amber-500);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.type-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-400);
+}
+.type-body {
+  padding: 28px 24px;
+  background: var(--ink-800);
+}
+.type-display-sample {
+  font-family: var(--font-display);
+  font-size: 64px;
+  line-height: 1;
+  color: var(--warm-white);
+  letter-spacing: 0.02em;
+}
+.type-condensed-sample {
+  font-family: var(--font-condensed);
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--green-400);
+}
+.type-body-sample {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--ink-100);
+  line-height: 1.7;
+  max-width: 600px;
+}
+.type-mono-sample {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--amber-400);
+  letter-spacing: 0.08em;
+}
+
+/* ══════════════════════════════════
+   LOGO EVOLUTION
+══════════════════════════════════ */
+.logo-variants {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.logo-card {
+  border: 1px solid var(--ink-600);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.logo-preview {
+  height: 140px;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 10px;
+  position: relative;
+}
+.logo-card-footer {
+  background: var(--ink-700);
+  padding: 12px 16px;
+  font-size: 12px;
+  color: var(--ink-200);
+}
+.logo-card-footer strong {
+  display: block;
+  font-family: var(--font-condensed);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--ink-100);
+  letter-spacing: 0.04em;
+  margin-bottom: 2px;
+}
+
+/* SVG logo mark */
+.logo-mark svg { width: 52px; height: 52px; }
+.logo-wordmark {
+  font-family: var(--font-condensed);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.logo-tagline-text {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* ══════════════════════════════════
+   VOICE & TONE
+══════════════════════════════════ */
+.voice-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.voice-card {
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  border: 1px solid;
+}
+.voice-card.do {
+  background: rgba(58,158,100,0.08);
+  border-color: rgba(58,158,100,0.3);
+}
+.voice-card.dont {
+  background: rgba(180,83,9,0.08);
+  border-color: rgba(180,83,9,0.3);
+}
+.voice-card-header {
+  font-family: var(--font-condensed);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 8px;
+}
+.voice-card.do .voice-card-header { color: var(--green-400); }
+.voice-card.dont .voice-card-header { color: var(--amber-600); }
+.voice-example {
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  margin-bottom: 8px;
+  font-style: italic;
+}
+.voice-card.do .voice-example { background: rgba(58,158,100,0.1); color: var(--green-200); }
+.voice-card.dont .voice-example { background: rgba(180,83,9,0.1); color: var(--amber-300); text-decoration: line-through; opacity: 0.7; }
+.voice-card p { font-size: 13px; color: var(--ink-200); }
+
+/* ══════════════════════════════════
+   SITE ARCHITECTURE
+══════════════════════════════════ */
+.sitemap {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+.page-card {
+  border: 1px solid var(--ink-600);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
+  cursor: default;
+}
+.page-card:hover {
+  border-color: var(--green-600);
+  transform: translateY(-2px);
+}
+.page-card-header {
+  padding: 16px 18px 12px;
+  background: var(--ink-700);
+  display: flex; justify-content: space-between; align-items: flex-start;
+}
+.page-card-title {
+  font-family: var(--font-condensed);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  color: var(--warm-white);
+}
+.page-card-slug {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ink-400);
+  margin-top: 3px;
+}
+.page-badge {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+.page-badge.primary { background: rgba(58,158,100,0.2); color: var(--green-400); border: 1px solid rgba(58,158,100,0.3); }
+.page-badge.secondary { background: rgba(245,158,11,0.15); color: var(--amber-400); border: 1px solid rgba(245,158,11,0.25); }
+.page-badge.support { background: rgba(255,255,255,0.05); color: var(--ink-200); border: 1px solid var(--ink-600); }
+.page-card-body { padding: 14px 18px 18px; }
+.page-purpose {
+  font-size: 13px;
+  color: var(--ink-200);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+.page-features {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 5px;
+}
+.page-features li {
+  font-size: 12px;
+  color: var(--ink-400);
+  padding-left: 14px;
+  position: relative;
+}
+.page-features li::before {
+  content: '→';
+  position: absolute; left: 0;
+  color: var(--green-600);
+  font-size: 10px;
+}
+.page-features li strong { color: var(--ink-200); font-weight: 500; }
+
+/* ══════════════════════════════════
+   AUDIENCE MATRIX
+══════════════════════════════════ */
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+.audience-card {
+  border: 1px solid var(--ink-600);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  background: var(--ink-700);
+  position: relative;
+  overflow: hidden;
+}
+.audience-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+}
+.audience-card.buyer::before  { background: var(--green-500); }
+.audience-card.seller::before { background: var(--amber-500); }
+.audience-card.regulator::before { background: var(--ink-200); }
+.audience-icon {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+.audience-title {
+  font-family: var(--font-condensed);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+  color: var(--warm-white);
+  margin-bottom: 6px;
+}
+.audience-desc {
+  font-size: 13px;
+  color: var(--ink-200);
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+.audience-need {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-400);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.audience-cta {
+  display: inline-block;
+  margin-top: 12px;
+  font-family: var(--font-condensed);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  border: 1px solid;
+  text-decoration: none;
+}
+.audience-card.buyer .audience-cta   { color: var(--green-400); border-color: rgba(58,158,100,0.4); }
+.audience-card.seller .audience-cta  { color: var(--amber-400); border-color: rgba(245,158,11,0.4); }
+.audience-card.regulator .audience-cta { color: var(--ink-100); border-color: var(--ink-500); }
+
+/* ══════════════════════════════════
+   COMPONENTS SHOWCASE
+══════════════════════════════════ */
+.components-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.component-box {
+  border: 1px solid var(--ink-600);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.component-label {
+  background: var(--ink-700);
+  padding: 10px 16px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--amber-500);
+  border-bottom: 1px solid var(--ink-600);
+}
+.component-preview {
+  padding: 28px 24px;
+  background: var(--ink-800);
+  display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-start;
+}
+
+/* Buttons */
+.btn {
+  font-family: var(--font-condensed);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border-radius: var(--radius);
+  border: none; cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-primary {
+  background: var(--green-500);
+  color: var(--ink);
+}
+.btn-primary:hover { background: var(--green-400); }
+.btn-secondary {
+  background: transparent;
+  color: var(--green-400);
+  border: 1px solid rgba(58,158,100,0.5);
+}
+.btn-secondary:hover { border-color: var(--green-400); background: rgba(58,158,100,0.08); }
+.btn-amber {
+  background: var(--amber-600);
+  color: var(--ink);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--ink-200);
+  border: 1px solid var(--ink-600);
+}
+
+/* Stat card */
+.stat-card {
+  background: var(--ink-700);
+  border: 1px solid var(--ink-600);
+  border-radius: var(--radius);
+  padding: 20px;
+  min-width: 140px;
+}
+.stat-value {
+  font-family: var(--font-display);
+  font-size: 40px;
+  line-height: 1;
+  color: var(--amber-400);
+}
+.stat-label {
+  font-size: 12px;
+  color: var(--ink-200);
+  margin-top: 4px;
+}
+
+/* Badge / tag */
+.tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+.tag-green  { background: rgba(58,158,100,0.15); color: var(--green-400); border: 1px solid rgba(58,158,100,0.3); }
+.tag-amber  { background: rgba(245,158,11,0.15);  color: var(--amber-400); border: 1px solid rgba(245,158,11,0.3); }
+.tag-neutral{ background: var(--ink-700); color: var(--ink-200); border: 1px solid var(--ink-600); }
+
+/* Alert / callout */
+.callout {
+  border-left: 3px solid var(--green-500);
+  background: rgba(58,158,100,0.06);
+  padding: 14px 18px;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: 14px;
+  color: var(--ink-100);
+}
+.callout strong { color: var(--green-400); }
+
+/* ══════════════════════════════════
+   TECH STACK
+══════════════════════════════════ */
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+.stack-item {
+  border: 1px solid var(--ink-600);
+  border-radius: var(--radius);
+  padding: 16px;
+  background: var(--ink-700);
+  display: flex; align-items: flex-start; gap: 12px;
+}
+.stack-icon {
+  width: 36px; height: 36px;
+  border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.stack-info {}
+.stack-name {
+  font-family: var(--font-condensed);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--warm-white);
+  letter-spacing: 0.03em;
+}
+.stack-role { font-size: 12px; color: var(--ink-400); margin-top: 2px; }
+
+/* ══════════════════════════════════
+   TIMELINE
+══════════════════════════════════ */
+.timeline {
+  position: relative;
+  padding-left: 28px;
+}
+.timeline::before {
+  content: '';
+  position: absolute; left: 8px; top: 8px; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--green-600), transparent);
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 28px;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute; left: -24px; top: 6px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--green-500);
+  border: 2px solid var(--ink);
+}
+.timeline-phase {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--amber-500);
+  margin-bottom: 4px;
+}
+.timeline-title {
+  font-family: var(--font-condensed);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.04em;
+  color: var(--warm-white);
+  margin-bottom: 6px;
+}
+.timeline-desc { font-size: 13px; color: var(--ink-200); line-height: 1.6; }
+.timeline-tasks {
+  margin-top: 8px;
+  display: flex; flex-wrap: wrap; gap: 6px;
+}
+.timeline-task {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 100px;
+  background: var(--ink-700);
+  color: var(--ink-200);
+  border: 1px solid var(--ink-600);
+}
+
+/* ══════════════════════════════════
+   DIVIDER
+══════════════════════════════════ */
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--ink-600), transparent);
+  margin: 0 48px;
+}
+
+/* ══════════════════════════════════
+   FOOTER
+══════════════════════════════════ */
+footer {
+  padding: 32px 48px;
+  background: var(--ink-950, #0a0b09);
+  border-top: 1px solid var(--ink-700);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px;
+}
+footer p {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-400);
+}
+footer span { color: var(--green-500); }
+
+/* ══════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════ */
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  section { padding: 48px 20px; }
+  .hero { padding: 60px 20px 48px; }
+  .voice-grid, .components-grid, .audience-grid { grid-template-columns: 1fr; }
+  footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Santosh <span>Petrochemical</span> — Brand System</div>
+  <ul class="nav-links">
+    <li><a href="#palette">Colors</a></li>
+    <li><a href="#typography">Type</a></li>
+    <li><a href="#logo">Logo</a></li>
+    <li><a href="#voice">Voice</a></li>
+    <li><a href="#sitemap">Site Map</a></li>
+    <li><a href="#components">Components</a></li>
+    <li><a href="#stack">Tech Stack</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Brand Identity System · v1.0</div>
+    <h1>SANTOSH<br><em>PETROCHEMICAL</em><br>INNOVATIONS</h1>
+    <p class="hero-sub">A complete brand system and website plan for India's emerging Group II+ re-refined base oil producer, based in Ghaziabad.</p>
+    <div class="hero-badge">Brand Document · March 2026</div>
+  </div>
+</div>
+
+<!-- ═══ 1. PALETTE ═══ -->
+<section id="palette">
+  <div class="section-label">01 · Identity</div>
+  <div class="section-title">Color <span>Palette</span></div>
+
+  <p style="font-size:14px; color:var(--ink-200); max-width:640px; margin-bottom:32px; line-height:1.7;">
+    The palette <strong style="color:var(--ink-100)">evolves your existing logo</strong> — preserving the green (sustainability, organic re-refining) and orange/amber (industrial heat, energy, precision) while pulling them toward a more premium, confident register. The charcoal foundation grounds everything with technical authority.
+  </p>
+
+  <div style="font-family:var(--font-condensed); font-weight:700; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-400); margin-bottom:12px;">Primary — Forest Green</div>
+  <div class="palette-grid" style="margin-bottom:32px;">
+    <div class="swatch">
+      <div class="swatch-color" style="background:#235c3a;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Deep Forest</div>
+        <div class="swatch-hex">#235c3a</div>
+        <div class="swatch-role">Dark backgrounds, footers</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#3a9e64;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Refinery Green</div>
+        <div class="swatch-hex">#3a9e64</div>
+        <div class="swatch-role">Primary CTA, links, accents</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#52c17e;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Process Green</div>
+        <div class="swatch-hex">#52c17e</div>
+        <div class="swatch-role">Hover states, highlights</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#a8e6c0;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Pale Mint</div>
+        <div class="swatch-hex">#a8e6c0</div>
+        <div class="swatch-role">Light-mode body accents</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="font-family:var(--font-condensed); font-weight:700; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-400); margin-bottom:12px;">Secondary — Amber / Energy</div>
+  <div class="palette-grid" style="margin-bottom:32px;">
+    <div class="swatch">
+      <div class="swatch-color" style="background:#b45309;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Deep Amber</div>
+        <div class="swatch-hex">#b45309</div>
+        <div class="swatch-role">Strong warning, alert</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#f59e0b;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Refined Amber</div>
+        <div class="swatch-hex">#f59e0b</div>
+        <div class="swatch-role">Numbers, stats, key data</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#fcd34d;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Light Amber</div>
+        <div class="swatch-hex">#fcd34d</div>
+        <div class="swatch-role">Decorative, light themes</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="font-family:var(--font-condensed); font-weight:700; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-400); margin-bottom:12px;">Neutrals — Charcoal Foundation</div>
+  <div class="palette-grid">
+    <div class="swatch">
+      <div class="swatch-color" style="background:#111410;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Ink Black</div>
+        <div class="swatch-hex">#111410</div>
+        <div class="swatch-role">Page background</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#242720;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Carbon</div>
+        <div class="swatch-hex">#242720</div>
+        <div class="swatch-role">Card backgrounds</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#5c6050;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Slate</div>
+        <div class="swatch-hex">#5c6050</div>
+        <div class="swatch-role">Muted text, borders</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#faf9f6; border:1px solid #e0ddd6;"></div>
+      <div class="swatch-info" style="background:#f0eeea;">
+        <div class="swatch-name">Warm White</div>
+        <div class="swatch-hex">#faf9f6</div>
+        <div class="swatch-role">Light sections, body bg</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ 2. TYPOGRAPHY ═══ -->
+<section id="typography">
+  <div class="section-label">02 · Identity</div>
+  <div class="section-title">Type<span>graphy</span></div>
+
+  <p style="font-size:14px; color:var(--ink-200); max-width:640px; margin-bottom:32px; line-height:1.7;">
+    A three-font system that balances industrial authority with technical clarity. All fonts are free via Google Fonts — no licensing cost.
+  </p>
+
+  <div class="type-specimen">
+    <div class="type-header">
+      <div class="type-label">Display — Bebas Neue</div>
+      <div class="type-meta">Headings · Hero text · Section titles · Bold numbers</div>
+    </div>
+    <div class="type-body">
+      <div class="type-display-sample">REFINING THE FUTURE</div>
+      <div class="type-display-sample" style="font-size:36px; color:var(--amber-400); margin-top:8px;">Group II+ Re-Refined Base Oil</div>
+      <p style="font-size:12px; color:var(--ink-400); margin-top:14px; font-family:var(--font-mono);">USE FOR: H1, H2, stat numbers, hero text, pull quotes. All caps only.</p>
+    </div>
+  </div>
+
+  <div class="type-specimen">
+    <div class="type-header">
+      <div class="type-label">Condensed — Barlow Condensed 700</div>
+      <div class="type-meta">Subheadings · Navigation · Labels · Buttons · Card titles</div>
+    </div>
+    <div class="type-body">
+      <div class="type-condensed-sample">Sustainability · Precision · Innovation</div>
+      <div style="font-family:var(--font-condensed); font-weight:400; font-size:20px; color:var(--ink-100); letter-spacing:0.04em; margin-top:8px;">Santosh Petrochemical Innovations Private Limited</div>
+      <p style="font-size:12px; color:var(--ink-400); margin-top:14px; font-family:var(--font-mono);">USE FOR: H3, H4, nav items, product names, table headers, button text.</p>
+    </div>
+  </div>
+
+  <div class="type-specimen">
+    <div class="type-header">
+      <div class="type-label">Body — Barlow 300/400/600</div>
+      <div class="type-meta">Paragraphs · Descriptions · Long-form content</div>
+    </div>
+    <div class="type-body">
+      <div class="type-body-sample">India generates over 1.3 million tonnes of used lubricating oil annually. At Santosh Petrochemical Innovations, we transform this waste stream into premium Group II+ Re-Refined Base Oil — meeting the same specifications as virgin crude-derived base stocks, with a fraction of the environmental cost.</div>
+      <p style="font-size:12px; color:var(--ink-400); margin-top:14px; font-family:var(--font-mono);">USE FOR: Body copy, descriptions, blog text, captions. Weight 300 for lead text, 400 for body, 600 for emphasis.</p>
+    </div>
+  </div>
+
+  <div class="type-specimen">
+    <div class="type-header">
+      <div class="type-label">Mono — JetBrains Mono</div>
+      <div class="type-meta">Labels · Tags · Specs · Technical data · Eyebrows</div>
+    </div>
+    <div class="type-body">
+      <div class="type-mono-sample">VISCOSITY INDEX: 105+ · SULFUR: &lt;10 ppm · FLASH POINT: 220°C · GROUP II+</div>
+      <div class="type-mono-sample" style="margin-top:8px; color:var(--green-400);">EPR COMPLIANT · BIS CERTIFIED · ISO 9001:2015</div>
+      <p style="font-size:12px; color:var(--ink-400); margin-top:14px; font-family:var(--font-mono);">USE FOR: Technical specs, certifications, section labels, data tables, form fields.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ 3. LOGO EVOLUTION ═══ -->
+<section id="logo">
+  <div class="section-label">03 · Identity</div>
+  <div class="section-title">Logo <span>Evolution</span></div>
+
+  <p style="font-size:14px; color:var(--ink-200); max-width:680px; margin-bottom:32px; line-height:1.7;">
+    Your existing mark — a <strong style="color:var(--ink-100)">gear + oil drop</strong> — is conceptually strong. It telegraphs both industrial process (gear) and the product (oil). The evolution refines the color execution and adds a consistent typographic lockup. We recommend keeping the icon structure and updating colors to match the new system. Below are the recommended lockup variants to request from your designer.
+  </p>
+
+  <div class="logo-variants">
+
+    <div class="logo-card">
+      <div class="logo-preview" style="background: var(--ink);">
+        <!-- SVG logo mock — dark bg primary -->
+        <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M26 4L29.5 8.5H22.5L26 4Z" fill="#f59e0b"/>
+          <path d="M26 48L22.5 43.5H29.5L26 48Z" fill="#f59e0b"/>
+          <path d="M4 26L8.5 22.5V29.5L4 26Z" fill="#f59e0b"/>
+          <path d="M48 26L43.5 29.5V22.5L48 26Z" fill="#f59e0b"/>
+          <circle cx="26" cy="26" r="20" stroke="#f59e0b" stroke-width="2.5" fill="none"/>
+          <circle cx="26" cy="26" r="14" fill="#1c1e18"/>
+          <path d="M26 15 C26 15 18 23 18 29 C18 33.4 21.6 37 26 37 C30.4 37 34 33.4 34 29 C34 23 26 15 26 15Z" fill="#3a9e64"/>
+          <path d="M22 30 C22 30 24 28 26 30 C28 32 30 30 30 30" stroke="rgba(255,255,255,0.3)" stroke-width="1" fill="none"/>
+        </svg>
+        <div style="text-align:center;">
+          <div style="font-family:var(--font-condensed); font-weight:700; font-size:18px; letter-spacing:0.12em; color:var(--warm-white);">SANTOSH</div>
+          <div style="font-family:var(--font-mono); font-size:8px; letter-spacing:0.18em; color:var(--green-400); text-transform:uppercase;">Petrochemical Innovations</div>
+        </div>
+      </div>
+      <div class="logo-card-footer">
+        <strong>Primary — Dark Background</strong>
+        Amber gear ring · Forest green drop · White wordmark. Use on dark pages, hero sections, dark footers.
+      </div>
+    </div>
+
+    <div class="logo-card">
+      <div class="logo-preview" style="background: var(--warm-white);">
+        <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M26 4L29.5 8.5H22.5L26 4Z" fill="#b45309"/>
+          <path d="M26 48L22.5 43.5H29.5L26 48Z" fill="#b45309"/>
+          <path d="M4 26L8.5 22.5V29.5L4 26Z" fill="#b45309"/>
+          <path d="M48 26L43.5 29.5V22.5L48 26Z" fill="#b45309"/>
+          <circle cx="26" cy="26" r="20" stroke="#b45309" stroke-width="2.5" fill="none"/>
+          <circle cx="26" cy="26" r="14" fill="#f3f4ee"/>
+          <path d="M26 15 C26 15 18 23 18 29 C18 33.4 21.6 37 26 37 C30.4 37 34 33.4 34 29 C34 23 26 15 26 15Z" fill="#235c3a"/>
+        </svg>
+        <div style="text-align:center;">
+          <div style="font-family:var(--font-condensed); font-weight:700; font-size:18px; letter-spacing:0.12em; color:var(--ink-800);">SANTOSH</div>
+          <div style="font-family:var(--font-mono); font-size:8px; letter-spacing:0.18em; color:var(--green-700); text-transform:uppercase;">Petrochemical Innovations</div>
+        </div>
+      </div>
+      <div class="logo-card-footer">
+        <strong>Secondary — Light Background</strong>
+        Deep amber gear · Dark forest drop · Ink wordmark. Use on light sections, print, documents.
+      </div>
+    </div>
+
+    <div class="logo-card">
+      <div class="logo-preview" style="background: var(--green-900);">
+        <svg width="48" height="48" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="26" cy="26" r="20" stroke="rgba(255,255,255,0.5)" stroke-width="2" fill="none"/>
+          <circle cx="26" cy="26" r="14" fill="rgba(255,255,255,0.05)"/>
+          <path d="M26 15 C26 15 18 23 18 29 C18 33.4 21.6 37 26 37 C30.4 37 34 33.4 34 29 C34 23 26 15 26 15Z" fill="white"/>
+        </svg>
+        <div style="font-family:var(--font-condensed); font-weight:700; font-size:20px; letter-spacing:0.12em; color:white;">SANTOSH</div>
+      </div>
+      <div class="logo-card-footer">
+        <strong>Monochrome / Reversed</strong>
+        Single-color white. Use on green-tinted backgrounds, embossing, watermarks, favicon base.
+      </div>
+    </div>
+
+    <div class="logo-card">
+      <div class="logo-preview" style="background: var(--ink-700);">
+        <!-- Horizontal lockup -->
+        <div style="display:flex; align-items:center; gap:14px;">
+          <svg width="40" height="40" viewBox="0 0 52 52" fill="none">
+            <circle cx="26" cy="26" r="20" stroke="#f59e0b" stroke-width="2.5" fill="none"/>
+            <circle cx="26" cy="26" r="14" fill="#1c1e18"/>
+            <path d="M26 15 C26 15 18 23 18 29 C18 33.4 21.6 37 26 37 C30.4 37 34 33.4 34 29 C34 23 26 15 26 15Z" fill="#3a9e64"/>
+          </svg>
+          <div>
+            <div style="font-family:var(--font-condensed); font-weight:700; font-size:20px; letter-spacing:0.1em; color:var(--warm-white); line-height:1;">SANTOSH</div>
+            <div style="font-family:var(--font-mono); font-size:8.5px; letter-spacing:0.16em; color:var(--amber-400); text-transform:uppercase; margin-top:2px;">Petrochemical Innovations</div>
+          </div>
+        </div>
+      </div>
+      <div class="logo-card-footer">
+        <strong>Horizontal Lockup</strong>
+        Icon left + stacked wordmark right. Use in nav bar, email headers, document headers.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="callout">
+    <strong>Designer Brief:</strong> Preserve the existing gear + oil drop concept. Update gear color to Refined Amber (#f59e0b), oil drop to Refinery Green (#3a9e64). Redraw in clean vector with even stroke weights. Deliver in SVG + PNG (transparent) at 1×, 2×, 3×. Provide all four lockup variants above.
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ 4. VOICE ═══ -->
+<section id="voice">
+  <div class="section-label">04 · Identity</div>
+  <div class="section-title">Voice <span>& Tone</span></div>
+
+  <p style="font-size:14px; color:var(--ink-200); max-width:640px; margin-bottom:32px; line-height:1.7;">
+    Santosh speaks like a <strong style="color:var(--ink-100)">confident, forward-thinking sustainability report</strong> — not a brochure, not a spec sheet. Sentences are short and declarative. Data is cited. The future is assumed, not hoped for.
+  </p>
+
+  <div class="voice-grid">
+    <div class="voice-card do">
+      <div class="voice-card-header">✓ Write Like This</div>
+      <div class="voice-example">"India produces 1.3 million tonnes of used lubricating oil every year. Only 15% is formally recycled. We are changing that."</div>
+      <div class="voice-example">"Our Group II+ RRBO meets virgin base oil specifications — verified by third-party lab testing."</div>
+      <div class="voice-example">"The circular economy for lubricants is no longer a future concept. At Santosh, it is our daily operation."</div>
+      <p>Short declarative sentences. Concrete numbers. Present tense. Confident without being boastful.</p>
+    </div>
+    <div class="voice-card dont">
+      <div class="voice-card-header">✗ Avoid This</div>
+      <div class="voice-example">"We are a leading company providing world-class solutions for all your petroleum recycling needs!"</div>
+      <div class="voice-example">"Our state-of-the-art facility uses cutting-edge technology to deliver superior quality products."</div>
+      <div class="voice-example">"We are committed to excellence and strive to provide the best service possible to our valued customers."</div>
+      <p>Vague superlatives. Filler adjectives. Passive constructions. Exclamation marks. These erode trust.</p>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:12px; margin-top:8px;">
+    <div style="background:var(--ink-700); border:1px solid var(--ink-600); border-radius:var(--radius); padding:16px;">
+      <div style="font-family:var(--font-condensed); font-weight:700; font-size:13px; color:var(--green-400); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:8px;">Confident</div>
+      <p style="font-size:13px; color:var(--ink-200);">State facts. Don't hedge unnecessarily. "We produce" not "We aim to produce."</p>
+    </div>
+    <div style="background:var(--ink-700); border:1px solid var(--ink-600); border-radius:var(--radius); padding:16px;">
+      <div style="font-family:var(--font-condensed); font-weight:700; font-size:13px; color:var(--green-400); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:8px;">Forward-looking</div>
+      <p style="font-size:13px; color:var(--ink-200);">Reference regulations, trends, and India's circular economy targets as context for your work.</p>
+    </div>
+    <div style="background:var(--ink-700); border:1px solid var(--ink-600); border-radius:var(--radius); padding:16px;">
+      <div style="font-family:var(--font-condensed); font-weight:700; font-size:13px; color:var(--green-400); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:8px;">Technical-honest</div>
+      <p style="font-size:13px; color:var(--ink-200);">Buyers are engineers. Use Group II+, viscosity index, BIS specs — don't dumb it down.</p>
+    </div>
+    <div style="background:var(--ink-700); border:1px solid var(--ink-600); border-radius:var(--radius); padding:16px;">
+      <div style="font-family:var(--font-condensed); font-weight:700; font-size:13px; color:var(--green-400); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:8px;">Human</div>
+      <p style="font-size:13px; color:var(--ink-200);">Workshop owners are also an audience. Keep the collection/supplier pages warm and accessible.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ 5. AUDIENCE ═══ -->
+<section id="audience" style="background:var(--ink-800);">
+  <div class="section-label">05 · Strategy</div>
+  <div class="section-title">Audience <span>Matrix</span></div>
+
+  <div class="audience-grid">
+    <div class="audience-card buyer">
+      <div class="audience-icon">🏭</div>
+      <div class="audience-title">Lubricant Blenders & Oil Companies</div>
+      <div class="audience-desc">Procurement engineers at IOCL, HPCL, Valvoline, Castrol, or independent blenders sourcing Group II+ base stock.</div>
+      <div class="audience-need">What they need:</div>
+      <p style="font-size:13px; color:var(--ink-100);">Technical data sheets, viscosity specs, BIS compliance certs, pricing enquiry, and sample requests.</p>
+      <a class="audience-cta">Request a TDS →</a>
+    </div>
+    <div class="audience-card seller">
+      <div class="audience-icon">🔧</div>
+      <div class="audience-title">Used Oil Suppliers</div>
+      <div class="audience-desc">Workshops, garages, fleet operators, and industrial facilities in NCR who generate used oil and need compliant disposal.</div>
+      <div class="audience-need">What they need:</div>
+      <p style="font-size:13px; color:var(--ink-100);">Simple pickup scheduling, fair pricing explained clearly, hazardous waste compliance assurance.</p>
+      <a class="audience-cta">Schedule Pickup →</a>
+    </div>
+    <div class="audience-card regulator">
+      <div class="audience-icon">📋</div>
+      <div class="audience-title">Regulators & Compliance Teams</div>
+      <div class="audience-desc">MoEF, PCB auditors, EPR compliance officers, and CSR/ESG teams at large corporates.</div>
+      <div class="audience-need">What they need:</div>
+      <p style="font-size:13px; color:var(--ink-100);">Certifications page, environmental impact data, EPR registration, annual report-quality content.</p>
+      <a class="audience-cta">View Certifications →</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ 6. SITEMAP ═══ -->
+<section id="sitemap">
+  <div class="section-label">06 · Architecture</div>
+  <div class="section-title">Site <span>Map</span></div>
+
+  <p style="font-size:14px; color:var(--ink-200); max-width:640px; margin-bottom:32px; line-height:1.7;">
+    Eight pages, each serving a specific audience intent. Every page has one primary CTA that feeds into the enquiry funnel or feedstock collection pipeline.
+  </p>
+
+  <div class="sitemap">
+
+    <div class="page-card">
+      <div class="page-card-header">
+        <div>
+          <div class="page-card-title">Home</div>
+          <div class="page-card-slug">santoshpetro.com/</div>
+        </div>
+        <span class="page-badge primary">Core</span>
+      </div>
+      <div class="page-card-body">
+        <p class="page-purpose">First impression for all audiences. Establishes Group II+ positioning, India circular economy context, and routes visitors to the right next page.</p>
+        <ul class="page-features">
+          <li><strong>Hero:</strong> Bold stat + mission statement + dual CTA</li>
+          <li><strong>Stats bar:</strong> 1.3MT used oil, 15% recycled, Group II+ purity</li>
+          <li><strong>3-audience entry:</strong> Blenders / Suppliers / Compliance</li>
+          <li><strong>Process teaser:</strong> Animated 4-step flow</li>
+          <li><strong>Sustainability snapshot:</strong> CO₂ saved, litres recycled</li>
+          <li><strong>Latest news/blog strip</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="page-card">
+      <div class="page-card-header">
+        <div>
+          <div class="page-card-title">About Us</div>
+          <div class="page-card-slug">/about</div>
+        </div>
+        <span class="page-badge secondary">Trust</span>
+      </div>
+      <div class="page-card-body">
+        <p class="page-purpose">Builds credibility for B2B buyers and regulators. Tells the Santosh story with founding vision, team, and Ghaziabad manufacturing base.</p>
+        <ul class="page-features">
+          <li><strong>Mission + vision</strong> statement block</li>
+          <li><strong>Founding story</strong> of Lalit Bindal / Santosh</li>
+          <li><strong>Team section</strong> with photos and credentials</li>
+          <li><strong>Facility overview</strong> — location, capacity, equipment</li>
+          <li><strong>Values:</strong> Precision · Transparency · Circularity</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="page-card">
+      <div class="page-card-header">
+        <div>
+          <div class="page-card-title">Our Process</div>
+          <div class="page-card-slug">/process</div>
+        </div>
+        <span class="page-badge primary">Core</span>
+      </div>
+      <div class="page-card-body">
+        <p class="page-purpose">Visual explainer of the re-refining journey. Builds technical trust with engineers. Shows environmental legitimacy to compliance audiences.</p>
+        <ul class="page-features">
+          <li><strong>Step 1:</strong> Used oil collection & intake testing</li>
+          <li><strong>Step 2:</strong> Pre-treatment — dehydration, decontamination</li>
+          <li><strong>Step 3:</strong> Vacuum distillation — separation of base fractions</li>
+          <li><strong>Step 4:</strong> Hydrotreating / finishing — Group II+ polishing</li>
+          <li><strong>Step 5:</strong> Quality lab testing — VI, sulfur, flash point</li>
+          <li><strong>Step 6:</strong> Dispatch — bulk / drum / IBC</li>
+          <li>Animated SVG flow diagram (scroll-triggered)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="page-card">
+      <div class="page-card-header">
+        <div>
+          <div class="page-card-title">Products</div>
+          <div class="page-card-slug">/products</div>
+        </div>
+        <span class="page-badge primary">Core</span>
+      </div>
+      <div class="page-card-body">
+        <p class="page-purpose">The primary conversion page for blenders and oil companies. Spec-forward layout with downloadable TDS and sample request CTA.</p>
+        <ul class="page-features">
+          <li><strong>Group II+ RRBO</strong> — hero product with full spec table</li>
+          <li>Viscosity index, sulfur (ppm), flash point, pour point, colour</li>
+          <li><strong>Comparison table:</strong> RRBO vs virgin base oil</li>
+          <li>Available grades: SN150, SN500, Bright Stock equivalent</li>
+          <li><strong>Pack sizes:</strong> Bulk tanker, 210L drum, IBC</li>
+          <li>Downloadable TDS (PDF, gated with email)</li>
+          <li><strong>CTA:</strong> Request Sample / Get Quote</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="page-card">
+      <div class="page-card-header">
+        <div>
+          <div class="page-card-title">Sustainability</div>
+          <div class="page-card-slug">/sustainability</div>
+        </div>
+        <span class="page-badge secondary">Impact</span>
+      </div>
+      <div class="page-card-body">
+        <p class="page-purpose">Annual-report quality page. Data-rich environmental impact story. Serves CSR teams, ESG auditors, and regulatory visitors.</p>
+        <ul class="page-features">
+          <li><strong>Live counter:</strong> litres recycled to date</li>
+          <li><strong>CO₂ offset</strong> per litre re-refined</li>
+          <li><strong>Circular economy</strong> diagram</li>
+          <li>India EPR mandate context + Santosh's role</li>
+          <li>Hazardous waste diversion statistics</li>
+          <li><strong>Certifications:</strong> PCB, BIS, EPR registration</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="page-card">
+      <div class="page-card-header">
+        <div>
+          <div class="page-card-title">Used Oil Collection</div>
+          <div class="page-card-slug">/collect</div>
+        </div>
+        <span class="page-badge secondary">Feedstock</span>
+      </div>
+      <div class="page-card-body">
+        <p class="page-purpose">Dedicated page for workshop owners, fleet operators, and industrial plants. Simpler language, focus on ease, compliance, and fair price.</p>
+        <ul class="page-features">
+          <li><strong>Who we collect from</strong> — garages, fleets, factories, petrol pumps</li>
+          <li><strong>How it works</strong> — 3-step simple flow</li>
+          <li><strong>Pricing:</strong> Fair market price linked to crude</li>
+          <li>Hazardous waste manifest — we handle the paperwork</li>
+          <li><strong>Service area map</strong> — NCR + Ghaziabad radius</li>
+          <li><strong>CTA:</strong> WhatsApp button + pickup request form</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="page-card">
+      <div class="page-card-header">
+        <div>
+          <div class="page-card-title">Quality & Certifications</div>
+          <div class="page-card-slug">/quality</div>
+        </div>
+        <span class="page-badge support">Trust</span>
+      </div>
+      <div class="page-card-body">
+        <p class="page-purpose">Single source of truth for all compliance documentation. Buyers want this before any purchase order; regulators check this first.</p>
+        <ul class="page-features">
+          <li>BIS certification (when obtained)</li>
+          <li>UP Pollution Control Board registration</li>
+          <li>Hazardous Waste Management compliance</li>
+          <li>EPR registration certificate</li>
+          <li>ISO 9001 (target certification)</li>
+          <li>In-house lab capabilities — test parameters listed</li>
+          <li>Third-party lab partnerships</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="page-card">
+      <div class="page-card-header">
+        <div>
+          <div class="page-card-title">Insights / Blog</div>
+          <div class="page-card-slug">/insights</div>
+        </div>
+        <span class="page-badge support">SEO</span>
+      </div>
+      <div class="page-card-body">
+        <p class="page-purpose">Long-term SEO engine. Positions Santosh as a knowledgeable voice in the Indian RRBO space. Attracts organic search from buyers and regulators.</p>
+        <ul class="page-features">
+          <li>"What is Group II+ Base Oil?" — definitional SEO anchor</li>
+          <li>"EPR Compliance Guide 2026 for Lubricant Manufacturers"</li>
+          <li>"Re-Refined vs Virgin Base Oil — Technical Comparison"</li>
+          <li>"How to Properly Dispose of Used Engine Oil in NCR"</li>
+          <li>"IOCL + Re Sustainability MOU — What It Means"</li>
+          <li>Publish cadence: 2 posts/month minimum</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ 7. COMPONENTS ═══ -->
+<section id="components" style="background:var(--ink-800);">
+  <div class="section-label">07 · Design System</div>
+  <div class="section-title">UI <span>Components</span></div>
+
+  <div class="components-grid">
+
+    <div class="component-box">
+      <div class="component-label">Buttons</div>
+      <div class="component-preview" style="flex-direction:column; align-items:flex-start;">
+        <button class="btn btn-primary">Request a Sample →</button>
+        <button class="btn btn-secondary">Download TDS</button>
+        <button class="btn btn-amber">Schedule Pickup</button>
+        <button class="btn btn-ghost">Learn More</button>
+      </div>
+    </div>
+
+    <div class="component-box">
+      <div class="component-label">Stats / Data Display</div>
+      <div class="component-preview">
+        <div class="stat-card">
+          <div class="stat-value">1.3M</div>
+          <div class="stat-label">Tonnes used oil/yr in India</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">85%</div>
+          <div class="stat-label">Currently not formally recycled</div>
+        </div>
+        <div class="stat-card" style="border-color:rgba(58,158,100,0.4);">
+          <div class="stat-value" style="color:var(--green-400);">II+</div>
+          <div class="stat-label">Output grade — premium RRBO</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="component-box">
+      <div class="component-label">Tags & Badges</div>
+      <div class="component-preview" style="align-items:center;">
+        <span class="tag tag-green">Group II+</span>
+        <span class="tag tag-amber">EPR Compliant</span>
+        <span class="tag tag-neutral">BIS Pending</span>
+        <span class="tag tag-green">Ghaziabad, UP</span>
+        <span class="tag tag-amber">ISO 9001</span>
+        <span class="tag tag-neutral">Bulk Available</span>
+      </div>
+    </div>
+
+    <div class="component-box">
+      <div class="component-label">Callouts / Alerts</div>
+      <div class="component-preview" style="flex-direction:column;">
+        <div class="callout"><strong>Industry Update:</strong> IOCL & Re Sustainability signed an MOU in March 2026 to build India's first national Group II+ used oil circular economy. Santosh is positioned at the forefront of this shift.</div>
+        <div class="callout" style="border-color:var(--amber-600); background:rgba(245,158,11,0.06); margin-top:12px;"><strong style="color:var(--amber-400);">Compliance Note:</strong> India mandates 25% RRBO use in lubricant manufacturing. We help you meet that target.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ 8. TECH STACK ═══ -->
+<section id="stack">
+  <div class="section-label">08 · Engineering</div>
+  <div class="section-title">Tech <span>Stack</span></div>
+
+  <div class="stack-grid">
+    <div class="stack-item">
+      <div class="stack-icon" style="background:rgba(0,0,0,0.3);">⚡</div>
+      <div class="stack-info">
+        <div class="stack-name">Next.js 14+</div>
+        <div class="stack-role">Frontend framework. App Router, SSG for fast SEO pages</div>
+      </div>
+    </div>
+    <div class="stack-item">
+      <div class="stack-icon" style="background:rgba(56,189,248,0.1);">🎨</div>
+      <div class="stack-info">
+        <div class="stack-name">Tailwind CSS</div>
+        <div class="stack-role">Utility styling. Custom brand tokens baked in as config</div>
+      </div>
+    </div>
+    <div class="stack-item">
+      <div class="stack-icon" style="background:rgba(255,100,50,0.1);">✍️</div>
+      <div class="stack-info">
+        <div class="stack-name">Sanity.io CMS</div>
+        <div class="stack-role">Blog posts, product specs, certs — editable by non-devs</div>
+      </div>
+    </div>
+    <div class="stack-item">
+      <div class="stack-icon" style="background:rgba(100,200,100,0.1);">▲</div>
+      <div class="stack-info">
+        <div class="stack-name">Vercel</div>
+        <div class="stack-role">Hosting + CDN. Free tier sufficient for B2B traffic</div>
+      </div>
+    </div>
+    <div class="stack-item">
+      <div class="stack-icon" style="background:rgba(245,158,11,0.1);">📧</div>
+      <div class="stack-info">
+        <div class="stack-name">Resend + React Email</div>
+        <div class="stack-role">Branded enquiry + TDS download confirmation emails</div>
+      </div>
+    </div>
+    <div class="stack-item">
+      <div class="stack-icon" style="background:rgba(58,158,100,0.1);">📊</div>
+      <div class="stack-info">
+        <div class="stack-name">PostHog</div>
+        <div class="stack-role">Analytics + funnel tracking on TDS downloads & enquiries</div>
+      </div>
+    </div>
+    <div class="stack-item">
+      <div class="stack-icon" style="background:rgba(37,211,102,0.1);">💬</div>
+      <div class="stack-info">
+        <div class="stack-name">WhatsApp Business API</div>
+        <div class="stack-role">Floating CTA. Critical for used oil supplier audience in India</div>
+      </div>
+    </div>
+    <div class="stack-item">
+      <div class="stack-icon" style="background:rgba(180,83,9,0.1);">🔍</div>
+      <div class="stack-info">
+        <div class="stack-name">Schema.org + sitemap.xml</div>
+        <div class="stack-role">Structured data for Google: Organization, Product, LocalBusiness</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ 9. ROADMAP ═══ -->
+<section id="roadmap" style="background:var(--ink-800);">
+  <div class="section-label">09 · Execution</div>
+  <div class="section-title">Build <span>Roadmap</span></div>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:48px;">
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-phase">Phase 1 · Weeks 1–2</div>
+        <div class="timeline-title">Brand Foundation</div>
+        <div class="timeline-desc">Get the logo updated, lock the brand guidelines, and set up the development environment.</div>
+        <div class="timeline-tasks">
+          <span class="timeline-task">Brief designer on logo evolution</span>
+          <span class="timeline-task">Finalize color tokens</span>
+          <span class="timeline-task">Set up Next.js + Tailwind</span>
+          <span class="timeline-task">Configure Sanity CMS</span>
+          <span class="timeline-task">Buy domain (santoshpetro.com or similar)</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-phase">Phase 2 · Weeks 3–5</div>
+        <div class="timeline-title">Core Pages</div>
+        <div class="timeline-desc">Build and populate the four most important pages — the ones buyers will check before calling.</div>
+        <div class="timeline-tasks">
+          <span class="timeline-task">Home page</span>
+          <span class="timeline-task">Products page + spec table</span>
+          <span class="timeline-task">Process page + diagram</span>
+          <span class="timeline-task">Contact / Enquiry form</span>
+          <span class="timeline-task">WhatsApp floating button</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-phase">Phase 3 · Weeks 6–7</div>
+        <div class="timeline-title">Supporting Pages</div>
+        <div class="timeline-desc">Complete the trust and conversion ecosystem — certifications, sustainability, and supplier portal.</div>
+        <div class="timeline-tasks">
+          <span class="timeline-task">About Us page</span>
+          <span class="timeline-task">Quality & Certs page</span>
+          <span class="timeline-task">Sustainability page</span>
+          <span class="timeline-task">Used Oil Collection page</span>
+          <span class="timeline-task">Service area map</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-phase">Phase 4 · Week 8+</div>
+        <div class="timeline-title">Launch & SEO</div>
+        <div class="timeline-desc">Go live, submit to Google, publish first 3 blog posts, and set up analytics funnels.</div>
+        <div class="timeline-tasks">
+          <span class="timeline-task">Insights/Blog setup</span>
+          <span class="timeline-task">First 3 blog posts</span>
+          <span class="timeline-task">Google Search Console</span>
+          <span class="timeline-task">Schema.org markup</span>
+          <span class="timeline-task">Google Business Profile</span>
+          <span class="timeline-task">PostHog funnels</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <div style="background:var(--ink-700); border:1px solid var(--ink-600); border-radius:var(--radius-lg); padding:24px; margin-bottom:16px;">
+        <div style="font-family:var(--font-condensed); font-weight:700; font-size:14px; letter-spacing:0.06em; text-transform:uppercase; color:var(--amber-400); margin-bottom:16px;">Key SEO Targets</div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="display:flex; justify-content:space-between; font-size:13px; padding:8px 0; border-bottom:1px solid var(--ink-600);">
+            <span style="color:var(--ink-100); font-family:var(--font-mono); font-size:11px;">group ii base oil supplier india</span>
+            <span class="tag tag-green">High value</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; font-size:13px; padding:8px 0; border-bottom:1px solid var(--ink-600);">
+            <span style="color:var(--ink-100); font-family:var(--font-mono); font-size:11px;">rrbo supplier ghaziabad ncr</span>
+            <span class="tag tag-green">High value</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; font-size:13px; padding:8px 0; border-bottom:1px solid var(--ink-600);">
+            <span style="color:var(--ink-100); font-family:var(--font-mono); font-size:11px;">used oil collection ncr delhi</span>
+            <span class="tag tag-amber">Feedstock</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; font-size:13px; padding:8px 0; border-bottom:1px solid var(--ink-600);">
+            <span style="color:var(--ink-100); font-family:var(--font-mono); font-size:11px;">epr compliant base oil india</span>
+            <span class="tag tag-amber">Regulatory</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; font-size:13px; padding:8px 0;">
+            <span style="color:var(--ink-100); font-family:var(--font-mono); font-size:11px;">re-refined base oil vs virgin</span>
+            <span class="tag tag-neutral">Blog/SEO</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:var(--green-900); border:1px solid rgba(58,158,100,0.3); border-radius:var(--radius-lg); padding:24px;">
+        <div style="font-family:var(--font-condensed); font-weight:700; font-size:14px; letter-spacing:0.06em; text-transform:uppercase; color:var(--green-400); margin-bottom:12px;">✓ Ready to Build Next</div>
+        <p style="font-size:13px; color:var(--green-200); line-height:1.7; margin-bottom:16px;">
+          Brand system is defined. Share your logo file when ready and we can generate the full color + SVG evolution. In the meantime, we can start building the homepage artifact as a pixel-perfect HTML prototype.
+        </p>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <span class="tag tag-green">Homepage Prototype</span>
+          <span class="tag tag-green">Products Page</span>
+          <span class="tag tag-green">Process Diagram</span>
+          <span class="tag tag-green">Logo Redesign Brief</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Santosh Petrochemical Innovations Pvt. Ltd. · Brand System v1.0 · <span>March 2026</span></p>
+  <p style="color:var(--green-600);">Off: 7, New Arya Nagar, Meerut Road, Ghaziabad · santoshgzb@yahoo.com</p>
+</footer>
+
+</body>
+</html>

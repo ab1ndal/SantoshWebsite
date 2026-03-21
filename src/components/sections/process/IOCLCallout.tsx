@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function IOCLCallout() {
@@ -52,14 +53,50 @@ export default function IOCLCallout() {
             </div>
           </div>
 
-          {/* Right: logo placeholder */}
-          <div>
-            <div className="aspect-video bg-ink-800/80 border-2 border-dashed border-ink-600/40 rounded-2xl flex items-center justify-center">
+          {/* Right: logos */}
+          <div className="flex flex-col items-center justify-center gap-8 p-12 rounded-2xl bg-ink-900/60 border border-ink-600/30">
+            {/* Indian Oil logo */}
+            <div className="flex flex-col items-center gap-3">
+              <div className="bg-white rounded-xl px-8 py-5 flex items-center justify-center">
+                <Image
+                  src="/indian-oil-logo.svg"
+                  alt="Indian Oil Corporation"
+                  width={140}
+                  height={80}
+                  className="object-contain"
+                />
+              </div>
               <p
-                className="text-ink-400"
-                style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "0.75rem" }}
+                className="text-xs text-ink-400 text-center"
+                style={{ fontFamily: "'JetBrains Mono', monospace" }}
               >
-                [ INDIAN OIL TECHNOLOGY LOGO ]
+                Technology Partner
+              </p>
+            </div>
+
+            {/* Divider */}
+            <div className="flex items-center gap-4 w-full">
+              <div className="flex-1 h-px bg-ink-600/50" />
+              <span className="text-xs text-ink-500" style={{ fontFamily: "'JetBrains Mono', monospace" }}>+</span>
+              <div className="flex-1 h-px bg-ink-600/50" />
+            </div>
+
+            {/* Santosh logo */}
+            <div className="flex flex-col items-center gap-3">
+              <div className="bg-white rounded-xl px-8 py-5 flex items-center justify-center">
+                <Image
+                  src="/santosh-logo.svg"
+                  alt="Santosh Petrochemical Innovations"
+                  width={100}
+                  height={80}
+                  className="object-contain"
+                />
+              </div>
+              <p
+                className="text-xs text-ink-400 text-center"
+                style={{ fontFamily: "'JetBrains Mono', monospace" }}
+              >
+                Operator
               </p>
             </div>
           </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
@@ -34,26 +35,14 @@ export default function Nav() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group" aria-label="Santosh Petrochemical">
-            {/* SVG Icon — simplified gear+flame mark */}
-            <svg
-              width="36"
-              height="36"
-              viewBox="0 0 100 100"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+            <Image
+              src="/santosh-logo.svg"
+              alt="Santosh Petrochemical Innovations"
+              width={36}
+              height={47}
               className="flex-shrink-0"
-            >
-              <circle cx="50" cy="50" r="48" fill="#1a3a2a" stroke="#2d7a4e" strokeWidth="2" />
-              <path
-                d="M50 15 C50 15 35 35 35 55 C35 65 42 73 50 73 C58 73 65 65 65 55 C65 35 50 15 50 15Z"
-                fill="#3a9e64"
-              />
-              <path
-                d="M50 35 C50 35 42 48 42 57 C42 63 45.5 68 50 68 C54.5 68 58 63 58 57 C58 48 50 35 50 35Z"
-                fill="#f59e0b"
-              />
-              <circle cx="50" cy="57" r="6" fill="#1a3a2a" />
-            </svg>
+              style={{ filter: "brightness(0) saturate(100%) invert(78%) sepia(40%) saturate(600%) hue-rotate(5deg) brightness(105%)" }}
+            />
             <div>
               <div
                 className="text-xl leading-none tracking-widest text-green-400 font-display"

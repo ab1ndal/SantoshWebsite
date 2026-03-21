@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Phone, Mail, ArrowUpRight } from "lucide-react";
 
@@ -34,12 +35,13 @@ export default function Footer() {
           {/* Brand column */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-flex items-center gap-3 mb-6">
-              <svg width="32" height="32" viewBox="0 0 100 100" fill="none">
-                <circle cx="50" cy="50" r="48" fill="#1a3a2a" stroke="#2d7a4e" strokeWidth="2" />
-                <path d="M50 15 C50 15 35 35 35 55 C35 65 42 73 50 73 C58 73 65 65 65 55 C65 35 50 15 50 15Z" fill="#3a9e64" />
-                <path d="M50 35 C50 35 42 48 42 57 C42 63 45.5 68 50 68 C54.5 68 58 63 58 57 C58 48 50 35 50 35Z" fill="#f59e0b" />
-                <circle cx="50" cy="57" r="6" fill="#1a3a2a" />
-              </svg>
+              <Image
+                src="/santosh-logo.svg"
+                alt="Santosh Petrochemical Innovations"
+                width={32}
+                height={42}
+                style={{ filter: "brightness(0) saturate(100%) invert(78%) sepia(40%) saturate(600%) hue-rotate(5deg) brightness(105%)" }}
+              />
               <div>
                 <div className="text-lg tracking-widest text-green-400" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                   SANTOSH

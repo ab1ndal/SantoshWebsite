@@ -38,7 +38,7 @@ Declared values (multiples of 4 only). Source: established codebase convention.
 | Token | Value | Usage |
 |-------|-------|-------|
 | xs | 4px | Icon gaps, dot indicators, inline decoration |
-| sm | 8px | Label-to-input gap (mb-1.5 = 6px approx; use 8px), tight stacks |
+| sm | 8px | Label-to-input gap (mb-2), tight stacks |
 | md | 16px | Default element spacing, form field gaps (space-y-4) |
 | lg | 24px | Card internal padding (p-6), section header margin-bottom |
 | xl | 32px | Major component gaps |
@@ -54,24 +54,35 @@ Exceptions:
 
 ## Typography
 
-All sizes and weights used by existing components. Do not introduce sizes outside this table.
+Exactly 4 size tiers. 2 weights for variable-weight fonts (Barlow / Barlow Condensed / JetBrains Mono). Bebas Neue is a single-weight display font and does not count against the 2-weight limit.
 
-| Role | Font | Size | Weight | Line Height | Color |
+| Tier | Font | Size | Weight | Line Height | Usage |
 |------|------|------|--------|-------------|-------|
-| Body copy | Barlow | 16px (1rem) | 300 (light) | 1.6 | ink-200 (#a8ad96) |
-| Body emphasis | Barlow | 16px (1rem) | 400 (regular) | 1.6 | ink-100 (#d4d8c8) |
-| Table values / spec data | JetBrains Mono | 12px (0.75rem) | 400 | 1.5 | green-400 (#52c17e) for Santosh, ink-200 for others |
-| Table headers / labels | JetBrains Mono | 11px (0.6875rem) | 400 | 1.4 | ink-400 (#5c6050), uppercase, tracking-wider |
-| Section label | JetBrains Mono | 12px (0.75rem) | 400 | 1 | amber-500 (#f59e0b), uppercase, letter-spacing 0.15em |
-| Card subtitle / step title | Barlow Condensed | 14px (0.875rem) | 700 | 1.25 | white |
-| H3 subheading | Barlow Condensed | 18px (1.125rem) | 700 | 1.3 | white |
-| H2 section heading | Bebas Neue | clamp(2rem, 4vw, 3rem) | 400 (Bebas is display) | tight (1.1) | white |
-| Page hero H1 | Bebas Neue | clamp(2.5rem, 5vw, 4.5rem) | 400 | tight (1.05) | white |
-| Display stat / callout number | Bebas Neue | clamp(3rem, 6vw, 5rem) | 400 | 1 | amber-500 or green-400 |
-| Button label | Barlow Condensed | 16px (1rem) | 600 (semibold) | 1 | white |
-| Form field input text | Barlow | 14px (0.875rem) | 400 | 1.5 | ink-100 (#d4d8c8) |
-| Form label | JetBrains Mono | 12px (0.75rem) | 400 | 1 | ink-200, uppercase, tracking-wider |
-| Footnote / disclaimer | JetBrains Mono | 12px (0.75rem) | 400 | 1.6 | ink-400 |
+| Display | Bebas Neue | clamp(2rem, 5vw, 4.5rem) | 400 (display — single weight) | 1.05–1.1 (tight) | All Bebas Neue headings: H1, H2, grade names (SN 150 etc.), stat callout numbers, IOC partner name, process step titles, section headings. One clamp range covers all. |
+| Subheading / UI | Barlow Condensed | 16px (1rem) | 700 | 1.25–1.3 | H3 subheadings, button labels, card subtitles / step titles, success headings, column headers in comparison table |
+| Body / Input | Barlow | 14px (0.875rem) | 400 | 1.5–1.6 | Body copy, supporting descriptions, form input text, pack format descriptions, step body paragraphs, footnote body text |
+| Mono / Micro | JetBrains Mono | 12px (0.75rem) | 400 | 1–1.6 (varies by context) | ALL JetBrains Mono usage: section labels, form labels, table headers, table values, spec data, swipe hints, footnotes, step counters, badge labels, infographic placeholders, logo placeholder text, trust signal labels. Collapses former 10px / 11px / 13px into this single tier. |
+
+Weight notes:
+- **400** — body text (Barlow), table values (JetBrains Mono), mono usage generally, Bebas Neue display
+- **700** — headings (Barlow Condensed), button labels, bold emphasis labels
+- 300 (light) is replaced by 400 everywhere.
+- 600 (semibold) is replaced by 700 everywhere.
+- Uppercase + letter-spacing is applied as a modifier on top of the mono tier (not a separate weight).
+
+Color by role (unchanged):
+| Role | Color |
+|------|-------|
+| Body copy | ink-200 (#a8ad96) |
+| Body emphasis | ink-100 (#d4d8c8) |
+| Form input text | ink-100 (#d4d8c8) |
+| Section labels | amber-500 (#f59e0b), uppercase, letter-spacing 0.15em |
+| Table values — Santosh | green-400 (#52c17e) |
+| Table values — others / spec data | green-400 or ink-200 per column spec |
+| Table headers / labels | ink-400 (#5c6050), uppercase, tracking-wider |
+| Footnotes / disclaimers | ink-400 (#5c6050) |
+| Headings | white |
+| Button labels | white |
 
 Source: measured directly from `FooterCTA.tsx`, `WhyGroupII.tsx`, `ProcessTeaser.tsx`.
 
@@ -140,13 +151,13 @@ Pattern from `src/app/page.tsx`:
 
 - Background: `bg-ink-950` with `.gradient-mesh` overlay + `.grid-overlay`
 - Section label: `"01 · PRODUCTS"` (JetBrains Mono, amber-500, .section-label)
-- H1: Bebas Neue, clamp(2.5rem, 5vw, 4.5rem), white
+- H1: Bebas Neue, clamp(2rem, 5vw, 4.5rem) [Display tier], white
   - Copy: `"Group II+ RRBO.` / `Built for BS-VI India."`
   - "Group II+" in green-400
-- Subheadline: Barlow 300, 16px, ink-200, max-w-2xl
+- Subheadline: Barlow 400, 14px [Body/Input tier], ink-200, max-w-2xl
   - Copy: `"Re-refined base oil meeting API Group II+ specifications — produced at our 65 TPD plant in [location], using Indian Oil Technology hydrotreating."`
 - Hero CTAs row (gap-4, flex-wrap):
-  - Primary: "Download TDS →" — green-500 bg, white text, Barlow Condensed semibold
+  - Primary: "Download TDS →" — green-500 bg, white text, Barlow Condensed 700 [Subheading/UI tier]
   - Secondary: "Request a Sample →" — ghost style (border border-ink-600/60, text-ink-100), links to `/sample-request`
 - No animation on hero (IntersectionObserver entrance only for below-fold content)
 - Min height: `py-24 lg:py-32`
@@ -155,7 +166,7 @@ Pattern from `src/app/page.tsx`:
 
 Section background: `bg-ink-800`
 Section label: `"02 · SPECIFICATIONS"` (amber-500)
-Section heading: Bebas Neue, clamp(2rem, 4vw, 3rem), white — "Technical Specifications"
+Section heading: Bebas Neue, clamp(2rem, 5vw, 4.5rem) [Display tier], white — "Technical Specifications"
 
 Mobile swipe hint (shown only on screens < lg breakpoint):
 ```
@@ -183,19 +194,19 @@ Table structure:
 ```
 
 Column styling:
-| Column | Font | Size | Weight | Color |
+| Column | Font | Tier | Weight | Color |
 |--------|------|------|--------|-------|
-| Property (col 1) | Barlow | 14px | 400 | ink-200 |
-| Unit (col 2) | JetBrains Mono | 11px | 400 | ink-400 |
-| SN 150 / SN 500 / Bright Stock values (cols 3–5) | JetBrains Mono | 13px | 400 | green-400 |
-| Test Method (col 6) | JetBrains Mono | 11px | 400 | ink-400 |
-| Group II+ Min (col 7) | JetBrains Mono | 12px | 400 | amber-300 |
+| Property (col 1) | Barlow | Body/Input (14px) | 400 | ink-200 |
+| Unit (col 2) | JetBrains Mono | Mono/Micro (12px) | 400 | ink-400 |
+| SN 150 / SN 500 / Bright Stock values (cols 3–5) | JetBrains Mono | Mono/Micro (12px) | 400 | green-400 |
+| Test Method (col 6) | JetBrains Mono | Mono/Micro (12px) | 400 | ink-400 |
+| Group II+ Min (col 7) | JetBrains Mono | Mono/Micro (12px) | 400 | amber-300 |
 
 Row styling:
 - `border-b border-ink-600/30` on each `<tr>`
 - Alternating row bg: even rows `bg-ink-700/20`, odd rows transparent
 - `py-3 px-4` on all `<td>` and `<th>`
-- `<th>` text: uppercase, tracking-wider, ink-400, JetBrains Mono 11px
+- `<th>` text: uppercase, tracking-wider, ink-400, JetBrains Mono 12px [Mono/Micro tier]
 
 Table data (use these exact values — client to confirm):
 | Property | Unit | SN 150 | SN 500 | Bright Stock | Test Method | Group II+ Min |
@@ -208,14 +219,14 @@ Table data (use these exact values — client to confirm):
 | Sulfur Content | ppm | <300 | <300 | <300 | ASTM D2622 | — |
 | Colour (ASTM) | — | ≤2.0 | ≤2.5 | ≤4.0 | ASTM D1500 | — |
 
-Note below table (JetBrains Mono, 11px, ink-400):
+Note below table (JetBrains Mono, 12px [Mono/Micro tier], ink-400):
 `"* Specifications pending client confirmation. Values shown are Group II+ industry reference standards. Batch-level CoA available on request."`
 
 #### 2c. Comparison Table (PROD-03)
 
 Section background: `bg-ink-900`
 Section label: `"03 · COMPARISON"` (amber-500)
-Section heading: Bebas Neue, "Why Santosh Group II+ RRBO Outperforms"
+Section heading: Bebas Neue [Display tier], "Why Santosh Group II+ RRBO Outperforms"
 
 Mobile swipe hint: same pattern as spec table, shown < lg.
 Outer wrapper: `<div class="overflow-x-auto w-full">`
@@ -225,13 +236,13 @@ Table has 3 data columns + 1 property column = 4 columns total.
 Column header styling:
 | Column | Background | Border | Text |
 |--------|------------|--------|------|
-| Property | transparent | none | ink-400, JetBrains Mono 11px, uppercase |
-| Santosh Group II+ RRBO | `bg-green-900/30` | `border-l-2 border-r-2 border-t-2 border-green-500/50` | amber-500 for header text, white for label "SANTOSH GROUP II+ RRBO" in Barlow Condensed bold 13px |
-| Group I RRBO (adsorption) | transparent | `border border-ink-600/30` | ink-400, Barlow Condensed 13px |
-| Virgin Group II | transparent | `border border-ink-600/30` | ink-400, Barlow Condensed 13px |
+| Property | transparent | none | ink-400, JetBrains Mono 12px [Mono/Micro tier], uppercase |
+| Santosh Group II+ RRBO | `bg-green-900/30` | `border-l-2 border-r-2 border-t-2 border-green-500/50` | amber-500 for header text, white for label "SANTOSH GROUP II+ RRBO" in Barlow Condensed 700 [Subheading/UI tier] |
+| Group I RRBO (adsorption) | transparent | `border border-ink-600/30` | ink-400, Barlow Condensed 700 [Subheading/UI tier] |
+| Virgin Group II | transparent | `border border-ink-600/30` | ink-400, Barlow Condensed 700 [Subheading/UI tier] |
 
 "Best choice" badge above Santosh column header:
-- Pill tag: `bg-amber-500/20 text-amber-500 text-[10px] font-mono uppercase tracking-widest px-2 py-0.5 rounded-full`
+- Pill tag: `bg-amber-500/20 text-amber-500 font-mono uppercase tracking-widest px-2 py-0.5 rounded-full` — JetBrains Mono 12px [Mono/Micro tier]
 - Copy: `"RECOMMENDED"`
 
 Comparison rows (6 rows):
@@ -249,14 +260,14 @@ Cell styling for Santosh column: `bg-green-900/20 border-l-2 border-r-2 border-g
 Checkmark icon for "Yes" cells: inline SVG 14×14, stroke green-400.
 Dash icon for "Marginal" cells: `—` text in amber-300.
 
-Footnote: JetBrains Mono 11px, ink-400
+Footnote: JetBrains Mono 12px [Mono/Micro tier], ink-400
 `"Group I RRBO spec ref: IFP Product Data Sheet. Virgin Group II import price ref: ICIS Base Oils Report Q4 2025. BS-VI compatibility per API SN/CF specification requirements."`
 
 #### 2d. Grade Cards (PROD-04)
 
 Section background: `bg-ink-800`
 Section label: `"04 · AVAILABLE GRADES"` (amber-500)
-Section heading: Bebas Neue, "Three Grades. One Quality Standard."
+Section heading: Bebas Neue [Display tier], "Three Grades. One Quality Standard."
 
 Layout: 3-column grid on desktop (`grid lg:grid-cols-3 gap-6`), stacked on mobile.
 
@@ -270,13 +281,13 @@ hover:border-green-500/30 transition-colors duration-300
 ```
 
 Card anatomy (top to bottom):
-1. Grade badge: amber-500/10 bg, amber-500 text, JetBrains Mono 10px, uppercase — "BASE OIL" label
-2. Grade name: Bebas Neue, 48px (3rem), white — "SN 150" / "SN 500" / "BRIGHT STOCK"
-3. Primary use: Barlow 300, 14px, ink-200 — 1–2 lines
-4. Spec preview row: 3 specs in JetBrains Mono 12px, green-400
+1. Grade badge: amber-500/10 bg, amber-500 text, JetBrains Mono 12px [Mono/Micro tier], uppercase — "BASE OIL" label
+2. Grade name: Bebas Neue [Display tier], white — "SN 150" / "SN 500" / "BRIGHT STOCK"
+3. Primary use: Barlow 400, 14px [Body/Input tier], ink-200 — 1–2 lines
+4. Spec preview row: 3 specs in JetBrains Mono 12px [Mono/Micro tier], green-400
    - Format: `VI ≥95 · KV40: Xcp · Flash ≥Y°C`
 5. Divider: `border-t border-ink-600/30 my-6`
-6. CTA link: Barlow Condensed semibold, green-400, "Request Sample →" → `/sample-request?grade=SN150`
+6. CTA link: Barlow Condensed 700 [Subheading/UI tier], green-400, "Request Sample →" → `/sample-request?grade=SN150`
 
 Grade data:
 | Field | SN 150 | SN 500 | Bright Stock |
@@ -302,9 +313,9 @@ flex flex-col items-center text-center gap-3
   - Bulk tanker: use `Truck` icon
   - 210L drum: use `Package` icon
   - IBC (1000L): use `Box` icon
-- Format name: Barlow Condensed 700, 18px, white
-- Capacity: JetBrains Mono 12px, amber-500 — "Bulk Tanker" / "210L Drum" / "1000L IBC"
-- Description: Barlow 300, 13px, ink-200, max-w-[180px]
+- Format name: Barlow Condensed 700 [Subheading/UI tier], white
+- Capacity: JetBrains Mono 12px [Mono/Micro tier], amber-500 — "Bulk Tanker" / "210L Drum" / "1000L IBC"
+- Description: Barlow 400, 14px [Body/Input tier], ink-200, max-w-[180px]
 
 Icon wrapper: `w-16 h-16 rounded-2xl bg-ink-800 border border-ink-600/40 flex items-center justify-center`
 
@@ -319,14 +330,14 @@ Format data:
 
 Section background: `bg-ink-800/50`
 Section label: `"06 · TECHNICAL DATA SHEET"` (amber-500)
-Section heading: Bebas Neue, "Download the Full TDS"
-Supporting copy (Barlow 300, ink-200): "Complete technical specifications, test methods, and batch parameters. Enter your details and the PDF downloads instantly."
+Section heading: Bebas Neue [Display tier], "Download the Full TDS"
+Supporting copy (Barlow 400, 14px [Body/Input tier], ink-200): "Complete technical specifications, test methods, and batch parameters. Enter your details and the PDF downloads instantly."
 
 **State 1 — Button (default, `expanded = false`):**
 Centered layout. One button:
 ```
 px-8 py-4 bg-green-500 text-white rounded-xl
-Barlow Condensed semibold, 18px, letter-spacing 0.06em
+Barlow Condensed 700 [Subheading/UI tier, 16px], letter-spacing 0.06em
 hover:bg-green-400 transition-colors duration-200
 ```
 Copy: `"Download TDS →"`
@@ -346,7 +357,7 @@ Fields (3 fields, `space-y-5`):
 | Phone Number | tel | yes | `"PHONE NUMBER *"` | `"+91 98XXXXXXXX"` |
 | Email Address | email | no | `"EMAIL ADDRESS"` | `"you@company.com (optional)"` |
 
-Label style: JetBrains Mono, 12px, ink-200, uppercase, tracking-wider, `mb-1.5`
+Label style: JetBrains Mono 12px [Mono/Micro tier], ink-200, uppercase, tracking-wider, `mb-2`
 Input style (matches FooterCTA exactly):
 ```
 w-full bg-ink-900/80 border border-ink-600/60 rounded-lg px-4 py-3
@@ -358,7 +369,7 @@ font-family: Barlow
 Submit button (full width):
 ```
 w-full py-3.5 bg-green-500 text-white rounded-lg
-Barlow Condensed semibold, 16px, letter-spacing 0.06em
+Barlow Condensed 700 [Subheading/UI tier, 16px], letter-spacing 0.06em
 hover:bg-green-400 transition-colors duration-200
 ```
 Copy: `"Download Now →"`
@@ -368,10 +379,10 @@ Cancel link below submit (optional): `text-xs text-ink-400 hover:text-ink-200 cu
 **State 3 — Success (`submitted = true`):**
 Same card container. Contents:
 - Checkmark icon: `w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center mx-auto mb-4` (SVG path d="M5 13l4 4L19 7", stroke green-500, strokeWidth 2.5)
-- Heading: Barlow Condensed 700, 20px, white — `"Downloading now"`
-- Body: Barlow 300, 14px, ink-200 — `"Your PDF should appear in your downloads folder. If it doesn't start automatically, click below."`
+- Heading: Barlow Condensed 700 [Subheading/UI tier], white — `"Downloading now"`
+- Body: Barlow 400, 14px [Body/Input tier], ink-200 — `"Your PDF should appear in your downloads folder. If it doesn't start automatically, click below."`
 - Fallback link: `<a href="/santosh-tds-placeholder.pdf" download>` — green-400 text, underline — `"Download again →"`
-- WhatsApp line: ink-400, 13px — `"Questions? WhatsApp us at +91 98101 21438"`
+- WhatsApp line: ink-400, 12px [Mono/Micro tier] — `"Questions? WhatsApp us at +91 98101 21438"`
 
 ---
 
@@ -381,10 +392,10 @@ Same card container. Contents:
 
 Background: `bg-ink-950` with `.gradient-mesh` overlay
 Section label: `"01 · THE PROCESS"` (amber-500)
-H1: Bebas Neue, clamp(2.5rem, 5vw, 4rem), white
+H1: Bebas Neue [Display tier], white
   - Copy: `"From Used Oil to` / `Group II+ in Six Steps."`
   - "Group II+" in green-400
-Subheadline: Barlow 300, 16px, ink-200, max-w-2xl
+Subheadline: Barlow 400, 14px [Body/Input tier], ink-200, max-w-2xl
   - Copy: `"Our plant uses Indian Oil Technology hydrotreating — the same process used by global Group II+ producers. Each step is engineered for purity, yield, and consistency."`
 - No CTA in hero (process page is informational; CTA comes at end)
 - Padding: `py-24 lg:py-28`
@@ -415,16 +426,16 @@ Background: `bg-ink-900`
 Full height, flex-col layout: `flex flex-col justify-center px-8 lg:px-12 py-16`
 
 Contents (change when `activeStep` state updates):
-1. Step counter: `"STEP {N} OF 6"` — JetBrains Mono, 11px, amber-500, uppercase, letter-spacing 0.15em
-2. Step title: Bebas Neue, clamp(2rem, 3.5vw, 3rem), white — transitions with opacity (200ms ease)
-3. Step body: Barlow 300, 15px, ink-200, line-height 1.7, max-w-sm — concise 2–3 sentence description
+1. Step counter: `"STEP {N} OF 6"` — JetBrains Mono 12px [Mono/Micro tier], amber-500, uppercase, letter-spacing 0.15em
+2. Step title: Bebas Neue [Display tier], white — transitions with opacity (200ms ease)
+3. Step body: Barlow 400, 14px [Body/Input tier], ink-200, line-height 1.7, max-w-sm — concise 2–3 sentence description
 4. Technical params block (new, not in ProcessTeaser):
    ```
    bg-ink-800 rounded-xl border border-ink-600/40 p-5 mt-6
    ```
-   Each param: JetBrains Mono, 12px
-   - Label: ink-400, uppercase, 10px, tracking-wider
-   - Value: green-400 or white, 13px
+   Each param: JetBrains Mono 12px [Mono/Micro tier]
+   - Label: ink-400, uppercase, tracking-wider
+   - Value: green-400 or white
    Format: key-value pairs, stacked, `gap-3`
 5. Progress indicator: thin bar at bottom of panel
    ```
@@ -443,7 +454,7 @@ Background: `bg-ink-800`
 Each step section: `min-h-screen flex flex-col justify-center px-8 lg:px-12 py-16`
 
 Per step, right panel contains:
-1. Step number pill: amber-500 bg at 10% opacity, amber-500 text — `"0N"` in JetBrains Mono 12px
+1. Step number pill: amber-500 bg at 10% opacity, amber-500 text — `"0N"` in JetBrains Mono 12px [Mono/Micro tier]
 2. SVG infographic frame (placeholder):
    ```
    w-full aspect-[4/3] max-w-lg mx-auto
@@ -452,8 +463,8 @@ Per step, right panel contains:
    ```
    Inside: centered placeholder text
    - Icon (optional): step SVG icon from ProcessTeaser, 48×48, rendered at center-top
-   - Label: JetBrains Mono, 12px, ink-400, uppercase — `"INFOGRAPHIC PLACEHOLDER"` + step title
-   - Dimensions note: JetBrains Mono, 10px, ink-600 — `"800 × 600 px · SVG or PNG"`
+   - Label: JetBrains Mono 12px [Mono/Micro tier], ink-400, uppercase — `"INFOGRAPHIC PLACEHOLDER"` + step title
+   - Dimensions note: JetBrains Mono 12px [Mono/Micro tier], ink-600 — `"800 × 600 px · SVG or PNG"`
 3. Entrance animation: Framer Motion `useScroll` per step ref, `offset: ["start 0.9", "start 0.4"]`
    - `opacity`: 0 → 1
    - `y`: 32px → 0px
@@ -474,7 +485,7 @@ Per step, right panel contains:
 - Collapse to single-column vertical scroll
 - Remove sticky behavior: `lg:sticky-section` (only apply sticky class at lg+)
 - Each step: full-width card, `bg-ink-800/80 rounded-2xl border border-ink-600/40 p-6 mb-6`
-- Step card: step number (amber-500 JetBrains Mono) + title (Bebas Neue 28px) + body + params block + infographic frame (aspect-[4/3])
+- Step card: step number (amber-500 JetBrains Mono 12px) + title (Bebas Neue [Display tier]) + body + params block + infographic frame (aspect-[4/3])
 - Entrance: IntersectionObserver on each card, same 0.5s translateY animation
 
 #### 3c. Indian Oil Technology Credibility Section (PROC-03)
@@ -487,9 +498,9 @@ Padding: `py-24`
 Layout: centered, max-w-4xl, text-center on desktop; left-aligned on mobile option also acceptable — use centered.
 
 Contents:
-1. Section label: JetBrains Mono, amber-500 — `"TECHNOLOGY PARTNER"` (no number)
-2. Partner name: Bebas Neue, clamp(3rem, 6vw, 5rem), white — `"Indian Oil Technology"` — with green-400 on "Technology"
-3. Endorsement line: Barlow 300, 18px, ink-200, max-w-2xl, italic
+1. Section label: JetBrains Mono 12px [Mono/Micro tier], amber-500 — `"TECHNOLOGY PARTNER"` (no number)
+2. Partner name: Bebas Neue [Display tier], white — `"Indian Oil Technology"` — with green-400 on "Technology"
+3. Endorsement line: Barlow 400, 14px [Body/Input tier], ink-200, max-w-2xl, italic
    - Copy: `"The same hydrotreating process technology trusted by IOCL — India's largest oil company — now powers Santosh's 65 TPD plant."`
 4. Logo placeholder:
    ```
@@ -497,12 +508,12 @@ Contents:
    bg-ink-800 border border-ink-600/40
    flex items-center justify-center
    ```
-   Inside: JetBrains Mono, 11px, ink-400 — `"IOC LOGO PLACEHOLDER"`
+   Inside: JetBrains Mono 12px [Mono/Micro tier], ink-400 — `"IOC LOGO PLACEHOLDER"`
 5. Trust signal row (3 items, flex row, gap-8, mt-10):
-   Each item: centered, JetBrains Mono
+   Each item: centered
    - Icon: green-400 SVG or Lucide icon, 24×24
-   - Value: Bebas Neue, 32px, white
-   - Label: JetBrains Mono, 11px, ink-400, uppercase
+   - Value: Bebas Neue [Display tier], white
+   - Label: JetBrains Mono 12px [Mono/Micro tier], ink-400, uppercase
    Items: `"65 TPD Plant Capacity"` / `"Group II+ Certified Process"` / `"Indian Market Technology"`
 
 Entrance animation: IntersectionObserver, section fades up (opacity 0→1, translateY 24px→0, 0.6s ease).
@@ -514,14 +525,14 @@ Padding: `py-20`
 Layout: centered, text-center, max-w-2xl
 
 Contents:
-1. Heading: Bebas Neue, clamp(2.5rem, 4vw, 3.5rem), white
+1. Heading: Bebas Neue [Display tier], white
    Copy: `"See the Products This Process Produces."`
-2. Body: Barlow 300, 16px, ink-200, mt-4
+2. Body: Barlow 400, 14px [Body/Input tier], ink-200, mt-4
    Copy: `"SN 150, SN 500, and Bright Stock — all meeting Group II+ specifications."`
 3. CTA button → `/products`:
    ```
    px-10 py-4 bg-green-500 text-white rounded-xl mt-8
-   Barlow Condensed semibold, 18px, letter-spacing 0.06em
+   Barlow Condensed 700 [Subheading/UI tier, 16px], letter-spacing 0.06em
    hover:bg-green-400 transition-colors duration-200
    ```
    Copy: `"View Products & Specs →"`
@@ -537,15 +548,15 @@ Page layout: 2-column on desktop (`grid lg:grid-cols-2 gap-16 items-start`), sta
 
 Left column (info):
 - Section label: `"REQUEST A SAMPLE"` (amber-500, .section-label)
-- Heading: Bebas Neue, clamp(2.5rem, 5vw, 3.5rem), white
+- Heading: Bebas Neue [Display tier], white
   Copy: `"Test Our Oil Before You Commit."`
-- Body: Barlow 300, 16px, ink-200, leading-relaxed
+- Body: Barlow 400, 14px [Body/Input tier], ink-200, leading-relaxed
   Copy: `"We supply lab-quantity samples for evaluation. Typical sample: 1L per grade. Our team follows up within 2 business days with logistics."`
 - Process list (3 items with green-400 dot indicators, same style as FooterCTA list):
   - `"01 — Fill in your details and grade preference"`
   - `"02 — Our team contacts you to confirm dispatch"`
   - `"03 — Sample delivered, evaluation support available"`
-  Style: JetBrains Mono, 12px, ink-200
+  Style: JetBrains Mono 12px [Mono/Micro tier], ink-200
 
 Right column (form card):
 ```
@@ -568,36 +579,37 @@ Fields (`space-y-5`):
 
 Grade select options: `"Select grade"` (default disabled) / `"SN 150"` / `"SN 500"` / `"Bright Stock"` / `"Multiple / Unsure"`
 
+Label style: JetBrains Mono 12px [Mono/Micro tier], ink-200, uppercase, tracking-wider, `mb-2`
 Select styling: same input style as text fields, with `appearance-none` + custom chevron (Lucide `ChevronDown` icon, 16×16, ink-400, positioned absolute right-3).
 
 Submit button (full width, `mt-6`):
 ```
 w-full py-3.5 bg-green-500 text-white rounded-lg
-Barlow Condensed semibold, 16px, letter-spacing 0.06em
+Barlow Condensed 700 [Subheading/UI tier, 16px], letter-spacing 0.06em
 hover:bg-green-400 transition-colors duration-200
 ```
 Copy: `"Send Sample Request →"`
 
-Footer note below button: Barlow 300, 12px, ink-400, text-center
+Footer note below button: Barlow 400, 12px [Mono/Micro tier], ink-400, text-center
 `"Or WhatsApp us directly at +91 98101 21438"`
 
 **State: success (`submitted = true`):**
 Replace form card contents with:
 - Checkmark icon: same as FooterCTA success (w-12 h-12 rounded-full bg-green-500/20, SVG check, green-500)
-- Heading: Barlow Condensed 700, 20px, white
+- Heading: Barlow Condensed 700 [Subheading/UI tier], white
   Copy: `"Sample request received"`
-- Body: Barlow 300, 14px, ink-200
+- Body: Barlow 400, 14px [Body/Input tier], ink-200
   Copy: `"Our team will contact you within 2 business days to confirm your sample and arrange logistics."`
 - WhatsApp CTA button (secondary style):
   ```
   flex items-center gap-2 mt-6 px-6 py-3
   border border-green-500/40 rounded-lg text-green-400
-  Barlow Condensed semibold, 15px
+  Barlow Condensed 700 [Subheading/UI tier]
   hover:bg-green-900/20 transition-colors
   ```
   Icon: WhatsApp SVG (green, 20×20) or Lucide `MessageCircle`
   Copy: `"Message us on WhatsApp"` → `href="https://wa.me/919810121438"`
-- Restart link: ink-400, 12px, text-center, mt-4 — `"Submit another request →"` (calls `setSubmitted(false)`)
+- Restart link: ink-400, 12px [Mono/Micro tier], text-center, mt-4 — `"Submit another request →"` (calls `setSubmitted(false)`)
 
 ---
 
@@ -614,10 +626,12 @@ Left column: use FooterCTA's existing left column markup verbatim — section la
 
 Right column: `<ContactForm />` component — extracted from FooterCTA.tsx form JSX. Form fields: Full Name (required), Company (optional), Email (required), Message (optional). Same card and input styles as FooterCTA.
 
+Label style (all contact form labels): JetBrains Mono 12px [Mono/Micro tier], ink-200, uppercase, tracking-wider, `mb-2`
+
 **ContactForm success state:**
 Matches FooterCTA success exactly:
-- `"Message received"` heading (Barlow Condensed 700, 20px, white)
-- `"We'll be in touch within one business day."` (ink-200, 14px)
+- `"Message received"` heading (Barlow Condensed 700 [Subheading/UI tier], white)
+- `"We'll be in touch within one business day."` (ink-200, 14px [Body/Input tier])
 
 Page metadata title: `"Contact Us | Santosh Petrochemical Innovations"`
 Section label: `"GET IN TOUCH"` (no number — this is a standalone page, not a numbered homepage section)

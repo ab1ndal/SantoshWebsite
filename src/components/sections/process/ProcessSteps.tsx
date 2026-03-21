@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
+import Image from "next/image";
 
 const steps = [
   {
@@ -9,6 +10,8 @@ const steps = [
     title: "Collection & Intake",
     body: "Used lubricating oil collected from workshops, fleets, and garages across NCR/UP. Every batch tested for PCB content before acceptance.",
     technicalParams: "PCB screening · Batch acceptance testing · Collection from NCR, UP, western districts",
+    image: "https://images.unsplash.com/photo-1556216607-691819089c19?w=800&auto=format&fit=crop",
+    imageAlt: "Industrial drums of used oil being collected at intake facility",
     icon: (
       <svg viewBox="0 0 40 40" fill="none" className="w-16 h-16">
         <path d="M8 32 L8 16 M16 32 L16 10 M24 32 L24 20 M32 32 L32 8" stroke="#3a9e64" strokeWidth="2.5" strokeLinecap="round" />
@@ -22,6 +25,8 @@ const steps = [
     title: "Pre-Treatment",
     body: "Dehydration removes water, glycol, and light ends. Filtration down to 150–250 microns. Chemical injection prevents fouling.",
     technicalParams: "120°C dehydration · 150–250 micron filtration · Anti-fouling chemical injection",
+    image: "https://images.unsplash.com/photo-1758978911880-5e50cf2c9988?w=800&auto=format&fit=crop",
+    imageAlt: "Industrial stainless steel processing tanks and filtration equipment",
     icon: (
       <svg viewBox="0 0 40 40" fill="none" className="w-16 h-16">
         <rect x="10" y="8" width="20" height="24" rx="3" stroke="#3a9e64" strokeWidth="2" />
@@ -36,6 +41,8 @@ const steps = [
     title: "Vacuum Distillation",
     body: "Dry oil heated to 280–300°C. Wiped Film Evaporator (WFE) separates base fractions under high vacuum. Asphalt residue recovered as saleable byproduct.",
     technicalParams: "Wiped Film Evaporator (WFE) · 280–300°C · High vacuum distillation · Asphalt byproduct recovery",
+    image: "https://images.unsplash.com/photo-1726731782158-fcf6822b6ca4?w=800&auto=format&fit=crop",
+    imageAlt: "Oil refinery with distillation columns and towers against blue sky",
     icon: (
       <svg viewBox="0 0 40 40" fill="none" className="w-16 h-16">
         <path d="M20 4 L20 36" stroke="#5c6050" strokeWidth="1.5" strokeDasharray="2 2" />
@@ -49,6 +56,8 @@ const steps = [
     title: "Hydrotreating",
     body: "Distillate reacts with H₂ over metallic catalysts — removing sulfur, nitrogen, and halogens. Aromatics saturate to paraffins. This is what produces Group II+.",
     technicalParams: "H₂ catalyst reactor · Sulfur + nitrogen + halogen removal · Aromatics → paraffins saturation",
+    image: "https://images.unsplash.com/photo-1608899466500-0d83b26d1639?w=800&auto=format&fit=crop",
+    imageAlt: "Stainless steel industrial reactor vessels with control panel and piping",
     icon: (
       <svg viewBox="0 0 40 40" fill="none" className="w-16 h-16">
         <circle cx="20" cy="20" r="12" stroke="#3a9e64" strokeWidth="2" />
@@ -62,6 +71,8 @@ const steps = [
     title: "Lab Testing",
     body: "Every batch verified: viscosity index, sulfur content (ppm), flash point, pour point, colour ASTM. Third-party certification available.",
     technicalParams: "VI · Sulfur ppm · Flash point · Pour point · Colour ASTM · Third-party CoA available",
+    image: "https://images.unsplash.com/photo-1740065608441-eb8437765b98?w=800&auto=format&fit=crop",
+    imageAlt: "Lab technician operating analytical instruments to test oil quality",
     icon: (
       <svg viewBox="0 0 40 40" fill="none" className="w-16 h-16">
         <path d="M16 8 L16 24 L10 34 L30 34 L24 24 L24 8 Z" stroke="#3a9e64" strokeWidth="2" strokeLinejoin="round" />
@@ -75,6 +86,8 @@ const steps = [
     title: "Dispatch",
     body: "Group II+ RRBO dispatched in bulk tanker, 210L drums, or IBC. Delivery across NCR and UP.",
     technicalParams: "Bulk tanker · 210L drums · IBC (1000L) · NCR/UP delivery · Export documentation available",
+    image: "https://images.unsplash.com/photo-1757191377107-f1d78844e769?w=800&auto=format&fit=crop",
+    imageAlt: "Fuel oil tanker truck for bulk lubricant dispatch and delivery",
     icon: (
       <svg viewBox="0 0 40 40" fill="none" className="w-16 h-16">
         <rect x="4" y="20" width="24" height="12" rx="2" stroke="#3a9e64" strokeWidth="2" />
@@ -225,14 +238,16 @@ export default function ProcessSteps() {
                 {step.technicalParams}
               </p>
 
-              {/* Infographic placeholder */}
-              <div className="w-full aspect-video bg-ink-800/60 border-2 border-dashed border-ink-600/40 rounded-2xl flex items-center justify-center mt-8">
-                <p
-                  className="text-ink-400"
-                  style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "0.75rem" }}
-                >
-                  [ INFOGRAPHIC: {step.title} ]
-                </p>
+              {/* Step image */}
+              <div className="w-full aspect-video relative rounded-2xl overflow-hidden mt-8 ring-1 ring-white/10">
+                <Image
+                  src={step.image}
+                  alt={step.imageAlt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink-950/60 to-transparent" />
               </div>
             </StepReveal>
           </div>

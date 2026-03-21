@@ -36,17 +36,17 @@
 
 ### Phase 3 — Products & Process Pages
 
-- [ ] **PROD-01**: Products page hero with Group II+ positioning headline
-- [ ] **PROD-02**: Product spec table (Viscosity Index ≥95, Sulfur <300ppm, Flash Point, Pour Point, Colour ASTM, KV@40°C, KV@100°C)
-- [ ] **PROD-03**: Comparison table — Santosh Group II+ RRBO vs Group I RRBO vs Virgin Group II
-- [ ] **PROD-04**: Available grades section — SN 150, SN 500, Bright Stock (with spec previews)
-- [ ] **PROD-05**: Pack formats — Bulk tanker, 210L drum, IBC with icons
+- [x] **PROD-01**: Products page hero with Group II+ positioning headline
+- [x] **PROD-02**: Product spec table (Viscosity Index ≥95, Sulfur <300ppm, Flash Point, Pour Point, Colour ASTM, KV@40°C, KV@100°C)
+- [x] **PROD-03**: Comparison table — Santosh Group II+ RRBO vs Group I RRBO vs Virgin Group II
+- [x] **PROD-04**: Available grades section — SN 150, SN 500, Bright Stock (with spec previews)
+- [x] **PROD-05**: Pack formats — Bulk tanker, 210L drum, IBC with icons
 - [x] **PROD-06**: TDS download — email capture form gated via Resend, sends confirmation email
 - [ ] **PROD-07**: Sample request form on Products page
-- [ ] **PROC-01**: Process page intro — "From used oil to Group II+ in 6 steps"
-- [ ] **PROC-02**: Animated 6-step scroll-triggered diagram with step descriptions
+- [x] **PROC-01**: Process page intro — "From used oil to Group II+ in 6 steps"
+- [x] **PROC-02**: Animated 6-step scroll-triggered diagram with step descriptions
 - [x] **PROC-03**: Lab / technology callout (REVA process technology partnership)
-- [ ] **PROC-04**: CTA linking to Products page
+- [x] **PROC-04**: CTA linking to Products page
 
 ### Phase 4 — Supporting Pages
 

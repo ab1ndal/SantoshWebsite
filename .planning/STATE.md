@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 03-products-process plan 01 — ContactForm, CTA updates, IOC copy
-last_updated: "2026-03-21T20:11:23.135Z"
+stopped_at: Completed 03-products-process plan 02 — /products and /process pages
+last_updated: "2026-03-21T20:18:54.913Z"
 progress:
   total_phases: 1
   completed_phases: 0
   total_plans: 3
-  completed_plans: 1
+  completed_plans: 2
 ---
 
 # Project State
@@ -23,8 +23,8 @@ See: .planning/PROJECT.md (updated 2026-03-20)
 
 ## Current Status
 
-**Phase:** Phase 3 — Products & Process (plan 1 of 3 complete)
-**Last action:** 03-01 complete — ContactForm extracted, placeholder PDF created, all CTAs updated to /sample-request, IOC copy in ProcessTeaser/Hero (2026-03-21)
+**Phase:** Phase 3 — Products & Process (plan 2 of 3 complete)
+**Last action:** 03-02 complete — /products page (hero, spec table, comparison, grade cards, pack formats, TDS gate) and /process page (hero, sticky scroll steps, IOCL callout) built (2026-03-21)
 
 ## Phase Progress
 
@@ -32,7 +32,7 @@ See: .planning/PROJECT.md (updated 2026-03-20)
 |-------|------|--------|-------|
 | 1 | Brand Foundation | ✓ Complete | 5 |
 | 2 | Homepage | ✓ Complete | 5 |
-| 3 | Products & Process | ◑ In Progress (1/3 plans done) | 3 |
+| 3 | Products & Process | ◑ In Progress (2/3 plans done) | 3 |
 | 4 | Supporting Pages | ○ Pending | 4 |
 | 5 | Blog & Launch | ○ Pending | 4 |
 
@@ -49,15 +49,19 @@ See: .planning/PROJECT.md (updated 2026-03-20)
 - ContactForm is a standalone client component that owns its own state — FooterCTA is a pure layout wrapper. Enables /contact page to reuse the same form with zero duplication.
 - Indian Oil Technology replaces REVA Process Technologies in all body copy per D-02 (ProcessTeaser + Hero trust strip). CertificationsStrip deferred.
 - All "Request a Sample" CTAs route to /sample-request; "Contact" CTAs route to /contact (D-27, D-28).
+- ProcessSteps uses IntersectionObserver (threshold 0.5) for active step sync — simpler than scroll math with min-h-screen sections.
+- TDS gate collects Phone (required) + Name (required), Email (optional) — phone-first for India B2B follow-up.
+- Sticky panel is desktop-only (hidden lg:flex) — mobile gets linear vertical step flow.
+- IOCLCallout "Indian Oil Technology" headline uses amber-500 to visually distinguish it as the key trust signal.
 
 ## Next Step
 
-Execute 03-02 (/products page) and 03-03 (/process page) plans.
+Execute 03-03 (if it exists) or proceed to Phase 4 — Supporting Pages.
 
 ## Session Continuity
 
-Last session: 2026-03-21T20:11:23.133Z
-Stopped at: Completed 03-products-process plan 01 — ContactForm, CTA updates, IOC copy
+Last session: 2026-03-21T20:18:54.911Z
+Stopped at: Completed 03-products-process plan 02 — /products and /process pages
 Resume file: None
 
 ---

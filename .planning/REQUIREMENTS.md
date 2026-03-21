@@ -41,11 +41,11 @@
 - [ ] **PROD-03**: Comparison table — Santosh Group II+ RRBO vs Group I RRBO vs Virgin Group II
 - [ ] **PROD-04**: Available grades section — SN 150, SN 500, Bright Stock (with spec previews)
 - [ ] **PROD-05**: Pack formats — Bulk tanker, 210L drum, IBC with icons
-- [ ] **PROD-06**: TDS download — email capture form gated via Resend, sends confirmation email
+- [x] **PROD-06**: TDS download — email capture form gated via Resend, sends confirmation email
 - [ ] **PROD-07**: Sample request form on Products page
 - [ ] **PROC-01**: Process page intro — "From used oil to Group II+ in 6 steps"
 - [ ] **PROC-02**: Animated 6-step scroll-triggered diagram with step descriptions
-- [ ] **PROC-03**: Lab / technology callout (REVA process technology partnership)
+- [x] **PROC-03**: Lab / technology callout (REVA process technology partnership)
 - [ ] **PROC-04**: CTA linking to Products page
 
 ### Phase 4 — Supporting Pages

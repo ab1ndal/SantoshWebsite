@@ -50,19 +50,26 @@
 
 ## Phase 3 — Products & Process Pages
 
-**Goal:** The two core commercial pages that convert blender interest into concrete data (TDS download, sample request) and build process credibility.
+**Goal:** Four new routes (/products, /process, /sample-request, /contact) plus site-wide CTA updates. The two core commercial pages convert blender interest into concrete data (TDS download, sample request) and build process credibility with investors and engineers.
 
-**Plans:**
-1. Products page — hero, spec table, comparison table, grade cards
-2. Pack formats + TDS download gate + sample request form (Resend integration)
-3. Process page — intro, animated 6-step scroll diagram, lab callout, CTA
+**Plans:** 1/3 plans executed
+
+Plans:
+- [x] 03-01-PLAN.md — Foundations: ContactForm extraction, placeholder PDF, site-wide CTA updates, REVA→IOC copy fix
+- [ ] 03-02-PLAN.md — /products page (hero, spec table, comparison table, grade cards, pack formats, TDS gate) + /process page (sticky scroll panel, 6 steps, IOC callout, CTA)
+- [ ] 03-03-PLAN.md — /sample-request page + /contact page
 
 **UAT:**
-- Products page at `/products` renders spec table with all columns
-- Comparison table shows Santosh Group II+ vs Group I vs Virgin Group II
-- TDS download gate captures email and triggers Resend confirmation
-- Process diagram animates on scroll (Framer Motion)
+- Products page at `/products` renders spec table with all 7 columns
+- Comparison table shows Santosh Group II+ vs Group I vs Virgin Group II, Santosh column highlighted
+- TDS download gate expands inline, triggers browser PDF download on submit
+- Process diagram animates on scroll (Framer Motion useScroll)
+- Process page IOC callout is prominent, not a footnote
 - Process page CTA links to /products
+- /sample-request form has Name, Address, Phone (required) + Email, Grade, Quantity, Application
+- /contact page renders ContactForm component
+- Nav "Request Sample" CTA routes to /sample-request
+- ProcessTeaser shows "Indian Oil Technology" not "REVA Process Technologies"
 
 **Requirements:** PROD-01 to PROD-07, PROC-01 to PROC-04
 
@@ -115,7 +122,7 @@
 |-------|------|-------|--------------|----------|
 | 1 | Brand Foundation | 5 | FOUND-01–13 | Critical |
 | 2 | Homepage | 5 | HOME-01–10 | Critical |
-| 3 | Products & Process | 3 | PROD-01–07, PROC-01–04 | Core |
+| 3 | Products & Process | 1/3 | In Progress|  |
 | 4 | Supporting Pages | 4 | ABOUT, QUAL, SUST, COLL | High |
 | 5 | Blog & Launch | 4 | BLOG-01–06, INT-01–05 | High |
 
@@ -124,4 +131,5 @@
 
 ---
 *Roadmap created: 2026-03-20*
+*Phase 3 plans finalized: 2026-03-21*
 *Build order follows BRIEF.md Phase 1-4 schedule (Weeks 1–8+)*

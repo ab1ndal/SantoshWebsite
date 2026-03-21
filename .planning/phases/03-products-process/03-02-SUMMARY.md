@@ -129,6 +129,17 @@ None — no external service configuration required.
 - GradeCards link to /sample-request (route may not exist yet — handled in a future plan)
 - IOCLCallout links to /products (live) and /sample-request (future)
 
+## Self-Check: PASSED
+
+- FOUND: src/app/products/page.tsx
+- FOUND: src/app/process/page.tsx
+- FOUND: src/components/sections/products/TDSGate.tsx
+- FOUND: src/components/sections/process/IOCLCallout.tsx
+- FOUND: src/components/sections/process/ProcessSteps.tsx
+- FOUND commit: ae65452
+- FOUND commit: adcb3ca
+- Build: exits 0, /products and /process both rendered as static routes
+
 ---
 *Phase: 03-products-process*
 *Completed: 2026-03-21*

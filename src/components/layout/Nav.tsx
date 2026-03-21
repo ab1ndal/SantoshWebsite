@@ -94,7 +94,7 @@ export default function Nav() {
               Schedule Pickup
             </Link>
             <Link
-              href="/products#sample"
+              href="/sample-request"
               className="text-sm font-semibold px-5 py-2 rounded bg-green-500 text-white hover:bg-green-400 transition-colors duration-200"
               style={{ fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: "0.06em" }}
             >
@@ -139,7 +139,7 @@ export default function Nav() {
                 Schedule Pickup
               </Link>
               <Link
-                href="/products#sample"
+                href="/sample-request"
                 onClick={() => setOpen(false)}
                 className="text-center text-sm font-semibold px-4 py-3 rounded bg-green-500 text-white"
                 style={{ fontFamily: "'Barlow Condensed', sans-serif" }}

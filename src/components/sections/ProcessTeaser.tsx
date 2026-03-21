@@ -120,9 +120,9 @@ export default function ProcessTeaser() {
           </div>
           <div>
             <p className="text-ink-200 text-base leading-relaxed" style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300 }}>
-              REVA Process Technologies (Pune/European) powers our plant. Vacuum distillation
-              with Wiped Film Evaporation, followed by catalytic hydrotreating — the same
-              technology used by global Group II+ producers.
+              Indian Oil Technology powers our plant. Vacuum distillation with Wiped Film
+              Evaporation, followed by catalytic hydrotreating — the same technology trusted
+              by leading Group II+ producers in India.
             </p>
             <Link
               href="/process"

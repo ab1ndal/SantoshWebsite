@@ -14,7 +14,7 @@ const audiences = [
       "Procurement teams at lubricant manufacturers and blending companies need base oil that matches Group II+ virgin specs. Our hydrotreating process delivers the purity, VI, and low sulfur your BS-VI formulations require.",
     ctas: [
       { label: "Download TDS", href: "/products#tds", variant: "secondary" },
-      { label: "Request a Sample →", href: "/products#sample", variant: "primary" },
+      { label: "Request a Sample →", href: "/sample-request", variant: "primary" },
     ],
     accent: "green",
   },

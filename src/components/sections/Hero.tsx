@@ -153,7 +153,7 @@ export default function Hero() {
           {/* CTAs */}
           <div className="flex flex-wrap gap-4 mb-16">
             <Link
-              href="/products#sample"
+              href="/sample-request"
               className="inline-flex items-center gap-2 px-7 py-4 bg-green-500 text-white rounded font-semibold hover:bg-green-400 transition-colors duration-200 shadow-lg shadow-green-900/30"
               style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: "1.05rem", letterSpacing: "0.06em" }}
             >

@@ -6,7 +6,7 @@ const footerLinks = {
     { label: "Group II+ RRBO", href: "/products" },
     { label: "SN 150 Grade", href: "/products#sn150" },
     { label: "SN 500 Grade", href: "/products#sn500" },
-    { label: "Request a Sample", href: "/products#sample" },
+    { label: "Request a Sample", href: "/sample-request" },
     { label: "Download TDS", href: "/products#tds" },
   ],
   Company: [
@@ -15,6 +15,7 @@ const footerLinks = {
     { label: "Sustainability", href: "/sustainability" },
     { label: "Quality & Certs", href: "/quality" },
     { label: "Insights", href: "/insights" },
+    { label: "Contact Us", href: "/contact" },
   ],
   "Used Oil Collection": [
     { label: "Schedule a Pickup", href: "/collect" },

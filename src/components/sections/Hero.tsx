@@ -214,8 +214,8 @@ export default function Hero() {
                   <Image
                     src="/indian-oil-logo.svg"
                     alt="Indian Oil Corporation"
-                    width={24}
-                    height={24}
+                    width={40}
+                    height={40}
                     className="object-contain"
                   />
                   <span
@@ -230,8 +230,8 @@ export default function Hero() {
                   <Image
                     src="/santosh-logo.svg"
                     alt="Santosh Petrochemical"
-                    width={20}
-                    height={20}
+                    width={30}
+                    height={40}
                     className="object-contain brightness-0 invert"
                   />
                   <span

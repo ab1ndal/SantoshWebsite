@@ -52,12 +52,12 @@
 
 **Goal:** Four new routes (/products, /process, /sample-request, /contact) plus site-wide CTA updates. The two core commercial pages convert blender interest into concrete data (TDS download, sample request) and build process credibility with investors and engineers.
 
-**Plans:** 2/3 plans executed
+**Plans:** 3/3 plans complete
 
 Plans:
 - [x] 03-01-PLAN.md — Foundations: ContactForm extraction, placeholder PDF, site-wide CTA updates, REVA→IOC copy fix
 - [x] 03-02-PLAN.md — /products page (hero, spec table, comparison table, grade cards, pack formats, TDS gate) + /process page (sticky scroll panel, 6 steps, IOC callout, CTA)
-- [ ] 03-03-PLAN.md — /sample-request page + /contact page
+- [x] 03-03-PLAN.md — /sample-request page + /contact page
 
 **UAT:**
 - Products page at `/products` renders spec table with all 7 columns
@@ -122,7 +122,7 @@ Plans:
 |-------|------|-------|--------------|----------|
 | 1 | Brand Foundation | 5 | FOUND-01–13 | Critical |
 | 2 | Homepage | 5 | HOME-01–10 | Critical |
-| 3 | Products & Process | 2/3 | In Progress|  |
+| 3 | Products & Process | 3/3 | Complete   | 2026-03-21 |
 | 4 | Supporting Pages | 4 | ABOUT, QUAL, SUST, COLL | High |
 | 5 | Blog & Launch | 4 | BLOG-01–06, INT-01–05 | High |
 

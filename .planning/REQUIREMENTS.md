@@ -42,7 +42,7 @@
 - [x] **PROD-04**: Available grades section — SN 150, SN 500, Bright Stock (with spec previews)
 - [x] **PROD-05**: Pack formats — Bulk tanker, 210L drum, IBC with icons
 - [x] **PROD-06**: TDS download — email capture form gated via Resend, sends confirmation email
-- [ ] **PROD-07**: Sample request form on Products page
+- [x] **PROD-07**: Sample request form on Products page
 - [x] **PROC-01**: Process page intro — "From used oil to Group II+ in 6 steps"
 - [x] **PROC-02**: Animated 6-step scroll-triggered diagram with step descriptions
 - [x] **PROC-03**: Lab / technology callout (REVA process technology partnership)

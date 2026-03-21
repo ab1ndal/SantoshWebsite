@@ -58,17 +58,17 @@ export default function WhyGroupII() {
   }, []);
 
   return (
-    <section className="bg-ink-800 py-28 overflow-hidden">
+    <section className="bg-white py-28 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="mb-16">
           <p className="section-label mb-3">05 · WHY GROUP II+</p>
           <h2
-            className="text-[clamp(2rem,4vw,3rem)] leading-tight text-white max-w-3xl"
+            className="text-[clamp(2rem,4vw,3rem)] leading-tight text-gray-900 max-w-3xl"
             style={{ fontFamily: "'Bebas Neue', sans-serif" }}
           >
             Group I was sufficient for BS-IV.{" "}
-            <span className="text-green-400">
+            <span className="text-green-600">
               BS-VI needs Group II+.
             </span>
           </h2>
@@ -78,7 +78,7 @@ export default function WhyGroupII() {
           {/* Left: Spec comparison */}
           <div>
             <h3
-              className="text-lg font-bold text-ink-100 mb-8"
+              className="text-lg font-bold text-gray-800 mb-8"
               style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
             >
               Technical comparison: Group I RRBO vs Santosh Group II+
@@ -96,7 +96,7 @@ export default function WhyGroupII() {
                 >
                   <div className="flex justify-between items-baseline mb-2">
                     <span
-                      className="text-sm text-ink-200"
+                      className="text-sm text-gray-600"
                       style={{ fontFamily: "'JetBrains Mono', monospace" }}
                     >
                       {spec.property} {spec.unit}
@@ -106,16 +106,16 @@ export default function WhyGroupII() {
                   {/* Group I bar */}
                   <div className="mb-2">
                     <div className="flex justify-between text-xs mb-1">
-                      <span className="text-ink-400">Group I (adsorption)</span>
-                      <span className="text-ink-200 font-mono">{spec.groupI.value}</span>
+                      <span className="text-gray-500">Group I (adsorption)</span>
+                      <span className="text-gray-600 font-mono">{spec.groupI.value}</span>
                     </div>
-                    <div className="h-2 bg-ink-700 rounded-full overflow-hidden">
+                    <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-ink-400 rounded-full transition-all duration-1000"
+                        className="h-full bg-gray-400 rounded-full transition-all duration-1000"
                         style={{ width: visible ? `${spec.groupI.raw}%` : "0%" }}
                       />
                     </div>
-                    <div className="text-xs text-ink-400 mt-1">{spec.groupI.label}</div>
+                    <div className="text-xs text-gray-500 mt-1">{spec.groupI.label}</div>
                   </div>
 
                   {/* Group II+ bar */}
@@ -124,7 +124,7 @@ export default function WhyGroupII() {
                       <span className="text-green-400">Santosh Group II+ (hydrotreating)</span>
                       <span className="text-green-400 font-mono">{spec.groupIIPlus.value}</span>
                     </div>
-                    <div className="h-2 bg-ink-700 rounded-full overflow-hidden">
+                    <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
                       <div
                         className="h-full bg-green-500 rounded-full transition-all duration-1000"
                         style={{
@@ -141,7 +141,7 @@ export default function WhyGroupII() {
 
             {/* Footnote */}
             <p
-              className="mt-8 text-xs text-ink-400 leading-relaxed"
+              className="mt-8 text-xs text-gray-400 leading-relaxed"
               style={{ fontFamily: "'JetBrains Mono', monospace" }}
             >
               * Sulfur measured in ppm for Group II+, % for Group I. Group I RRBO spec per
@@ -154,7 +154,7 @@ export default function WhyGroupII() {
             {technologyPoints.map((point, i) => (
               <div
                 key={point.title}
-                className="p-6 rounded-xl border border-ink-600/40 bg-ink-700/30 hover:border-green-500/30 transition-colors duration-300"
+                className="p-6 rounded-xl border border-gray-200 bg-gray-50 hover:border-green-400/50 transition-colors duration-300"
                 style={{
                   opacity: visible ? 1 : 0,
                   transform: visible ? "translateX(0)" : "translateX(20px)",
@@ -162,18 +162,18 @@ export default function WhyGroupII() {
                 }}
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <div className="w-2 h-2 rounded-full bg-green-400" />
+                  <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <div className="w-2 h-2 rounded-full bg-green-500" />
                   </div>
                   <div>
                     <h4
-                      className="text-base font-bold text-white mb-2"
+                      className="text-base font-bold text-gray-900 mb-2"
                       style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}
                     >
                       {point.title}
                     </h4>
                     <p
-                      className="text-sm text-ink-200 leading-relaxed"
+                      className="text-sm text-gray-600 leading-relaxed"
                       style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300 }}
                     >
                       {point.body}
@@ -185,7 +185,7 @@ export default function WhyGroupII() {
 
             {/* Key stat */}
             <div
-              className="p-6 rounded-xl border border-amber-500/30 bg-amber-500/5"
+              className="p-6 rounded-xl border border-amber-400/40 bg-amber-50"
               style={{
                 opacity: visible ? 1 : 0,
                 transition: "opacity 0.5s ease 0.5s",
@@ -198,7 +198,7 @@ export default function WhyGroupII() {
                 66% LESS ENERGY
               </div>
               <p
-                className="text-sm text-ink-200"
+                className="text-sm text-gray-600"
                 style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300 }}
               >
                 Re-refining uses 66% less energy than producing virgin base oil from crude.

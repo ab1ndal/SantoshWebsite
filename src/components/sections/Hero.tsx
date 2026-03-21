@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Hero() {
@@ -179,22 +180,69 @@ export default function Hero() {
           </div>
 
           {/* Trust strip */}
-          <div className="flex flex-wrap items-center gap-6">
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
+            {/* Text badges */}
             {[
-              { label: "EPR Registered", icon: "✓" },
-              { label: "CPCB Compliant", icon: "✓" },
-              { label: "Group II+ via Hydrotreating", icon: "✓" },
-              { label: "Indian Oil Technology", icon: "✓" },
+              { label: "EPR Registered" },
+              { label: "CPCB Compliant" },
+              { label: "Group II+ via Hydrotreating" },
             ].map((item) => (
               <div
                 key={item.label}
                 className="flex items-center gap-2 text-sm text-ink-200"
                 style={{ fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: "0.04em" }}
               >
-                <span className="text-green-400 font-bold">{item.icon}</span>
+                <span className="text-green-400 font-bold">✓</span>
                 {item.label}
               </div>
             ))}
+
+            {/* Divider */}
+            <div className="hidden sm:block w-px h-6 bg-ink-600" />
+
+            {/* Technology partner logos */}
+            <div className="flex items-center gap-4">
+              <span
+                className="text-xs text-ink-500 uppercase tracking-widest"
+                style={{ fontFamily: "'JetBrains Mono', monospace" }}
+              >
+                Technology
+              </span>
+              <div className="flex items-center gap-3">
+                {/* Indian Oil logo */}
+                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-white/8 border border-white/10">
+                  <Image
+                    src="/indian-oil-logo.svg"
+                    alt="Indian Oil Corporation"
+                    width={24}
+                    height={24}
+                    className="object-contain"
+                  />
+                  <span
+                    className="text-xs text-ink-200"
+                    style={{ fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: "0.04em" }}
+                  >
+                    Indian Oil
+                  </span>
+                </div>
+                {/* Santosh logo */}
+                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-white/8 border border-white/10">
+                  <Image
+                    src="/santosh-logo.svg"
+                    alt="Santosh Petrochemical"
+                    width={20}
+                    height={20}
+                    className="object-contain brightness-0 invert"
+                  />
+                  <span
+                    className="text-xs text-ink-200"
+                    style={{ fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: "0.04em" }}
+                  >
+                    Santosh
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

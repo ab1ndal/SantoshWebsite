@@ -184,7 +184,7 @@ export default function Hero() {
               { label: "EPR Registered", icon: "✓" },
               { label: "CPCB Compliant", icon: "✓" },
               { label: "Group II+ via Hydrotreating", icon: "✓" },
-              { label: "REVA Process Technology", icon: "✓" },
+              { label: "Indian Oil Technology", icon: "✓" },
             ].map((item) => (
               <div
                 key={item.label}

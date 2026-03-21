@@ -5,6 +5,7 @@ const grades = ["", "SN 150", "SN 500", "Bright Stock", "Multiple / Unsure"];
 
 export default function SampleRequestForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState<{ name?: string; address?: string; phone?: string }>({});
   const [form, setForm] = useState({
     name: "",
     address: "",
@@ -17,7 +18,16 @@ export default function SampleRequestForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Sample request:", form); // Phase 5: Resend + WhatsApp
+    const newErrors: { name?: string; address?: string; phone?: string } = {};
+    if (!form.name.trim()) newErrors.name = "Full name is required";
+    if (!form.address.trim()) newErrors.address = "Delivery address is required";
+    if (!form.phone.trim()) newErrors.phone = "Phone number is required";
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+    setErrors({});
+    // API call happens in plan 03-05
     setSubmitted(true);
   };
 
@@ -71,6 +81,7 @@ export default function SampleRequestForm() {
           placeholder="Lalit Bindal"
           style={{ fontFamily: "'Barlow', sans-serif" }}
         />
+        {errors.name && <p className="mt-1 text-xs text-red-400" style={{ fontFamily: "'Barlow', sans-serif" }}>{errors.name}</p>}
       </div>
 
       {/* Address * */}
@@ -91,6 +102,7 @@ export default function SampleRequestForm() {
           placeholder="Factory / plant address"
           style={{ fontFamily: "'Barlow', sans-serif" }}
         />
+        {errors.address && <p className="mt-1 text-xs text-red-400" style={{ fontFamily: "'Barlow', sans-serif" }}>{errors.address}</p>}
       </div>
 
       {/* Phone * */}
@@ -111,6 +123,7 @@ export default function SampleRequestForm() {
           placeholder="+91 98101 21438"
           style={{ fontFamily: "'Barlow', sans-serif" }}
         />
+        {errors.phone && <p className="mt-1 text-xs text-red-400" style={{ fontFamily: "'Barlow', sans-serif" }}>{errors.phone}</p>}
       </div>
 
       {/* Email (optional) */}

@@ -1,0 +1,9 @@
+{
+  "mode": "yolo",
+  "granularity": "coarse",
+  "execution": "parallel",
+  "research": true,
+  "commit_docs": true,
+  "plan_check": true,
+  "version": "1.0"
+}

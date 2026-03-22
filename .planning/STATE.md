@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 03-products-process plan 03 — /sample-request and /contact CTA destination pages
-last_updated: "2026-03-21T20:27:50.581Z"
+stopped_at: Completed 03-products-process plan 04 — UI polish and project-wide form validation
+last_updated: "2026-03-21T21:00:00.000Z"
 progress:
   total_phases: 1
   completed_phases: 1
-  total_plans: 3
-  completed_plans: 3
+  total_plans: 4
+  completed_plans: 4
 ---
 
 # Project State
@@ -23,8 +23,8 @@ See: .planning/PROJECT.md (updated 2026-03-20)
 
 ## Current Status
 
-**Phase:** 03 of 3 (plan 3 of 3 complete — PHASE COMPLETE)
-**Last action:** 03-03 complete — /sample-request page (SampleRequestForm, 7 fields, WhatsApp fallback) and /contact page (shared ContactForm, direct contact details) built (2026-03-21)
+**Phase:** 03 of 3 (plan 4 of 5 complete)
+**Last action:** 03-04 complete — Hero trust strip logos standardized to 40x40, required-field validation added to ContactForm and TDSGate (all 3 project forms now validated) (2026-03-21)
 
 ## Phase Progress
 
@@ -32,7 +32,7 @@ See: .planning/PROJECT.md (updated 2026-03-20)
 |-------|------|--------|-------|
 | 1 | Brand Foundation | ✓ Complete | 5 |
 | 2 | Homepage | ✓ Complete | 5 |
-| 3 | Products & Process | ✓ Complete | 3 |
+| 3 | Products & Process | In Progress | 4/5 |
 | 4 | Supporting Pages | ○ Pending | 4 |
 | 5 | Blog & Launch | ○ Pending | 4 |
 
@@ -59,13 +59,19 @@ See: .planning/PROJECT.md (updated 2026-03-20)
 
 ## Next Step
 
-Proceed to Phase 4 — Supporting Pages (About, Quality & Certifications, Sustainability, Used Oil Collection).
+Complete Phase 3 plan 05 (03-05-PLAN.md), then proceed to Phase 4 — Supporting Pages (About, Quality & Certifications, Sustainability, Used Oil Collection).
 
 ## Session Continuity
 
-Last session: 2026-03-21T20:23:41.154Z
-Stopped at: Completed 03-products-process plan 03 — /sample-request and /contact CTA destination pages
+Last session: 2026-03-21T21:00:00.000Z
+Stopped at: Completed 03-products-process plan 04 — UI polish and project-wide form validation
 Resume file: None
 
+## Key Decisions (Plan 03-04)
+
+- Both trust strip logos standardized to 40x40; portrait Santosh SVG uses object-contain so it scales correctly
+- Consistent validation pattern across all 3 forms: useState errors object, trim() empty check, noValidate, mt-1 text-xs text-red-400 Barlow inline messages
+- ContactForm email validated with .includes('@') — lightweight check, server-side validation deferred to Phase 5 Resend integration
+
 ---
-*Updated: 2026-03-21 after Phase 3 context discussion*
+*Updated: 2026-03-21 after plan 03-04 completion*

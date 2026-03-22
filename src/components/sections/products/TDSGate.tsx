@@ -13,9 +13,22 @@ export default function TDSGate() {
   const [expanded, setExpanded] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState<FormState>({ name: "", phone: "", email: "" });
+  const [errors, setErrors] = useState<{ name?: string; phone?: string }>({});
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const newErrors: { name?: string; phone?: string } = {};
+    if (!form.name.trim()) {
+      newErrors.name = "Full name is required";
+    }
+    if (!form.phone.trim()) {
+      newErrors.phone = "Phone number is required";
+    }
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+    setErrors({});
     const a = document.createElement("a");
     a.href = "/santosh-tds-placeholder.pdf";
     a.download = "Santosh-Group-II-Plus-TDS.pdf";
@@ -107,6 +120,9 @@ export default function TDSGate() {
                         placeholder="Your full name"
                         style={{ fontFamily: "'Barlow', sans-serif" }}
                       />
+                      {errors.name && (
+                        <p className="mt-1 text-xs text-red-400" style={{ fontFamily: "'Barlow', sans-serif" }}>{errors.name}</p>
+                      )}
                     </div>
                     <div>
                       <label
@@ -126,6 +142,9 @@ export default function TDSGate() {
                         placeholder="+91 98765 43210"
                         style={{ fontFamily: "'Barlow', sans-serif" }}
                       />
+                      {errors.phone && (
+                        <p className="mt-1 text-xs text-red-400" style={{ fontFamily: "'Barlow', sans-serif" }}>{errors.phone}</p>
+                      )}
                     </div>
                     <div>
                       <label

@@ -44,6 +44,10 @@ export default function TDSGate() {
     } catch (err) {
       console.error("TDS lead capture error:", err);
     }
+    // PostHog event tracking (D-16)
+    if (typeof window !== "undefined" && (window as any).posthog) {
+      (window as any).posthog.capture("tds_download");
+    }
     setSubmitted(true);
   };
 

@@ -36,6 +36,10 @@ export default function SampleRequestForm() {
     } catch (err) {
       console.error("Sample request submission error:", err);
     }
+    // PostHog event tracking (D-16)
+    if (typeof window !== "undefined" && (window as any).posthog) {
+      (window as any).posthog.capture("sample_request");
+    }
     setSubmitted(true);
   };
 

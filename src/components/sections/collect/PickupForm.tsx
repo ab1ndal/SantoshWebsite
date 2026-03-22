@@ -35,6 +35,10 @@ export default function PickupForm() {
     } catch (err) {
       console.error("Pickup form submission error:", err);
     }
+    // PostHog event tracking (D-16)
+    if (typeof window !== "undefined" && (window as any).posthog) {
+      (window as any).posthog.capture("pickup_booking");
+    }
     setSubmitting(false);
     setSubmitted(true);
   };

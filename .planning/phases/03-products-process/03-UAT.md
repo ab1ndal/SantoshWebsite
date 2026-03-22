@@ -1,18 +1,14 @@
 ---
-status: testing
+status: diagnosed
 phase: 03-products-process
 source: [03-01-SUMMARY.md, 03-02-SUMMARY.md, 03-03-SUMMARY.md]
 started: 2026-03-21T20:35:00Z
-updated: 2026-03-21T20:35:00Z
+updated: 2026-03-21T21:10:00Z
 ---
 
 ## Current Test
 
-number: 11
-name: Process steps sticky panel + scroll animation
-expected: |
-  On /process (desktop), as you scroll through the 6 steps, a sticky left panel should track the active step — showing the current step's title and technical parameters. Each step should animate in as you scroll to it (fade/slide up from Framer Motion). On mobile, steps show vertically without a sticky panel.
-awaiting: user response
+[testing complete]
 
 ## Tests
 
@@ -67,30 +63,71 @@ severity: major
 
 ### 12. IOCL callout section
 expected: On /process, after the 6 steps, there should be an "Indian Oil Technology" callout section. The text "Indian Oil Technology" should appear in amber/yellow color (not white). There should be a CTA button linking to /products.
-result: [pending]
+result: pass
 
 ### 13. /sample-request page loads with form
 expected: Navigate to /sample-request. The page should load with a two-column layout: left side has context copy about the sample request process, right side has a form card. The form has fields for Name, Address, Phone (all required), and Email, Grade, Quantity, Application (all optional).
-result: [pending]
+result: pass
 
 ### 14. Sample request form — validation and success state
 expected: On /sample-request, try submitting the form without Name/Address/Phone — it should show validation errors or refuse to submit. Fill in all required fields and submit — you should see a success state with a confirmation message and a WhatsApp link (wa.me/...) as a fallback contact option.
-result: [pending]
+result: issue
+reported: "I was able to send a sample request without putting in required fields"
+severity: major
 
 ### 15. /contact page loads with ContactForm
 expected: Navigate to /contact. The page should load with the site's shared contact form (Name, Email, Message fields) on the right, and direct contact details on the left — phone number, email address, and Ghaziabad address. No duplicate form implementations.
-result: [pending]
+result: pass
 
 ## Summary
 
 total: 15
-passed: 8
-issues: 2
-pending: 5
+passed: 11
+issues: 3
+pending: 0
 skipped: 1
-skipped: 0
 blocked: 0
 
 ## Gaps
 
-[none yet]
+- truth: "Hero trust strip should display readable Indian Oil and Santosh logos, not just text labels"
+  status: failed
+  reason: "User reported: Trust strip uses text labels, not real logos — needs Indian Oil logo from web and real Santosh Petrochemical logo from /asset/"
+  severity: major
+  test: 4
+  root_cause: "Logo <Image> tags exist in Hero.tsx (lines 213-243) but are rendered at 24x24 and 20x20 — too small for both SVGs. Santosh logo has a 838x1100 portrait viewBox that squishes to nothing; IOCL emblem is unreadable at 24px. Only text labels are visible."
+  artifacts:
+    - path: "src/components/sections/Hero.tsx"
+      issue: "Indian Oil Image at width=24 height=24 (unreadable); Santosh Image at width=20 height=20 with 838x1100 portrait SVG (invisible)"
+  missing:
+    - "Increase Santosh logo to ~width=28 height=37 (or height=40px auto-width)"
+    - "Increase Indian Oil logo to at least width=40 height=40 so circular emblem is readable"
+  debug_session: ".planning/debug/hero-trust-strip-logos.md"
+
+- truth: "Form should refuse to submit without Name, Address, and Phone — show validation errors on required fields"
+  status: failed
+  reason: "User reported: I was able to send a sample request without putting in required fields"
+  severity: major
+  test: 14
+  root_cause: "SampleRequestForm.tsx has noValidate on the <form> (disables browser validation) AND handleSubmit unconditionally calls setSubmitted(true) with zero field checks. No errors state or error message JSX exists."
+  artifacts:
+    - path: "src/components/ui/SampleRequestForm.tsx"
+      issue: "noValidate disables browser validation; handleSubmit has no guards; no errors state or error UI"
+  missing:
+    - "Add errors useState object for name/address/phone"
+    - "Add validation checks in handleSubmit before setSubmitted(true)"
+    - "Add error message JSX beneath each required field"
+  debug_session: ".planning/debug/sample-request-validation-bypass.md"
+
+- truth: "Sample request form submissions should be saved to Google Sheets for tracking"
+  status: failed
+  reason: "User requested: save form data to Google Sheets (https://docs.google.com/spreadsheets/d/1oc5WnrHE_MA139bN5X7PF6bEYZCbkNJz8LA5LlO09vI/)"
+  severity: major
+  test: 14
+  root_cause: "Feature not implemented — form currently only logs to console and shows success state"
+  artifacts:
+    - path: "src/components/ui/SampleRequestForm.tsx"
+      issue: "handleSubmit does console.log only, no API call to Google Sheets"
+  missing:
+    - "Google Sheets API route (app/api/sample-request/route.ts) to append rows"
+    - "Form submission to call the API route with collected data"

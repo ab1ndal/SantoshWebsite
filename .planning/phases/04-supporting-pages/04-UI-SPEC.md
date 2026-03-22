@@ -55,15 +55,15 @@ Source: Extracted from globals.css patterns and existing component audit (Sustai
 
 | Role | Font Family | Size | Weight | Line Height | Usage |
 |------|-------------|------|--------|-------------|-------|
-| Body | Barlow | 16px (1rem) | 300 (light) / 400 (regular) | 1.6 | All paragraph text, form inputs, card body copy |
 | Label | JetBrains Mono | 12px (0.75rem) | 400 | 1.4 | Section labels (`.section-label`), form field labels (uppercase, `tracking-widest`) |
-| Subheading | Barlow Condensed | 16px–20px (1rem–1.25rem) | 600–700 | 1.3 | Card titles, stat labels, button text |
-| Heading | Bebas Neue | `clamp(1.75rem, 3vw, 2.5rem)` | 400 (Bebas Neue has single weight) | 1.2 | Section h2 headings |
-| Display | Bebas Neue | `clamp(2rem, 4vw, 3rem)` | 400 | 1.1 | Page hero headlines |
+| Body | Barlow | 16px (1rem) | 400 | 1.6 | All paragraph text, form inputs, card body copy |
+| Subheading | Barlow Condensed | 20px (1.25rem) | 600 | 1.3 | Card titles, stat labels, button text |
+| Hero | Bebas Neue | `clamp(1.75rem, 4vw, 3rem)` | 400 (Bebas Neue single weight) | 1.1–1.2 | Page hero headlines and section h2 headings (scale via clamp — larger end for hero, smaller end for section heads) |
 
-Typography rules:
-- Body weight 300 for supporting/descriptive paragraphs; weight 400 for higher-emphasis body copy
-- Stat values (numbers) use Bebas Neue at 24px–32px, amber-500 color
+Implementation notes:
+- Body weight 300 (Barlow light) is used for supporting/descriptive paragraphs; weight 400 for higher-emphasis body copy. Both map to the canonical 400 body role at spec level.
+- Barlow Condensed Subheading may render at 700/bold for highest-emphasis labels (e.g. promoter name, CTA button). Both map to the canonical 600 semibold role at spec level.
+- Stat values (numbers) use Bebas Neue at 24px–32px, amber-500 color — size variant within the Hero role.
 - Form submit button: Barlow Condensed, 16px, semibold (`font-semibold`), `letter-spacing: 0.06em`
 - No mixing of Bebas Neue and Barlow Condensed on the same line
 
@@ -100,7 +100,7 @@ Source: globals.css token list, SustainabilitySnapshot.tsx, ContactForm.tsx.
 
 ### /about
 
-**Hero:** dark full-width (`bg-ink-950`) with `gradient-mesh` overlay. Headline uses Display typography (Bebas Neue, clamp 2rem–3rem). Lead copy uses Barlow weight 300.
+**Hero:** dark full-width (`bg-ink-950`) with `gradient-mesh` overlay. Headline uses Hero typography (Bebas Neue, clamp 1.75rem–3rem). Lead copy uses Barlow weight 300.
 
 **Two-section layout:**
 1. Company & Credibility — Barlow body text, structured paragraphs. Milestone framing callout block: `border-l-2 border-green-500 pl-4` with mono label "PLANT COMMISSIONING" in amber. No visual timeline.
@@ -126,7 +126,7 @@ Source: globals.css token list, SustainabilitySnapshot.tsx, ContactForm.tsx.
 
 ### /sustainability
 
-**Hero:** `bg-ink-950` with `gradient-mesh` overlay. Environmental opportunity framing ("Turning India's Used Oil Problem Into an Opportunity"). Headline Display typography. Lead copy weight 300.
+**Hero:** `bg-ink-950` with `gradient-mesh` overlay. Environmental opportunity framing ("Turning India's Used Oil Problem Into an Opportunity"). Headline Hero typography. Lead copy weight 300.
 
 **EPR Progress Bars (client component `EPRProgressBars.tsx`):**
 - Architecture: IntersectionObserver (threshold 0.2) + CSS transition — exact same pattern as `SustainabilitySnapshot.tsx`. Do NOT use Framer Motion here.
@@ -150,7 +150,7 @@ Source: globals.css token list, SustainabilitySnapshot.tsx, ContactForm.tsx.
 
 ### /collect
 
-**Hero:** `bg-ink-950`. Warm/accessible tone. Headline: "We pick up. You get paid. No hassle." — Bebas Neue Display typography. Subhead: "Turn your used engine oil into income. We handle collection, paperwork, and payment." — Barlow weight 300 ink-200.
+**Hero:** `bg-ink-950`. Warm/accessible tone. Headline: "We pick up. You get paid. No hassle." — Bebas Neue Hero typography. Subhead: "Turn your used engine oil into income. We handle collection, paperwork, and payment." — Barlow weight 300 ink-200.
 
 **How it works (process steps):** 3–4 steps in horizontal card row on desktop, stacked on mobile. Same card style as AudienceCards (not ProcessSteps sticky scroll — this is a simple static list). Step number in JetBrains Mono amber-500. Step title in Barlow Condensed 18px semibold. Description in Barlow 14px ink-200.
 

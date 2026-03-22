@@ -16,7 +16,7 @@ export default function SampleRequestForm() {
     application: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const newErrors: { name?: string; address?: string; phone?: string } = {};
     if (!form.name.trim()) newErrors.name = "Full name is required";
@@ -27,7 +27,15 @@ export default function SampleRequestForm() {
       return;
     }
     setErrors({});
-    // API call happens in plan 03-05
+    try {
+      await fetch("/api/sample-request", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+    } catch (err) {
+      console.error("Sample request submission error:", err);
+    }
     setSubmitted(true);
   };
 

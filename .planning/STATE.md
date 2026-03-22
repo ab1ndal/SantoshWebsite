@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 05-03-PLAN.md
-last_updated: "2026-03-22T20:26:52.032Z"
+stopped_at: "Completed 05-04-PLAN.md (checkpoint:human-verify pending)"
+last_updated: "2026-03-22T20:33:41.107Z"
 progress:
   total_phases: 3
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 13
-  completed_plans: 12
+  completed_plans: 13
 ---
 
 # Project State
@@ -34,7 +34,7 @@ See: .planning/PROJECT.md (updated 2026-03-20)
 | 2 | Homepage | ✓ Complete | 5 |
 | 3 | Products & Process | ✓ Complete | 5/5 |
 | 4 | Supporting Pages | ✓ Complete | 4/4 |
-| 5 | Blog & Launch | ◑ In Progress | 1/4 |
+| 5 | Blog & Launch | ◑ In Progress | 4/4 (checkpoint pending) |
 
 ## Key Context
 
@@ -85,8 +85,8 @@ Phase 5 in progress (1/4 plans done). Proceed to 05-02-PLAN.md — /insights lis
 
 ## Session Continuity
 
-Last session: 2026-03-22T20:26:52.030Z
-Stopped at: Completed 05-03-PLAN.md
+Last session: 2026-03-22T20:33:41.105Z
+Stopped at: Completed 05-04-PLAN.md (checkpoint:human-verify pending)
 Resume file: None
 
 ## Key Decisions (Plan 03-04)
@@ -131,5 +131,15 @@ Resume file: None
 - sitemap.ts wraps Sanity fetch in try/catch — serves static routes even if Sanity fetch fails (D-18)
 - posthog.capture placed after fetch completes — only fires on successful form submissions, not before
 
+## Key Decisions (Plan 05-04)
+
+- Resend client instantiated inside POST handler (lazy init), not at module level — prevents build failure when RESEND_API_KEY not set (e.g., CI/build environments)
+- Seed articles authored at ~840 words avg — educational tone, sourced from verified PROJECT.md and MARKET.md data, no fabricated claims
+- Deployment checklist added to .env.example covering all 7 steps: Sanity, Resend, PostHog, Vercel env vars, preview deployments (D-20), seed content, custom domain
+
+## Next Step
+
+Phase 5 complete pending Task 3 human-verify checkpoint. User must review Phase 5 output and type "approved" to close out.
+
 ---
-*Updated: 2026-03-22 after plan 05-03 completion*
+*Updated: 2026-03-22 after plan 05-04 tasks 1-2 completion (checkpoint:human-verify pending)*

@@ -63,15 +63,15 @@
 
 - [x] **BLOG-01**: Insights listing page with Sanity-powered blog posts
 - [x] **BLOG-02**: Individual blog post page with [slug] routing
-- [ ] **BLOG-03**: Seed post — "What is Group II+ Base Oil and Why India's Lubricant Industry is Shifting to It"
-- [ ] **BLOG-04**: Seed post — "EPR Compliance Guide 2026: What Lubricant Manufacturers Need to Know"
-- [ ] **BLOG-05**: Seed post — "Re-Refined Base Oil vs Virgin Base Oil: A Technical Comparison"
-- [ ] **BLOG-06**: Seed post — "How to Properly Dispose of Used Engine Oil in the NCR Region"
+- [x] **BLOG-03**: Seed post — "What is Group II+ Base Oil and Why India's Lubricant Industry is Shifting to It"
+- [x] **BLOG-04**: Seed post — "EPR Compliance Guide 2026: What Lubricant Manufacturers Need to Know"
+- [x] **BLOG-05**: Seed post — "Re-Refined Base Oil vs Virgin Base Oil: A Technical Comparison"
+- [x] **BLOG-06**: Seed post — "How to Properly Dispose of Used Engine Oil in the NCR Region"
 - [x] **INT-01**: Resend email integration — TDS download confirmation + enquiry notification emails
 - [x] **INT-02**: PostHog analytics — event tracking for TDS downloads, sample requests, pickup bookings
 - [x] **INT-03**: Schema.org structured data — Organization, Product, LocalBusiness types
 - [x] **INT-04**: Sitemap and robots.txt generated
-- [ ] **INT-05**: Vercel deployment with production domain configured
+- [x] **INT-05**: Vercel deployment with production domain configured
 
 ## v2 Requirements
 

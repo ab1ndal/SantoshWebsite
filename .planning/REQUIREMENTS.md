@@ -61,8 +61,8 @@
 
 ### Phase 5 — Blog, Integrations & Launch
 
-- [ ] **BLOG-01**: Insights listing page with Sanity-powered blog posts
-- [ ] **BLOG-02**: Individual blog post page with [slug] routing
+- [x] **BLOG-01**: Insights listing page with Sanity-powered blog posts
+- [x] **BLOG-02**: Individual blog post page with [slug] routing
 - [ ] **BLOG-03**: Seed post — "What is Group II+ Base Oil and Why India's Lubricant Industry is Shifting to It"
 - [ ] **BLOG-04**: Seed post — "EPR Compliance Guide 2026: What Lubricant Manufacturers Need to Know"
 - [ ] **BLOG-05**: Seed post — "Re-Refined Base Oil vs Virgin Base Oil: A Technical Comparison"

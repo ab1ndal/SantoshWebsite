@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 04-04-PLAN.md
-last_updated: "2026-03-22T06:00:51.447Z"
+stopped_at: "Completed 05-01-PLAN.md (checkpoint:human-verify at Task 3)"
+last_updated: "2026-03-22T20:00:23.891Z"
 progress:
-  total_phases: 2
+  total_phases: 3
   completed_phases: 2
-  total_plans: 9
-  completed_plans: 9
+  total_plans: 13
+  completed_plans: 10
 ---
 
 # Project State
@@ -19,12 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-20)
 
 **Core value:** Position Santosh as India's premium Group II+ RRBO producer and generate qualified leads
-**Current focus:** Phase 04 — supporting-pages
+**Current focus:** Phase 05 — blog-launch
 
 ## Current Status
 
-**Phase:** 04 of 5 (supporting pages)
-**Last action:** 04-04 complete — /collect page created (Server Component with hero, 3-step process, 7-city service area, PickupForm client component, WhatsApp CTA block; /api/collect-pickup route writes to 'Collect Pickup' Google Sheets tab) (2026-03-22)
+**Phase:** 05 of 5 (blog-launch)
+**Last action:** 05-01 complete — Sanity CMS foundation installed: @sanity/client, next-sanity, + 4 more Phase 5 packages; sanity client singleton, Post interface, GROQ queries, post schema, sanity.config.ts, and embedded Studio route at /studio created (2026-03-22)
 
 ## Phase Progress
 
@@ -34,7 +34,7 @@ See: .planning/PROJECT.md (updated 2026-03-20)
 | 2 | Homepage | ✓ Complete | 5 |
 | 3 | Products & Process | ✓ Complete | 5/5 |
 | 4 | Supporting Pages | ✓ Complete | 4/4 |
-| 5 | Blog & Launch | ○ Pending | 4 |
+| 5 | Blog & Launch | ◑ In Progress | 1/4 |
 
 ## Key Context
 
@@ -59,7 +59,7 @@ See: .planning/PROJECT.md (updated 2026-03-20)
 
 ## Next Step
 
-Phase 4 complete (4/4 plans done). Proceed to Phase 5 — Blog & Launch (4 plans).
+Phase 5 in progress (1/4 plans done). Proceed to 05-02-PLAN.md — /insights listing + [slug] post pages.
 
 ## Key Decisions (Plan 04-01)
 
@@ -85,8 +85,8 @@ Phase 4 complete (4/4 plans done). Proceed to Phase 5 — Blog & Launch (4 plans
 
 ## Session Continuity
 
-Last session: 2026-03-22T05:57:50.383Z
-Stopped at: Completed 04-04-PLAN.md
+Last session: 2026-03-22T20:00:23.888Z
+Stopped at: Completed 05-01-PLAN.md (checkpoint:human-verify at Task 3)
 Resume file: None
 
 ## Key Decisions (Plan 03-04)
@@ -109,5 +109,12 @@ Resume file: None
 - Service area is text list with green dot indicators (no map) per D-07 decision
 - Form success state shows prominent bg-green-500 WhatsApp button (not just text link) per D-09
 
+## Key Decisions (Plan 05-01)
+
+- force-dynamic in studio layout.tsx (Server Component) rather than page.tsx (Client Component) — client components cannot export route segment config
+- viewport exported from next-sanity/studio in layout server component per Sanity pitfall guidance
+- .gitignore updated with !.env.example negation — example file is documentation, not secrets
+- allPostSlugsQuery added beyond plan spec — needed by Plans 02/03 for sitemap and generateStaticParams
+
 ---
-*Updated: 2026-03-22 after plan 04-04 completion*
+*Updated: 2026-03-22 after plan 05-01 completion*

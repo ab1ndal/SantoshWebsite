@@ -51,11 +51,11 @@ Position Santosh as India's technically superior Group II+ RRBO producer — dif
 - [ ] Lab capabilities callout (REVA technology partnership)
 - [ ] CTA to Products
 
-**Supporting Pages:**
-- [ ] About Us — Santosh Associates history, IOCL SSI background, promoter profiles
-- [ ] Quality & Certifications — PCB registration, BIS IS 18722, lab testing data
-- [ ] Sustainability — EPR mandate progression (5%→50% by FY2031), CO₂ savings, circular economy
-- [ ] Used Oil Collection — pickup scheduling, service area (NCR/UP), WhatsApp CTA
+**Supporting Pages:** ✓ Validated in Phase 4
+- [x] About Us — Santosh Associates history, IOCL SSI background, promoter profiles
+- [x] Quality & Certifications — PCB registration, BIS IS 18722, lab testing data
+- [x] Sustainability — EPR mandate progression (5%→50% by FY2031), CO₂ savings, circular economy
+- [x] Used Oil Collection — pickup scheduling, service area (NCR/UP), WhatsApp CTA
 
 **Blog & Launch:**
 - [ ] Sanity-powered Insights/Blog with 4 seed posts
@@ -127,4 +127,4 @@ Position Santosh as India's technically superior Group II+ RRBO producer — dif
 | REVA technology partnership | European-grade process credibility differentiates vs informal re-refiners | — Pending |
 
 ---
-*Last updated: 2026-03-21 — Phase 3 complete: /products, /process, /sample-request, /contact pages shipped; shared ContactForm extracted; site-wide CTAs wired; TDS gate live*
+*Last updated: 2026-03-22 — Phase 4 complete: /about, /quality, /sustainability, /collect pages shipped; Nav wired with /quality link; animated EPR bars + circular economy SVG; pickup scheduling form + Google Sheets API route*

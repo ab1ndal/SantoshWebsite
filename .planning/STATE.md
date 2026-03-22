@@ -4,7 +4,7 @@ milestone: v1.0
 milestone_name: milestone
 status: unknown
 stopped_at: Completed 04-04-PLAN.md
-last_updated: "2026-03-22T05:57:50.385Z"
+last_updated: "2026-03-22T06:00:51.447Z"
 progress:
   total_phases: 2
   completed_phases: 2
@@ -23,7 +23,7 @@ See: .planning/PROJECT.md (updated 2026-03-20)
 
 ## Current Status
 
-**Phase:** 04 of 5 (supporting pages) — COMPLETE
+**Phase:** 04 of 5 (supporting pages)
 **Last action:** 04-04 complete — /collect page created (Server Component with hero, 3-step process, 7-city service area, PickupForm client component, WhatsApp CTA block; /api/collect-pickup route writes to 'Collect Pickup' Google Sheets tab) (2026-03-22)
 
 ## Phase Progress

@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 03-products-process plan 04 — UI polish and project-wide form validation
-last_updated: "2026-03-21T21:00:00.000Z"
+stopped_at: Completed 03-products-process plan 05 — Google Sheets API route and form wiring
+last_updated: "2026-03-22T04:29:27.751Z"
 progress:
-  total_phases: 1
+  total_phases: 2
   completed_phases: 1
-  total_plans: 4
-  completed_plans: 4
+  total_plans: 5
+  completed_plans: 5
 ---
 
 # Project State
@@ -23,8 +23,8 @@ See: .planning/PROJECT.md (updated 2026-03-20)
 
 ## Current Status
 
-**Phase:** 03 of 3 (plan 4 of 5 complete)
-**Last action:** 03-04 complete — Hero trust strip logos standardized to 40x40, required-field validation added to ContactForm and TDSGate (all 3 project forms now validated) (2026-03-21)
+**Phase:** 03 of 3 (plan 5 of 5 complete — Phase 3 DONE)
+**Last action:** 03-05 complete — Google Sheets API route (POST /api/sample-request) created and SampleRequestForm wired via async fetch with graceful degradation (2026-03-21)
 
 ## Phase Progress
 
@@ -32,7 +32,7 @@ See: .planning/PROJECT.md (updated 2026-03-20)
 |-------|------|--------|-------|
 | 1 | Brand Foundation | ✓ Complete | 5 |
 | 2 | Homepage | ✓ Complete | 5 |
-| 3 | Products & Process | In Progress | 4/5 |
+| 3 | Products & Process | ✓ Complete | 5/5 |
 | 4 | Supporting Pages | ○ Pending | 4 |
 | 5 | Blog & Launch | ○ Pending | 4 |
 
@@ -59,12 +59,12 @@ See: .planning/PROJECT.md (updated 2026-03-20)
 
 ## Next Step
 
-Complete Phase 3 plan 05 (03-05-PLAN.md), then proceed to Phase 4 — Supporting Pages (About, Quality & Certifications, Sustainability, Used Oil Collection).
+Phase 3 complete. Proceed to Phase 4 — Supporting Pages (About, Quality & Certifications, Sustainability, Used Oil Collection).
 
 ## Session Continuity
 
-Last session: 2026-03-21T21:00:00.000Z
-Stopped at: Completed 03-products-process plan 04 — UI polish and project-wide form validation
+Last session: 2026-03-22T04:29:27.749Z
+Stopped at: Completed 03-products-process plan 05 — Google Sheets API route and form wiring
 Resume file: None
 
 ## Key Decisions (Plan 03-04)
@@ -73,5 +73,11 @@ Resume file: None
 - Consistent validation pattern across all 3 forms: useState errors object, trim() empty check, noValidate, mt-1 text-xs text-red-400 Barlow inline messages
 - ContactForm email validated with .includes('@') — lightweight check, server-side validation deferred to Phase 5 Resend integration
 
+## Key Decisions (Plan 03-05)
+
+- Graceful degradation: Sheets write failure returns 200 to client with a warning field; error logged server-side; user always sees success confirmation
+- No npm packages needed for Sheets integration — native fetch in Node 18+ / Next.js App Router is sufficient (no googleapis SDK)
+- SHEET_NAME constant defaults to "Sheet1" — update if sheet tab has a different name
+
 ---
-*Updated: 2026-03-21 after plan 03-04 completion*
+*Updated: 2026-03-21 after plan 03-05 completion*

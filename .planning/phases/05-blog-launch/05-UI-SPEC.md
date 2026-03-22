@@ -5,6 +5,7 @@ status: draft
 shadcn_initialized: false
 preset: none
 created: 2026-03-22
+revised: 2026-03-22
 ---
 
 # Phase 05 — Blog & Launch: UI Design Contract
@@ -54,18 +55,25 @@ Exceptions:
 
 **Blog pages follow D-11 exactly.** Post body uses Barlow 16px; headings inside post body use Bebas Neue.
 
+**Exactly 4 sizes. Exactly 2 weights.**
+
 | Role | Font | Size | Weight | Line Height | Usage |
 |------|------|------|--------|-------------|-------|
-| Body | Barlow | 16px | 400 (regular) | 1.6 | Post body prose, card excerpts, form labels |
-| Label | JetBrains Mono | 12px | 400 (regular) | 1.0 | Section labels (.section-label), tag badges, dates, read time |
-| Heading | Barlow Condensed | 16px | 700 (bold) | 1.25 | Post card titles on listing page |
-| Display | Bebas Neue | clamp(2rem, 4vw, 2.8rem) | 400 (normal — Bebas has no weight variants) | 1.1 | Page hero titles, post hero title, H2/H3 inside post body |
+| Body | Barlow | 16px | 400 (regular) | 1.6 | Post body prose, card excerpts, card titles (Condensed), form labels |
+| Label | JetBrains Mono | 12px | 400 (regular) | 1.0 | Section labels (.section-label), tag badges, dates, read time, "Read →" reveal |
+| Display — hero | Bebas Neue | clamp(2.5rem, 5vw, 4rem) | 400 (normal — Bebas has no weight variants) | 1.1 | Page hero titles, post hero title |
+| Display — body headings | Bebas Neue | clamp(1.25rem, 2vw, 1.75rem) | 400 (normal) | 1.1 | H2 and H3 inside post body — differentiated by top-margin spacing, not size |
 
 Notes:
-- Bebas Neue has no bold variant; weight 400 is its only functional weight
-- Post body H2: Bebas Neue, ~28px (text-2xl / text-3xl), line-height 1.1
-- Post body H3: Bebas Neue, ~20px (text-xl), line-height 1.1
-- Card excerpt text: Barlow 14px, weight 300 (established in existing LatestInsights.tsx)
+- Bebas Neue has no bold variant; weight 400 is its only functional weight. It counts as a single weight tier (regular).
+- Card excerpt text uses Barlow 16px weight 400 — no separate 14px or weight-300 variant.
+- Barlow Condensed card titles use weight 700 (bold) — this is the bold tier.
+- Post body H2 and H3 both use the body-heading clamp token; H2 gets `mt-12 mb-4`, H3 gets `mt-8 mb-3` to establish visual hierarchy through spacing rather than a second size.
+- `mark.strong` uses Barlow weight 700 (not 600) — aligns with the bold tier used for card titles.
+
+**Weight tiers summary:**
+- Regular (400): Barlow body, Barlow excerpts, JetBrains Mono labels, Bebas Neue display (only option)
+- Bold (700): Barlow Condensed card titles, Barlow `mark.strong` inline emphasis
 
 ---
 
@@ -141,7 +149,7 @@ Components to update:
     section-label: "05 · INSIGHTS"
     h1: "Insights from the Lab & Field" (Bebas Neue, clamp(2.5rem,5vw,4rem))
     subtext: "Technical analysis, regulatory guides, and industry perspective from Santosh Petrochemical."
-    (Barlow 16px, ink-200, max-w-2xl)
+    (Barlow 16px weight-400, ink-200, max-w-2xl)
 
   [Post Grid — bg-ink-900, py-16]
     grid: 1-col mobile → 2-col md → 3-col lg
@@ -156,13 +164,13 @@ Components to update:
   hover: border-green-400/50, shadow (transition-all duration-300)
   padding: 24px (p-6)
 
-  [Tag Badge — inline-flex, JetBrains Mono 12px, px-2.5 py-1, rounded, border]
-  [Title — Barlow Condensed 16px bold, ink-100, leading-snug, group-hover:text-green-400, mb-3]
-  [Excerpt — Barlow 14px weight-300, ink-200, leading-relaxed, flex-1, mb-5]
+  [Tag Badge — inline-flex, JetBrains Mono 12px weight-400, px-2.5 py-1, rounded, border]
+  [Title — Barlow Condensed 16px weight-700, ink-100, leading-snug, group-hover:text-green-400, mb-3]
+  [Excerpt — Barlow 16px weight-400, ink-200, leading-relaxed, flex-1, mb-5]
   [Footer row — border-t border-ink-700, pt-4, flex justify-between]
-    [Date — JetBrains Mono 12px, ink-400]
-    [Read time — JetBrains Mono 12px, ink-400] (e.g. "4 min read")
-    ["Read →" — Barlow Condensed 12px, green-500, opacity-0 group-hover:opacity-100]
+    [Date — JetBrains Mono 12px weight-400, ink-400]
+    [Read time — JetBrains Mono 12px weight-400, ink-400] (e.g. "4 min read")
+    ["Read →" — JetBrains Mono 12px weight-400, green-500, opacity-0 group-hover:opacity-100]
 ```
 
 ### /insights/[slug] Post Page
@@ -171,7 +179,7 @@ Components to update:
 [Post Hero — bg-ink-900, py-24]
   [Tag Badge]
   [Title — Bebas Neue, clamp(2.5rem,5vw,4rem), ink-50, leading-none, max-w-3xl]
-  [Meta row: Date · Read Time — JetBrains Mono 12px, ink-400, gap-4]
+  [Meta row: Date · Read Time — JetBrains Mono 12px weight-400, ink-400, gap-4]
   [Divider — border-t border-ink-700, mt-8]
 
 [Post Body — bg-ink-900, py-16]
@@ -189,9 +197,9 @@ Components to update:
 | Block Type | Style |
 |------------|-------|
 | `block.normal` (p) | Barlow 16px, weight 400, ink-100, line-height 1.6, mb-6 |
-| `block.h2` | Bebas Neue 28px, ink-50, line-height 1.1, mt-12 mb-4 |
-| `block.h3` | Bebas Neue 20px, ink-50, line-height 1.1, mt-8 mb-3 |
-| `mark.strong` | Barlow 16px, weight 600, ink-50 |
+| `block.h2` | Bebas Neue clamp(1.25rem,2vw,1.75rem), ink-50, line-height 1.1, mt-12 mb-4 |
+| `block.h3` | Bebas Neue clamp(1.25rem,2vw,1.75rem), ink-50, line-height 1.1, mt-8 mb-3 |
+| `mark.strong` | Barlow 16px, weight 700, ink-50 |
 | `mark.em` | italic, ink-200 |
 | `mark.link` | text-green-500, underline, hover:text-green-400 |
 | `types.image` | full-width, rounded-lg, my-8, object-cover |
@@ -279,5 +287,6 @@ No third-party registries. All components are custom-built using project's Tailw
 ---
 
 *UI-SPEC created: 2026-03-22*
+*UI-SPEC revised: 2026-03-22 — typography consolidated to 4 sizes / 2 weights per checker audit*
 *Authored by: gsd-ui-researcher*
 *Consumed by: gsd-planner, gsd-executor, gsd-ui-checker, gsd-ui-auditor*

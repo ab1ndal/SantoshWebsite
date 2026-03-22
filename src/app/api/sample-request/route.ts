@@ -1,7 +1,7 @@
 import { NextRequest } from "next/server";
 
 const SPREADSHEET_ID = "1oc5WnrHE_MA139bN5X7PF6bEYZCbkNJz8LA5LlO09vI";
-const SHEET_NAME = "Sheet1"; // Update if the sheet tab has a different name
+const SHEET_NAME = "Sample Request";
 
 export async function POST(request: NextRequest) {
   try {

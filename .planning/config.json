@@ -5,5 +5,8 @@
   "research": true,
   "commit_docs": true,
   "plan_check": true,
-  "version": "1.0"
+  "version": "1.0",
+  "workflow": {
+    "_auto_chain_active": false
+  }
 }

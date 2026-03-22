@@ -210,16 +210,18 @@ export default function Hero() {
               </span>
               <div className="flex items-center gap-3">
                 {/* Indian Oil logo */}
-                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-white/8 border border-white/10">
+                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-white border border-white/20">
                   <Image
                     src="/indian-oil-logo.svg"
                     alt="Indian Oil Corporation"
-                    width={40}
-                    height={40}
+                    width={200}
+                    height={239}
+                    unoptimized
                     className="object-contain"
+                    style={{ height: '40px', width: 'auto' }}
                   />
                   <span
-                    className="text-xs text-ink-200"
+                    className="text-xs text-ink-700"
                     style={{ fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: "0.04em" }}
                   >
                     Indian Oil
@@ -230,9 +232,11 @@ export default function Hero() {
                   <Image
                     src="/santosh-logo.svg"
                     alt="Santosh Petrochemical"
-                    width={40}
-                    height={40}
+                    width={839}
+                    height={1101}
+                    unoptimized
                     className="object-contain brightness-0 invert"
+                    style={{ height: '40px', width: 'auto' }}
                   />
                   <span
                     className="text-xs text-ink-200"

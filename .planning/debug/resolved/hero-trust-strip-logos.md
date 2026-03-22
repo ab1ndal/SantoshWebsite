@@ -1,16 +1,16 @@
 ---
-status: diagnosed
+status: resolved
 trigger: "Hero trust strip uses text labels instead of real logos. Needs Indian Oil logo and Santosh Petrochemical logo from /asset/."
 created: 2026-03-21T00:00:00Z
-updated: 2026-03-21T00:00:00Z
+updated: 2026-03-22T00:00:00Z
 ---
 
 ## Current Focus
 
-hypothesis: The Image tags ARE present in the code, but the Indian Oil SVG renders invisibly due to its fill colors being near-white/light against the dark hero background, and the Santosh logo is also invisible because its dark fills (#121713) disappear on a dark background — while the text labels ("Indian Oil", "Santosh") are what the user sees.
-test: Inspected SVG fill colors and component rendering logic
-expecting: Confirmed — the logos are technically present but render as invisible shapes
-next_action: Fix SVG display issues per diagnosis below
+hypothesis: CONFIRMED — logos render unrecognizably due to scale/aspect-ratio/color-contrast issues
+test: Fix applied to Hero.tsx — Image props corrected with real SVG intrinsic dims, style for rendered height, unoptimized flag, Indian Oil badge given white background
+expecting: Both logos visually readable in browser
+next_action: Human verifies logos render in hero trust strip
 
 ## Symptoms
 
@@ -56,20 +56,30 @@ started: Current state of codebase
   found: asset/Santosh Petrochemical logo.svg is identical to public/santosh-logo.svg — already copied correctly. No Indian Oil logo exists in asset/ — the public/indian-oil-logo.svg was sourced separately (likely from web).
   implication: The Santosh logo source is available and already in public/. No additional asset copying needed.
 
+- timestamp: 2026-03-22
+  checked: Indian Oil SVG viewBox
+  found: viewBox="0 0 200.00202 238.97912" — slightly portrait, nearly square. The intrinsic width/height props were wrongly set to 40x40 (1:1 ratio), distorting the aspect ratio hint.
+  implication: Corrected to width=200 height=239 to match real aspect ratio.
+
+- timestamp: 2026-03-22
+  checked: Fix applied to Hero.tsx
+  found: Indian Oil badge — changed bg-white/8 to bg-white (white pill background so multi-color SVG fills are visible); Image props corrected to width=200 height=239, style={{ height:'40px', width:'auto' }}, unoptimized; label text changed to text-ink-700 (dark text on white bg). Santosh badge — Image props corrected to width=839 height=1101 (real portrait aspect ratio), style={{ height:'40px', width:'auto' }}, unoptimized; brightness-0 invert kept for white-on-dark-bg rendering.
+  implication: Both logos should now render at a legible 40px height with correct aspect ratios.
+
 ## Resolution
 
 root_cause: |
   Three compounding problems:
-  1. Indian Oil SVG (public/indian-oil-logo.svg) is the full IOCL circular emblem — complex, multi-color, rendered at only 24x24px with no size adjustments. At that scale it is an unrecognizable smear.
-  2. Santosh logo SVG has a portrait viewBox (838x1100) — at 20x20px with object-contain, it renders extremely small/narrow and unreadable.
-  3. Both Image elements lack explicit width/height style constraints that would force the Next.js Image component to respect the container sizing correctly with SVGs.
+  1. Indian Oil SVG (public/indian-oil-logo.svg) is the full IOCL circular emblem — complex, multi-color, rendered at only 40x40px with no explicit style sizing. Width/height props were set to 40x40 (1:1) but actual SVG is 200x239. Most critically, the badge had bg-white/8 (semi-transparent dark) background — the SVG's #fefefe outer ring was invisible against the dark hero background.
+  2. Santosh logo SVG has a portrait viewBox (838x1100) — width/height props set to 40x40 (1:1) forcing wrong aspect ratio. At that scale the portrait SVG renders as a thin sliver.
+  3. Neither Image element had style={{ width: 'auto', height: '40px' }} to control rendered size independently of the intrinsic dimension hint.
 
   The text spans ("Indian Oil", "Santosh") are working fine — they ARE the visible content. The logos are there in the DOM but invisible or unreadably tiny.
 
 fix: |
-  For Indian Oil: increase display size to at minimum 32-40px height, or source/create a simpler version of the IOCL wordmark/logo that reads clearly at small sizes.
-  For Santosh: increase height to 40-48px (and widen the container), remove the width constraint that forces square clipping of a portrait SVG. The current 20x20 crops it to near-nothing.
-  Both: add explicit style={{ width: 'auto', height: '36px' }} or similar to let SVG aspect ratio breathe.
+  Indian Oil: Changed badge container from bg-white/8 to bg-white (gives the multi-color SVG a white ground to show against). Corrected Image width=200 height=239 (real SVG intrinsic dims for correct aspect ratio). Added style={{ height:'40px', width:'auto' }} so rendered size is 40px tall with natural width. Added unoptimized (SVGs don't need raster optimization). Changed label text class to text-ink-700 (dark text on white badge).
+  Santosh: Corrected Image width=839 height=1101 (real portrait intrinsic dims). Added style={{ height:'40px', width:'auto' }}. Added unoptimized. Kept brightness-0 invert (makes all fills white for visibility on dark hero bg).
 
-verification: not yet applied
-files_changed: []
+verification: Confirmed fixed 2026-03-22 — logos now visible in browser at correct size.
+files_changed:
+  - src/components/sections/Hero.tsx

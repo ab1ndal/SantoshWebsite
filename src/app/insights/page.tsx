@@ -1,8 +1,9 @@
-import { unstable_cache } from 'next/cache'
 import { sanityClient } from '@/lib/sanity/client'
 import { allPostsQuery } from '@/lib/sanity/queries'
 import { Post } from '@/lib/sanity/types'
 import { PostCard } from '@/components/sections/PostCard'
+import Nav from '@/components/layout/Nav'
+import Footer from '@/components/layout/Footer'
 
 export const revalidate = 3600
 
@@ -12,16 +13,12 @@ export const metadata = {
     'Technical analysis, regulatory guides, and industry perspective from Santosh Petrochemical.',
 }
 
-const getPosts = unstable_cache(
-  async () => sanityClient.fetch<Post[]>(allPostsQuery),
-  ['all-posts'],
-  { revalidate: 3600 }
-)
-
 export default async function InsightsPage() {
-  const posts = await getPosts()
+  const posts = await sanityClient.fetch<Post[]>(allPostsQuery, {}, { next: { revalidate: 3600 } })
 
   return (
+    <>
+    <Nav />
     <main>
       {/* Hero */}
       <section className="bg-ink-900 py-24">
@@ -75,5 +72,7 @@ export default async function InsightsPage() {
         </div>
       </section>
     </main>
+    <Footer />
+    </>
   )
 }

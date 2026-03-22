@@ -4,11 +4,11 @@ import { useState } from "react";
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({ name: "", company: "", email: "", message: "" });
-  const [errors, setErrors] = useState<{ name?: string; email?: string }>({});
+  const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({});
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const newErrors: { name?: string; email?: string } = {};
+    const newErrors: { name?: string; email?: string; message?: string } = {};
     if (!form.name.trim()) {
       newErrors.name = "Full name is required";
     }
@@ -16,6 +16,9 @@ export default function ContactForm() {
       newErrors.email = "Email address is required";
     } else if (!form.email.includes("@")) {
       newErrors.email = "Enter a valid email address";
+    }
+    if (!form.message.trim()) {
+      newErrors.message = "Message is required";
     }
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -84,12 +87,15 @@ export default function ContactForm() {
       </div>
       {/* Message */}
       <div>
-        <label htmlFor="contact-message" className="block text-xs text-ink-200 mb-1.5 font-mono tracking-wider">MESSAGE</label>
+        <label htmlFor="contact-message" className="block text-xs text-ink-200 mb-1.5 font-mono tracking-wider">MESSAGE *</label>
         <textarea id="contact-message" rows={4} value={form.message}
           onChange={(e) => setForm({ ...form, message: e.target.value })}
           className="w-full bg-ink-900/80 border border-ink-600/60 rounded-lg px-4 py-3 text-sm text-ink-100 placeholder-ink-400 focus:border-green-500/60 focus:outline-none transition-colors resize-none"
           placeholder="I'm interested in sourcing SN 500 grade RRBO..."
           style={{ fontFamily: "'Barlow', sans-serif" }} />
+        {errors.message && (
+          <p className="mt-1 text-xs text-red-400" style={{ fontFamily: "'Barlow', sans-serif" }}>{errors.message}</p>
+        )}
       </div>
       <button type="submit"
         className="w-full py-3.5 bg-green-500 text-white rounded-lg font-semibold hover:bg-green-400 transition-colors duration-200"

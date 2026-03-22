@@ -1,12 +1,17 @@
-import { unstable_cache } from 'next/cache'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import imageUrlBuilder from '@sanity/image-url'
 import { sanityClient } from '@/lib/sanity/client'
 import { postBySlugQuery, allPostSlugsQuery } from '@/lib/sanity/queries'
 import { Post } from '@/lib/sanity/types'
 import { PortableTextRenderer } from '@/components/blog/PortableTextRenderer'
+import { PostHero } from '@/components/blog/PostHero'
+import Nav from '@/components/layout/Nav'
+import Footer from '@/components/layout/Footer'
 
 export const revalidate = 3600
+
+const builder = imageUrlBuilder(sanityClient)
 
 const tagColorMap: Record<Post['tag'], string> = {
   Technical: 'bg-green-500/10 text-green-400 border-green-500/30',
@@ -15,12 +20,6 @@ const tagColorMap: Record<Post['tag'], string> = {
   'How-To': 'bg-ink-700 text-ink-200 border-ink-600',
 }
 
-const getPost = unstable_cache(
-  async (slug: string) => sanityClient.fetch<Post | null>(postBySlugQuery, { slug }),
-  ['post'],
-  { revalidate: 3600 }
-)
-
 export async function generateStaticParams() {
   const posts = await sanityClient.fetch<Array<{ slug: string }>>(allPostSlugsQuery)
   return posts.map((p) => ({ slug: p.slug }))
@@ -28,7 +27,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const post = await getPost(slug)
+  const post = await sanityClient.fetch<Post | null>(postBySlugQuery, { slug }, { next: { revalidate: 3600 } })
   if (!post) return { title: 'Article Not Found | Santosh Insights' }
   return { title: `${post.title} | Santosh Insights` }
 }
@@ -39,7 +38,7 @@ export default async function InsightsPostPage({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const post = await getPost(slug)
+  const post = await sanityClient.fetch<Post | null>(postBySlugQuery, { slug }, { next: { revalidate: 3600 } })
 
   if (!post) {
     notFound()
@@ -53,44 +52,22 @@ export default async function InsightsPostPage({
     year: 'numeric',
   })
 
+  const featuredImageUrl = post.featuredImage?.asset
+    ? builder.image(post.featuredImage).width(1600).auto('format').url()
+    : undefined
+
   return (
+    <>
+    <Nav />
     <main>
-      {/* Post Hero */}
-      <section className="bg-ink-900 py-24">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div
-            className={`inline-flex items-center px-2.5 py-1 rounded border text-xs tracking-wider w-fit ${tagClasses}`}
-            style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 400 }}
-          >
-            {post.tag}
-          </div>
-
-          <h1
-            className="text-ink-50 leading-none max-w-3xl mt-4"
-            style={{
-              fontFamily: "'Bebas Neue', sans-serif",
-              fontSize: 'clamp(2.5rem, 5vw, 4rem)',
-            }}
-          >
-            {post.title}
-          </h1>
-
-          <div
-            className="flex items-center gap-4 mt-6 text-ink-400"
-            style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', fontWeight: 400 }}
-          >
-            <span>{formattedDate}</span>
-            {post.readTime && (
-              <>
-                <span>·</span>
-                <span>{post.readTime} min read</span>
-              </>
-            )}
-          </div>
-
-          <div className="border-t border-ink-700 mt-8" />
-        </div>
-      </section>
+      <PostHero
+        title={post.title}
+        tag={post.tag}
+        tagClasses={tagClasses}
+        formattedDate={formattedDate}
+        readTime={post.readTime}
+        featuredImageUrl={featuredImageUrl}
+      />
 
       {/* Post Body */}
       <section className="bg-ink-900 py-16">
@@ -131,5 +108,7 @@ export default async function InsightsPostPage({
         </div>
       </section>
     </main>
+    <Footer />
+    </>
   )
 }

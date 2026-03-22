@@ -1,6 +1,10 @@
 'use client'
 
 import { PortableText, PortableTextComponents } from '@portabletext/react'
+import imageUrlBuilder from '@sanity/image-url'
+import { sanityClient } from '@/lib/sanity/client'
+
+const builder = imageUrlBuilder(sanityClient)
 
 const components: PortableTextComponents = {
   block: {
@@ -91,23 +95,16 @@ const components: PortableTextComponents = {
   },
   types: {
     image: ({ value }) => {
-      // Build src from asset ref if available
-      const ref: string = value?.asset?._ref ?? ''
-      // Sanity image URL pattern: ref format is "image-{id}-{dimensions}-{format}"
-      // For a basic fallback without @sanity/image-url, use empty string
-      const src = ref
-        ? `https://cdn.sanity.io/images/${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}/production/${ref.replace('image-', '').replace(/-(\w+)$/, '.$1').replace(/-(\d+x\d+)-/, '/$1-')}`
-        : ''
+      if (!value?.asset) return null
+      const src = builder.image(value).width(1200).auto('format').url()
       return (
         <figure className="my-8">
-          {src && (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={src}
-              alt={value?.alt ?? ''}
-              className="w-full rounded-lg object-cover"
-            />
-          )}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={src}
+            alt={value?.alt ?? ''}
+            className="w-full rounded-lg object-cover"
+          />
         </figure>
       )
     },

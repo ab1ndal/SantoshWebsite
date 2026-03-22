@@ -61,9 +61,10 @@ export default function IOCLCallout() {
                 <Image
                   src="/indian-oil-logo.svg"
                   alt="Indian Oil Corporation"
-                  width={140}
-                  height={80}
-                  className="object-contain"
+                  width={200}
+                  height={239}
+                  unoptimized
+                  style={{ height: '120px', width: 'auto' }}
                 />
               </div>
               <p
@@ -87,9 +88,10 @@ export default function IOCLCallout() {
                 <Image
                   src="/santosh-logo.svg"
                   alt="Santosh Petrochemical Innovations"
-                  width={100}
-                  height={80}
-                  className="object-contain"
+                  width={839}
+                  height={1101}
+                  unoptimized
+                  style={{ height: '120px', width: 'auto' }}
                 />
               </div>
               <p

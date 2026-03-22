@@ -52,8 +52,8 @@
 
 - [x] **ABOUT-01**: About Us page — company history, Santosh Associates background, IOCL SSI context
 - [x] **ABOUT-02**: Promoter/team section (Lalit Bindal profile — 35yr experience)
-- [ ] **QUAL-01**: Quality & Certifications page with cert display cards
-- [ ] **QUAL-02**: Lab testing data display (VI, sulfur, flash point methodology)
+- [x] **QUAL-01**: Quality & Certifications page with cert display cards
+- [x] **QUAL-02**: Lab testing data display (VI, sulfur, flash point methodology)
 - [ ] **SUST-01**: Sustainability page — EPR mandate progression (5%→50% by FY2031), environmental impact
 - [ ] **SUST-02**: CO₂ savings calculator / counter and circular economy diagram
 - [ ] **COLL-01**: Used Oil Collection page — how it works, service area (NCR/UP/western districts)

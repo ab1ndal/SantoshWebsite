@@ -115,5 +115,6 @@ const components: PortableTextComponents = {
 }
 
 export function PortableTextRenderer({ value }: { value: unknown[] }) {
-  return <PortableText value={value} components={components} />
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return <PortableText value={value as any} components={components} />
 }

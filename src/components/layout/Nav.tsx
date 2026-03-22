@@ -12,6 +12,7 @@ const navLinks = [
   { href: "/collect", label: "Collect Used Oil" },
   { href: "/about", label: "About" },
   { href: "/quality", label: "Quality" },
+  { href: "/insights", label: "Insights" },
 ];
 
 export default function Nav() {

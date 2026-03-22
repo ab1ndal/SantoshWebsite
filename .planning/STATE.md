@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: "Completed 05-01-PLAN.md (checkpoint:human-verify at Task 3)"
-last_updated: "2026-03-22T20:00:23.891Z"
+stopped_at: Completed 05-03-PLAN.md
+last_updated: "2026-03-22T20:25:10Z"
 progress:
   total_phases: 3
   completed_phases: 2
   total_plans: 13
-  completed_plans: 10
+  completed_plans: 12
 ---
 
 # Project State
@@ -85,8 +85,8 @@ Phase 5 in progress (1/4 plans done). Proceed to 05-02-PLAN.md — /insights lis
 
 ## Session Continuity
 
-Last session: 2026-03-22T20:00:23.888Z
-Stopped at: Completed 05-01-PLAN.md (checkpoint:human-verify at Task 3)
+Last session: 2026-03-22T20:25:56.281Z
+Stopped at: Completed 05-02-PLAN.md
 Resume file: None
 
 ## Key Decisions (Plan 03-04)
@@ -116,5 +116,12 @@ Resume file: None
 - .gitignore updated with !.env.example negation — example file is documentation, not secrets
 - allPostSlugsQuery added beyond plan spec — needed by Plans 02/03 for sitemap and generateStaticParams
 
+## Key Decisions (Plan 05-02)
+
+- PortableTextRenderer uses `as any` cast for Post.body (unknown[]) to satisfy @portabletext/react TypedObject constraint — avoids changing shared type interface
+- LatestInsights returns null when posts.length === 0 per D-07 — no static fallback, section hides until Sanity seed content is published
+- Footer already had /insights link pre-existing in Company section — no changes needed
+- Nav Insights link appended as 7th entry after Quality per plan spec
+
 ---
-*Updated: 2026-03-22 after plan 05-01 completion*
+*Updated: 2026-03-22 after plan 05-02 completion*

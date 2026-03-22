@@ -103,12 +103,12 @@ Plans:
 
 **Goal:** SEO content engine live, analytics instrumented, all integrations working, deployed to production.
 
-**Plans:** 1/4 plans executed
+**Plans:** 3/4 plans executed
 
 Plans:
 - [x] 05-01-PLAN.md — Sanity CMS foundation (install packages, client/types/queries/schema, Studio route, env vars)
-- [ ] 05-02-PLAN.md — Blog pages (PostCard, PortableTextRenderer, /insights, /insights/[slug], LatestInsights wiring, Nav+Footer links)
-- [ ] 05-03-PLAN.md — Integrations (Resend email on 4 API routes, PostHog analytics, Schema.org JSON-LD, sitemap, robots.txt)
+- [x] 05-02-PLAN.md — Blog pages (PostCard, PortableTextRenderer, /insights, /insights/[slug], LatestInsights wiring, Nav+Footer links)
+- [x] 05-03-PLAN.md — Integrations (Resend email on 4 API routes, PostHog analytics, Schema.org JSON-LD, sitemap, robots.txt)
 - [ ] 05-04-PLAN.md — Seed content (4 blog articles for Studio paste-in) + build verification + deployment docs
 
 **UAT:**
@@ -130,7 +130,7 @@ Plans:
 | 2 | Homepage | 5 | HOME-01-10 | Critical |
 | 3 | Products & Process | 5/5 | Complete   | 2026-03-22 |
 | 4 | Supporting Pages | 4/4 | Complete   | 2026-03-22 |
-| 5 | Blog & Launch | 1/4 | In Progress|  |
+| 5 | Blog & Launch | 3/4 | In Progress|  |
 
 **Total plans:** 23
 **Estimated phases:** 5

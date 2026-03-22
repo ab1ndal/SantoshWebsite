@@ -103,11 +103,13 @@ Plans:
 
 **Goal:** SEO content engine live, analytics instrumented, all integrations working, deployed to production.
 
-**Plans:**
-1. Blog/Insights pages — listing page + [slug] post pages from Sanity
-2. Seed blog posts — 4 articles authored in Sanity (Group II+, EPR, RRBO vs Virgin, NCR disposal)
-3. PostHog analytics + Schema.org structured data + sitemap/robots.txt
-4. Vercel deployment — production domain, environment variables, preview deployments
+**Plans:** 4 plans
+
+Plans:
+- [ ] 05-01-PLAN.md — Sanity CMS foundation (install packages, client/types/queries/schema, Studio route, env vars)
+- [ ] 05-02-PLAN.md — Blog pages (PostCard, PortableTextRenderer, /insights, /insights/[slug], LatestInsights wiring, Nav+Footer links)
+- [ ] 05-03-PLAN.md — Integrations (Resend email on 4 API routes, PostHog analytics, Schema.org JSON-LD, sitemap, robots.txt)
+- [ ] 05-04-PLAN.md — Seed content (4 blog articles for Studio paste-in) + build verification + deployment docs
 
 **UAT:**
 - `/insights` lists all 4 seed posts pulled from Sanity
@@ -138,4 +140,5 @@ Plans:
 *Phase 3 plans finalized: 2026-03-21*
 *Phase 3 gap closure plans added: 2026-03-21*
 *Phase 4 plans finalized: 2026-03-22*
+*Phase 5 plans finalized: 2026-03-22*
 *Build order follows BRIEF.md Phase 1-4 schedule (Weeks 1-8+)*

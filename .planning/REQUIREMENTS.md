@@ -56,8 +56,8 @@
 - [x] **QUAL-02**: Lab testing data display (VI, sulfur, flash point methodology)
 - [x] **SUST-01**: Sustainability page — EPR mandate progression (5%→50% by FY2031), environmental impact
 - [x] **SUST-02**: CO₂ savings calculator / counter and circular economy diagram
-- [ ] **COLL-01**: Used Oil Collection page — how it works, service area (NCR/UP/western districts)
-- [ ] **COLL-02**: Pickup scheduling form + WhatsApp CTA (warmer, simpler language for supplier audience)
+- [x] **COLL-01**: Used Oil Collection page — how it works, service area (NCR/UP/western districts)
+- [x] **COLL-02**: Pickup scheduling form + WhatsApp CTA (warmer, simpler language for supplier audience)
 
 ### Phase 5 — Blog, Integrations & Launch
 

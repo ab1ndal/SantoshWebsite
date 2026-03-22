@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 04-03-PLAN.md
-last_updated: "2026-03-22T05:53:05.258Z"
+stopped_at: Completed 04-04-PLAN.md
+last_updated: "2026-03-22T05:57:50.385Z"
 progress:
   total_phases: 2
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 9
-  completed_plans: 8
+  completed_plans: 9
 ---
 
 # Project State
@@ -23,8 +23,8 @@ See: .planning/PROJECT.md (updated 2026-03-20)
 
 ## Current Status
 
-**Phase:** 04 of 5 (supporting pages)
-**Last action:** 04-03 complete — /sustainability page created (Server Component composing EPRProgressBars + CircularEconomySVG client islands, CO2 stat cited from TEV Report/DPR, IOCL MOU callout) (2026-03-22)
+**Phase:** 04 of 5 (supporting pages) — COMPLETE
+**Last action:** 04-04 complete — /collect page created (Server Component with hero, 3-step process, 7-city service area, PickupForm client component, WhatsApp CTA block; /api/collect-pickup route writes to 'Collect Pickup' Google Sheets tab) (2026-03-22)
 
 ## Phase Progress
 
@@ -33,7 +33,7 @@ See: .planning/PROJECT.md (updated 2026-03-20)
 | 1 | Brand Foundation | ✓ Complete | 5 |
 | 2 | Homepage | ✓ Complete | 5 |
 | 3 | Products & Process | ✓ Complete | 5/5 |
-| 4 | Supporting Pages | ◐ In Progress | 3/4 |
+| 4 | Supporting Pages | ✓ Complete | 4/4 |
 | 5 | Blog & Launch | ○ Pending | 4 |
 
 ## Key Context
@@ -59,7 +59,7 @@ See: .planning/PROJECT.md (updated 2026-03-20)
 
 ## Next Step
 
-Phase 4 in progress (3/4 complete). Proceed to 04-04 (Used Oil Collection page).
+Phase 4 complete (4/4 plans done). Proceed to Phase 5 — Blog & Launch (4 plans).
 
 ## Key Decisions (Plan 04-01)
 
@@ -85,8 +85,8 @@ Phase 4 in progress (3/4 complete). Proceed to 04-04 (Used Oil Collection page).
 
 ## Session Continuity
 
-Last session: 2026-03-22T05:53:05.256Z
-Stopped at: Completed 04-03-PLAN.md
+Last session: 2026-03-22T05:57:50.383Z
+Stopped at: Completed 04-04-PLAN.md
 Resume file: None
 
 ## Key Decisions (Plan 03-04)
@@ -101,5 +101,13 @@ Resume file: None
 - No npm packages needed for Sheets integration — native fetch in Node 18+ / Next.js App Router is sufficient (no googleapis SDK)
 - SHEET_NAME constant defaults to "Sheet1" — update if sheet tab has a different name
 
+## Key Decisions (Plan 04-04)
+
+- /collect is a Server Component — PickupForm is the only client island; all static sections render server-side
+- Graceful degradation on /api/collect-pickup: Sheets write failure returns 200 with warning field; user always sees success confirmation
+- WhatsApp CTA block uses bg-green-900/20 background to visually distinguish it from the floating WhatsAppButton
+- Service area is text list with green dot indicators (no map) per D-07 decision
+- Form success state shows prominent bg-green-500 WhatsApp button (not just text link) per D-09
+
 ---
-*Updated: 2026-03-22 after plan 04-03 completion*
+*Updated: 2026-03-22 after plan 04-04 completion*

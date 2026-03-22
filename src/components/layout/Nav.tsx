@@ -11,6 +11,7 @@ const navLinks = [
   { href: "/sustainability", label: "Sustainability" },
   { href: "/collect", label: "Collect Used Oil" },
   { href: "/about", label: "About" },
+  { href: "/quality", label: "Quality" },
 ];
 
 export default function Nav() {

@@ -61,11 +61,20 @@ Position Santosh as India's technically superior Group II+ RRBO producer — dif
 - ✓ Schema.org structured data (Organization, Product, LocalBusiness) — v1.0
 - ✓ Vercel deployment with domain — v1.0
 
+## Current Milestone: v1.1 Growth & Polish
+
+**Goal:** Improve SEO visibility, convert more leads with nurturing emails, verify analytics funnels, and polish content/copy while real assets are still pending.
+
+**Target features:**
+- SEO & Performance (Content SEO level): Google Search Console, meta audit, Core Web Vitals, keyword targeting per page, blog SEO templates in Sanity, internal linking
+- Lead Nurturing: Resend email sequences for all 4 touchpoints (TDS download, sample request, enquiry, used oil pickup)
+- Hindi on /collect: Hindi copy for the collection page only — language toggle or bilingual section
+- Analytics & CRO: Verify PostHog event capture, build funnel dashboards, then make targeted CRO improvements
+- Content polish: Finalize text copy (bios, company story, product spec text) — photos/logos deferred
+
 ### Active
 
-<!-- Next milestone requirements — defined via /gsd:new-milestone -->
-
-(None yet — run `/gsd:new-milestone` to define v1.1 requirements)
+<!-- v1.1 requirements — defined via /gsd:new-milestone -->
 
 ### Out of Scope
 
@@ -132,4 +141,4 @@ Position Santosh as India's technically superior Group II+ RRBO producer — dif
 | noValidate + JS validation pattern | All forms use JS errors state + mt-1 text-xs text-red-400 inline messages | ✓ Good — consistent UX across 4 forms |
 
 ---
-*Last updated: 2026-03-22 after v1.0 milestone completion — all 5 phases shipped*
+*Last updated: 2026-03-22 — v1.1 Growth & Polish milestone started*

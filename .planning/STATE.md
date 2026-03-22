@@ -1,43 +1,39 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.0
-milestone_name: Launch
-status: milestone_complete
-stopped_at: "v1.0 milestone archived"
+milestone: v1.1
+milestone_name: Growth & Polish
+status: defining_requirements
+stopped_at: "Milestone started — defining requirements"
 last_updated: "2026-03-22"
 progress:
-  total_phases: 5
-  completed_phases: 5
-  total_plans: 23
-  completed_plans: 23
+  total_phases: 0
+  completed_phases: 0
+  total_plans: 0
+  completed_plans: 0
 ---
 
 # Project State
 
+## Current Position
+
+Phase: Not started (defining requirements)
+Plan: —
+Status: Defining requirements
+Last activity: 2026-03-22 — Milestone v1.1 started
+
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-03-22 after v1.0)
+See: .planning/PROJECT.md (updated 2026-03-22 for v1.1)
 
 **Core value:** Position Santosh as India's premium Group II+ RRBO producer and generate qualified leads
-**Current focus:** v1.0 complete — awaiting /gsd:new-milestone for v1.1
+**Current focus:** v1.1 Growth & Polish — SEO, lead nurturing, analytics, Hindi /collect, content polish
 
-## Current Status
+## Accumulated Context
 
-**Milestone v1.0 archived.** All 5 phases complete, all 23 plans executed, build passing.
-
-## Phase Progress
-
-| Phase | Name | Status | Plans |
-|-------|------|--------|-------|
-| 1 | Brand Foundation | ✅ Complete | 5/5 |
-| 2 | Homepage | ✅ Complete | 5/5 |
-| 3 | Products & Process | ✅ Complete | 5/5 |
-| 4 | Supporting Pages | ✅ Complete | 4/4 |
-| 5 | Blog & Launch | ✅ Complete | 4/4 |
-
-## Next Step
-
-Run `/gsd:new-milestone` to begin planning v1.1.
+- Plant still in commissioning phase — copy stays aspirational/forward-looking
+- Real photos, facility images, certification logos still pending — placeholders remain
+- Tech stack locked: Next.js 14 App Router · Tailwind · Sanity · Framer Motion · Resend · PostHog · Google Sheets API
+- v1.0 shipped clean: `npm run build` passing, Vercel-ready
 
 ---
-*Updated: 2026-03-22 after v1.0 milestone completion*
+*Updated: 2026-03-22 — v1.1 milestone started*

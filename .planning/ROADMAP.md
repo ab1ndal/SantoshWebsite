@@ -81,11 +81,13 @@ Plans:
 
 **Goal:** Trust-building and conversion pages for secondary audiences (compliance, suppliers, curiosity-driven visitors).
 
-**Plans:**
-1. About Us page — company history, Santosh Associates background, promoter section
-2. Quality & Certifications page — cert cards, lab testing methodology
-3. Sustainability page — EPR mandate viz (5%→50%), CO₂ savings, circular economy diagram
-4. Used Oil Collection page — pickup process, service area, scheduling form, WhatsApp CTA
+**Plans:** 4 plans
+
+Plans:
+- [ ] 04-01-PLAN.md — /about page (company history, promoter cards, market opportunity) + Nav /quality link
+- [ ] 04-02-PLAN.md — /quality page (cert cards with PURSUING badges, lab testing methodology)
+- [ ] 04-03-PLAN.md — /sustainability page (EPR progress bars, circular economy SVG, CO2 savings, IOCL MOU)
+- [ ] 04-04-PLAN.md — /collect page (pickup process steps, service area, scheduling form, WhatsApp CTA)
 
 **UAT:**
 - All 4 pages render at correct URLs (/about, /quality, /sustainability, /collect)
@@ -122,11 +124,11 @@ Plans:
 
 | Phase | Name | Plans | Requirements | Priority |
 |-------|------|-------|--------------|----------|
-| 1 | Brand Foundation | 5 | FOUND-01–13 | Critical |
-| 2 | Homepage | 5 | HOME-01–10 | Critical |
+| 1 | Brand Foundation | 5 | FOUND-01-13 | Critical |
+| 2 | Homepage | 5 | HOME-01-10 | Critical |
 | 3 | Products & Process | 5/5 | Complete   | 2026-03-22 |
 | 4 | Supporting Pages | 4 | ABOUT, QUAL, SUST, COLL | High |
-| 5 | Blog & Launch | 4 | BLOG-01–06, INT-01–05 | High |
+| 5 | Blog & Launch | 4 | BLOG-01-06, INT-01-05 | High |
 
 **Total plans:** 23
 **Estimated phases:** 5
@@ -135,4 +137,5 @@ Plans:
 *Roadmap created: 2026-03-20*
 *Phase 3 plans finalized: 2026-03-21*
 *Phase 3 gap closure plans added: 2026-03-21*
-*Build order follows BRIEF.md Phase 1-4 schedule (Weeks 1–8+)*
+*Phase 4 plans finalized: 2026-03-22*
+*Build order follows BRIEF.md Phase 1-4 schedule (Weeks 1-8+)*

@@ -6,7 +6,7 @@ export default function ContactForm() {
   const [form, setForm] = useState({ name: "", company: "", email: "", message: "" });
   const [errors, setErrors] = useState<{ name?: string; email?: string }>({});
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const newErrors: { name?: string; email?: string } = {};
     if (!form.name.trim()) {
@@ -22,8 +22,15 @@ export default function ContactForm() {
       return;
     }
     setErrors({});
-    // Phase 5: wire Resend integration
-    console.log("Contact form submission:", form);
+    try {
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+    } catch (err) {
+      console.error("Contact form submission error:", err);
+    }
     setSubmitted(true);
   };
 

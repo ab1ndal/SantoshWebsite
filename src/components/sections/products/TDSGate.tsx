@@ -15,7 +15,7 @@ export default function TDSGate() {
   const [form, setForm] = useState<FormState>({ name: "", phone: "", email: "" });
   const [errors, setErrors] = useState<{ name?: string; phone?: string }>({});
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const newErrors: { name?: string; phone?: string } = {};
     if (!form.name.trim()) {
@@ -35,7 +35,15 @@ export default function TDSGate() {
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-    console.log("TDS download lead captured:", form);
+    try {
+      await fetch("/api/tds-download", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+    } catch (err) {
+      console.error("TDS lead capture error:", err);
+    }
     setSubmitted(true);
   };
 

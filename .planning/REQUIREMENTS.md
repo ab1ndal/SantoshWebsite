@@ -67,10 +67,10 @@
 - [ ] **BLOG-04**: Seed post — "EPR Compliance Guide 2026: What Lubricant Manufacturers Need to Know"
 - [ ] **BLOG-05**: Seed post — "Re-Refined Base Oil vs Virgin Base Oil: A Technical Comparison"
 - [ ] **BLOG-06**: Seed post — "How to Properly Dispose of Used Engine Oil in the NCR Region"
-- [ ] **INT-01**: Resend email integration — TDS download confirmation + enquiry notification emails
-- [ ] **INT-02**: PostHog analytics — event tracking for TDS downloads, sample requests, pickup bookings
-- [ ] **INT-03**: Schema.org structured data — Organization, Product, LocalBusiness types
-- [ ] **INT-04**: Sitemap and robots.txt generated
+- [x] **INT-01**: Resend email integration — TDS download confirmation + enquiry notification emails
+- [x] **INT-02**: PostHog analytics — event tracking for TDS downloads, sample requests, pickup bookings
+- [x] **INT-03**: Schema.org structured data — Organization, Product, LocalBusiness types
+- [x] **INT-04**: Sitemap and robots.txt generated
 - [ ] **INT-05**: Vercel deployment with production domain configured
 
 ## v2 Requirements

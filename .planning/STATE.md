@@ -4,7 +4,7 @@ milestone: v1.0
 milestone_name: milestone
 status: unknown
 stopped_at: Completed 05-03-PLAN.md
-last_updated: "2026-03-22T20:25:10Z"
+last_updated: "2026-03-22T20:26:52.032Z"
 progress:
   total_phases: 3
   completed_phases: 2
@@ -85,8 +85,8 @@ Phase 5 in progress (1/4 plans done). Proceed to 05-02-PLAN.md — /insights lis
 
 ## Session Continuity
 
-Last session: 2026-03-22T20:25:56.281Z
-Stopped at: Completed 05-02-PLAN.md
+Last session: 2026-03-22T20:26:52.030Z
+Stopped at: Completed 05-03-PLAN.md
 Resume file: None
 
 ## Key Decisions (Plan 03-04)
@@ -123,5 +123,13 @@ Resume file: None
 - Footer already had /insights link pre-existing in Company section — no changes needed
 - Nav Insights link appended as 7th entry after Quality per plan spec
 
+## Key Decisions (Plan 05-03)
+
+- Resend is additive to Sheets writes — all 4 routes write to Sheets first, Resend fires after with try/catch for graceful degradation (D-15)
+- JSON-LD uses native script tag not next/script per Next.js recommendation — structured data is not executable code (D-17)
+- PostHog init conditioned on NEXT_PUBLIC_POSTHOG_KEY env var to avoid errors in dev (D-16)
+- sitemap.ts wraps Sanity fetch in try/catch — serves static routes even if Sanity fetch fails (D-18)
+- posthog.capture placed after fetch completes — only fires on successful form submissions, not before
+
 ---
-*Updated: 2026-03-22 after plan 05-02 completion*
+*Updated: 2026-03-22 after plan 05-03 completion*

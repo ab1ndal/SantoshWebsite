@@ -81,10 +81,10 @@ Plans:
 
 **Goal:** Trust-building and conversion pages for secondary audiences (compliance, suppliers, curiosity-driven visitors).
 
-**Plans:** 4 plans
+**Plans:** 1/4 plans executed
 
 Plans:
-- [ ] 04-01-PLAN.md — /about page (company history, promoter cards, market opportunity) + Nav /quality link
+- [x] 04-01-PLAN.md — /about page (company history, promoter cards, market opportunity) + Nav /quality link
 - [ ] 04-02-PLAN.md — /quality page (cert cards with PURSUING badges, lab testing methodology)
 - [ ] 04-03-PLAN.md — /sustainability page (EPR progress bars, circular economy SVG, CO2 savings, IOCL MOU)
 - [ ] 04-04-PLAN.md — /collect page (pickup process steps, service area, scheduling form, WhatsApp CTA)
@@ -127,7 +127,7 @@ Plans:
 | 1 | Brand Foundation | 5 | FOUND-01-13 | Critical |
 | 2 | Homepage | 5 | HOME-01-10 | Critical |
 | 3 | Products & Process | 5/5 | Complete   | 2026-03-22 |
-| 4 | Supporting Pages | 4 | ABOUT, QUAL, SUST, COLL | High |
+| 4 | Supporting Pages | 1/4 | In Progress|  |
 | 5 | Blog & Launch | 4 | BLOG-01-06, INT-01-05 | High |
 
 **Total plans:** 23

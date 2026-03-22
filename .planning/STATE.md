@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 03-products-process plan 05 — Google Sheets lead capture with service account auth
-last_updated: "2026-03-22T04:55:55.773Z"
+stopped_at: Completed 04-01-PLAN.md
+last_updated: "2026-03-22T05:45:01.340Z"
 progress:
   total_phases: 2
   completed_phases: 1
-  total_plans: 5
-  completed_plans: 5
+  total_plans: 9
+  completed_plans: 6
 ---
 
 # Project State
@@ -19,12 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-20)
 
 **Core value:** Position Santosh as India's premium Group II+ RRBO producer and generate qualified leads
-**Current focus:** Phase 03 — products-process
+**Current focus:** Phase 04 — supporting-pages
 
 ## Current Status
 
-**Phase:** 04 of 3 (supporting pages)
-**Last action:** 03-05 complete — Google Sheets API route (POST /api/sample-request) created and SampleRequestForm wired via async fetch with graceful degradation (2026-03-21)
+**Phase:** 04 of 5 (supporting pages)
+**Last action:** 04-01 complete — /about page created (Server Component, company story + promoter cards + commissioning milestone + market opportunity); Nav updated with /quality link (2026-03-22)
 
 ## Phase Progress
 
@@ -33,7 +33,7 @@ See: .planning/PROJECT.md (updated 2026-03-20)
 | 1 | Brand Foundation | ✓ Complete | 5 |
 | 2 | Homepage | ✓ Complete | 5 |
 | 3 | Products & Process | ✓ Complete | 5/5 |
-| 4 | Supporting Pages | ○ Pending | 4 |
+| 4 | Supporting Pages | ◐ In Progress | 1/4 |
 | 5 | Blog & Launch | ○ Pending | 4 |
 
 ## Key Context
@@ -59,12 +59,20 @@ See: .planning/PROJECT.md (updated 2026-03-20)
 
 ## Next Step
 
-Phase 3 complete. Proceed to Phase 4 — Supporting Pages (About, Quality & Certifications, Sustainability, Used Oil Collection).
+Phase 4 in progress (1/4 complete). Proceed to 04-02 (Quality & Certifications page), 04-03 (Sustainability page), 04-04 (Used Oil Collection page).
+
+## Key Decisions (Plan 04-01)
+
+- /about page is a Server Component — no client interactivity needed for static trust-building content
+- Two promoter cards: Lalit Bindal (full bio from project context) + Robin Kumar (placeholder per D-10; client to provide)
+- Commissioning milestone callout uses border-l-2 border-green-500 per D-12 spec
+- Why Now stats included: 50% EPR mandate + $3.38B market size as amber stat cards
+- Nav /quality link appended after About — 6 total navLinks entries
 
 ## Session Continuity
 
-Last session: 2026-03-22T04:51:42.852Z
-Stopped at: Completed 03-products-process plan 05 — Google Sheets lead capture with service account auth
+Last session: 2026-03-22T05:45:01.338Z
+Stopped at: Completed 04-01-PLAN.md
 Resume file: None
 
 ## Key Decisions (Plan 03-04)
@@ -80,4 +88,4 @@ Resume file: None
 - SHEET_NAME constant defaults to "Sheet1" — update if sheet tab has a different name
 
 ---
-*Updated: 2026-03-21 after plan 03-05 completion*
+*Updated: 2026-03-22 after plan 04-01 completion*

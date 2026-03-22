@@ -50,8 +50,8 @@
 
 ### Phase 4 — Supporting Pages
 
-- [ ] **ABOUT-01**: About Us page — company history, Santosh Associates background, IOCL SSI context
-- [ ] **ABOUT-02**: Promoter/team section (Lalit Bindal profile — 35yr experience)
+- [x] **ABOUT-01**: About Us page — company history, Santosh Associates background, IOCL SSI context
+- [x] **ABOUT-02**: Promoter/team section (Lalit Bindal profile — 35yr experience)
 - [ ] **QUAL-01**: Quality & Certifications page with cert display cards
 - [ ] **QUAL-02**: Lab testing data display (VI, sulfur, flash point methodology)
 - [ ] **SUST-01**: Sustainability page — EPR mandate progression (5%→50% by FY2031), environmental impact

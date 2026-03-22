@@ -1,8 +1,10 @@
 import { NextRequest } from "next/server";
 import { GoogleAuth } from "google-auth-library";
+import { Resend } from "resend";
 
 const SPREADSHEET_ID = "1oc5WnrHE_MA139bN5X7PF6bEYZCbkNJz8LA5LlO09vI";
 const SHEET_NAME = "Contact";
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
   try {
@@ -42,6 +44,18 @@ export async function POST(request: NextRequest) {
     if (!sheetsRes.ok) {
       const errText = await sheetsRes.text();
       console.error("Sheets API error:", sheetsRes.status, errText);
+    }
+
+    // Resend enquiry notification (D-14, D-15: additive, graceful degradation)
+    try {
+      await resend.emails.send({
+        from: process.env.FROM_EMAIL ?? "TODO@placeholder.com",
+        to: [process.env.NOTIFY_EMAIL_PRIMARY!, process.env.NOTIFY_EMAIL_CC!].filter(Boolean),
+        subject: `New enquiry from ${name} — Santosh website`,
+        text: `New contact form submission:\n\nName: ${name}\nCompany: ${company ?? "Not provided"}\nEmail: ${email}\nMessage: ${message ?? "No message"}\n\nSubmitted: ${timestamp}`,
+      });
+    } catch (resendErr) {
+      console.error("Resend notification failed:", resendErr);
     }
 
     return Response.json({ ok: true }, { status: 200 });

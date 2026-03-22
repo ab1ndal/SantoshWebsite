@@ -230,7 +230,7 @@ export default function Hero() {
                   <Image
                     src="/santosh-logo.svg"
                     alt="Santosh Petrochemical"
-                    width={30}
+                    width={40}
                     height={40}
                     className="object-contain brightness-0 invert"
                   />

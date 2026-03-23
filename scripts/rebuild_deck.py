@@ -728,3 +728,331 @@ def build_slide_16(prs, logo, images):
                 size=9, color=C_MUTED)
 
     add_footer(slide)
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SLIDE 11 — CAPITAL INVESTMENT (Pattern A)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+def build_slide_11(prs, logo, images):
+    slide = new_slide(prs)
+    add_bg(slide)
+    add_pattern_a_image(slide, images.get("photo-1611532736597-de2d4265fba3"))
+    add_logo(slide, logo)
+    add_slide_tag(slide, "CAPITAL STRUCTURE")
+    add_headline(slide, "Total Project Outlay:\n₹159.87 Crore", top=0.55, size=24)
+    add_subheadline(slide, "30% Promoter Equity  |  70% Term Loan  |  9% Interest Rate", top=1.48)
+
+    sources = [
+        ("Promoters' Contribution", "30%", "₹46.62 Cr", "Self-funded equity"),
+        ("Term Loan (Plant)", "70%", "₹94.79 Cr", "Bank financing for plant"),
+        ("Working Capital Loan", "70% of WC", "₹14.00 Cr", "Operational working capital"),
+    ]
+    card_h = 1.1
+    card_y0 = 1.90
+    for i, (title, pct, amount, note) in enumerate(sources):
+        y = card_y0 + i * (card_h + 0.12)
+        add_rect(slide, CONTENT_X, y, CONTENT_W, card_h, fill=C_CARD, border=C_CARD_BORDER)
+        add_rect(slide, CONTENT_X, y, 0.04, card_h, fill=C_TEAL)
+        add_text(slide, title,
+            CONTENT_X + 0.14, y + 0.1, CONTENT_W * 0.55, 0.28,
+            size=10, bold=True, color=C_WHITE)
+        add_text(slide, pct,
+            CONTENT_X + 0.14, y + 0.42, 1.0, 0.28,
+            size=9, color=C_MUTED)
+        add_text(slide, amount,
+            CONTENT_X + CONTENT_W - 1.8, y + 0.1, 1.7, 0.42,
+            size=18, bold=True, color=C_TEAL, align=PP_ALIGN.RIGHT)
+        add_text(slide, note,
+            CONTENT_X + 0.14, y + 0.72, CONTENT_W - 0.28, 0.28,
+            size=8.5, color=C_MUTED)
+
+    # Interest note
+    add_text(slide, "Interest Rate: 9% p.a. (Term Loan & Working Capital)",
+        CONTENT_X, card_y0 + 3 * (card_h + 0.12) + 0.1, CONTENT_W, 0.28,
+        size=8.5, color=C_MUTED, italic=True)
+
+    add_footer(slide)
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SLIDE 12 — FINANCIAL PROJECTIONS (Pattern A — drawn bar chart left)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+def build_slide_12(prs, logo, images):
+    slide = new_slide(prs)
+    add_bg(slide)
+    add_logo(slide, logo)
+
+    # ── Left panel: drawn bar chart ──────────────────────────────────────────
+    chart_left = 0.35
+    chart_w = IMG_W - 0.35
+    chart_bottom = H - 0.55
+    chart_h = 4.2
+    chart_top = chart_bottom - chart_h
+
+    years = ["Y3", "Y4", "Y5", "Y6", "Y7"]
+    revenues = [122, 169, 200, 240, 280]  # ₹ Cr (approximate projections)
+    max_rev = 300
+    bar_gap = 0.14
+    bar_w = (chart_w - (len(years) + 1) * bar_gap) / len(years)
+
+    # Chart background
+    add_rect(slide, chart_left, chart_top - 0.1, chart_w, chart_h + 0.2,
+             fill=RGBColor(0x07, 0x12, 0x1c))
+    add_text(slide, "REVENUE PROJECTION (₹ Crore)",
+        chart_left + 0.1, chart_top - 0.08, chart_w - 0.2, 0.24,
+        size=7.5, bold=True, color=C_MUTED)
+
+    for i, (yr, rev) in enumerate(zip(years, revenues)):
+        bx = chart_left + bar_gap + i * (bar_w + bar_gap)
+        bar_h_actual = (rev / max_rev) * (chart_h - 0.5)
+        by = chart_bottom - bar_h_actual - 0.25
+
+        fill = C_TEAL if yr == "Y4" else RGBColor(0x00, 0x6e, 0x56)
+        add_rect(slide, bx, by, bar_w, bar_h_actual, fill=fill)
+        add_text(slide, f"₹{rev}Cr",
+            bx, by - 0.3, bar_w, 0.28,
+            size=7.5, bold=True,
+            color=C_TEAL if yr == "Y4" else C_MUTED,
+            align=PP_ALIGN.CENTER)
+        add_text(slide, yr,
+            bx, chart_bottom - 0.22, bar_w, 0.22,
+            size=8, color=C_MUTED, align=PP_ALIGN.CENTER)
+
+    # Right-edge fade
+    add_rect(slide, IMG_W - 0.5, 0, 0.5, H, fill=C_BG)
+
+    # ── Right panel ──────────────────────────────────────────────────────────
+    add_slide_tag(slide, "FINANCIAL MODEL")
+    add_headline(slide, "Revenue ₹169 Cr+\nby Year 4", top=0.55, size=24)
+
+    prod_data = [
+        ("Year 3", "46 KL/day", "15,243 KL/yr RRBO"),
+        ("Year 4+", "65 KL/day", "21,775 KL/yr RRBO"),
+    ]
+    add_text(slide, "PRODUCTION PROFILE",
+        CONTENT_X, 1.68, CONTENT_W, 0.24,
+        size=7.5, bold=True, color=C_MUTED)
+    for i, (yr, daily, annual) in enumerate(prod_data):
+        add_kpi_chip(slide, daily, f"{yr} — {annual}",
+                     CONTENT_X + i * (CONTENT_W / 2 + 0.02), 1.96,
+                     width=CONTENT_W / 2 - 0.05, height=0.9)
+
+    pricing = [
+        ("RRBO Pricing", "₹80,000/KL (Y3)  →  ₹88,305/KL (Y7)"),
+        ("Feedstock Cost", "₹45,000/KL (Y3, rising ~3%/yr)"),
+        ("Gross Margin", "~43–44% on RRBO sales"),
+    ]
+    ratio_y = 3.06
+    add_text(slide, "KEY METRICS",
+        CONTENT_X, ratio_y, CONTENT_W, 0.24,
+        size=7.5, bold=True, color=C_MUTED)
+    for i, (lbl, val) in enumerate(pricing):
+        y = ratio_y + 0.28 + i * 0.6
+        add_rect(slide, CONTENT_X, y, CONTENT_W, 0.55,
+                 fill=C_CARD if i % 2 == 0 else RGBColor(0x12, 0x1e, 0x2c))
+        add_text(slide, lbl,
+            CONTENT_X + 0.1, y + 0.08, 1.55, 0.22,
+            size=8.5, bold=True, color=C_TEAL)
+        add_text(slide, val,
+            CONTENT_X + 1.7, y + 0.08, CONTENT_W - 1.8, 0.40,
+            size=8.5, color=C_WHITE)
+
+    add_footer(slide)
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SLIDE 14 — FEEDSTOCK PIPELINE (Pattern A)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+def build_slide_14(prs, logo, images):
+    slide = new_slide(prs)
+    add_bg(slide)
+    add_pattern_a_image(slide, images.get("photo-1519003722824-194d4455a60c"))
+    add_logo(slide, logo)
+    add_slide_tag(slide, "FEEDSTOCK STRATEGY")
+    add_headline(slide, "Building a Reliable\nFeedstock Network", top=0.55, size=23)
+
+    sources = [
+        ("Automotive Workshops", "Car/truck service centres — largest used engine oil source in NCR"),
+        ("Industrial Plants", "Manufacturing units using hydraulic, gear and cutting oils"),
+        ("Transport Fleets", "Commercial trucking & bus depots — regular oil change cycles"),
+        ("IOCL Dealer Network", "SERVO stockist relationships enable formal collection"),
+        ("EPR-Registered Collectors", "CPCB-registered aggregators incentivised to deliver to re-refiners"),
+    ]
+    src_y = 1.68
+    for title, desc in sources:
+        add_bullet_row(slide, "•", title, desc, top=src_y)
+        src_y += 0.56
+
+    # 4 KPI chips
+    kpis = [
+        ("15,243 KL", "Year 3 Feed Target"),
+        ("21,775 KL", "Year 4+ Feed Target"),
+        ("₹45,000/KL", "Feedstock Cost (Y3)"),
+        ("150–200 km", "Collection Radius"),
+    ]
+    chip_w = (CONTENT_W - 0.09) / 2
+    chip_h = 0.72
+    kpi_y = src_y + 0.1
+    for i, (val, lbl) in enumerate(kpis):
+        col = i % 2; row = i // 2
+        add_kpi_chip(slide,
+            val, lbl,
+            CONTENT_X + col * (chip_w + 0.09), kpi_y + row * (chip_h + 0.09),
+            width=chip_w, height=chip_h)
+
+    add_footer(slide)
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SLIDE 15 — STRATEGIC PARTNERSHIPS (Pattern A)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+def build_slide_15(prs, logo, images):
+    slide = new_slide(prs)
+    add_bg(slide)
+    add_pattern_a_image(slide, images.get("photo-1450101499163-c8848c66ca85"))
+    add_logo(slide, logo)
+    add_slide_tag(slide, "PARTNERSHIPS")
+    add_headline(slide, "Built on Trusted\nRelationships", top=0.55, size=25)
+
+    partners = [
+        ("REVA Process Technologies, Pune", "Technology Partner", [
+            "European vacuum distillation + hydrotreating technology",
+            "70–75% base oil recovery guarantee; ongoing catalyst supply",
+        ]),
+        ("Indian Oil Corporation Ltd.", "23+ Year Partner (SSI since 2003) + IOCL-Re MOU Mar 2026", [
+            "6-district SERVO distribution network; deep trust established",
+            "MOU creates framework for Group II+ RRBO circular economy",
+        ]),
+        ("Hindustan Petroleum Corp. Ltd.", "O&M & Bottling Partner", [
+            "LPG Bottling: Amroha — 30 TMT/yr; O&M: Sitarganj — 340 TMT tenure",
+            "Validates Santosh's capacity to operate large-scale energy assets",
+        ]),
+    ]
+    card_h = 1.45
+    card_y0 = 1.72
+    for i, (name, role, bullets) in enumerate(partners):
+        y = card_y0 + i * (card_h + 0.1)
+        add_rect(slide, CONTENT_X, y, CONTENT_W, card_h, fill=C_CARD, border=C_CARD_BORDER)
+        add_rect(slide, CONTENT_X, y, 0.04, card_h, fill=C_TEAL)
+        add_text(slide, name,
+            CONTENT_X + 0.14, y + 0.1, CONTENT_W - 0.24, 0.28,
+            size=10, bold=True, color=C_TEAL)
+        add_text(slide, role,
+            CONTENT_X + 0.14, y + 0.38, CONTENT_W - 0.24, 0.26,
+            size=8.5, color=C_MUTED, italic=True)
+        for j, b in enumerate(bullets):
+            add_text(slide, f"• {b}",
+                CONTENT_X + 0.14, y + 0.66 + j * 0.36, CONTENT_W - 0.28, 0.34,
+                size=8.5, color=C_WHITE)
+
+    add_footer(slide)
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SLIDE 17 — VALUE PROP FOR IOCL (Pattern A)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+def build_slide_17(prs, logo, images):
+    slide = new_slide(prs)
+    add_bg(slide)
+    add_pattern_a_image(slide, images.get("photo-1558618666-fcd25c85cd64"))
+    add_logo(slide, logo)
+    add_slide_tag(slide, "IOCL VALUE PROP")
+    add_headline(slide, "Why This Partnership\nDelivers for IOCL", top=0.55, size=23)
+
+    values = [
+        ("EPR Compliance — Zero CapEx",
+         "SERVO must blend RRBO per CPCB mandate. Source from Santosh, skip building own re-refinery."),
+        ("Captive Group II+ Supply in North India",
+         "No certified Group II+ RRBO producer in North India. Santosh fills this gap."),
+        ("Circular Economy Credential",
+         "IOCL-Re MOU (Mar 2026) commits to Group II+ circular economy. Santosh makes it real."),
+        ("SERVO Dealer Network Monetisation",
+         "Dealers become collection points, earn per-litre fees. Deepens dealer relationships."),
+        ("Import Substitution Alignment",
+         "Group II+ currently imported. Domestic RRBO from Santosh reduces forex outflow."),
+        ("Trusted Promoter — 23+ Year Track Record",
+         "Lalit Bindal has been an IOCL SSI for 23+ years. This is an existing partnership."),
+    ]
+    card_h = 0.75
+    card_y0 = 1.70
+    gap = 0.08
+    for i, (title, desc) in enumerate(values):
+        row = i % 3; col = i // 3
+        x = CONTENT_X + col * (CONTENT_W / 2 + gap / 2)
+        y = card_y0 + row * (card_h + gap)
+        add_rect(slide, x, y, CONTENT_W / 2 - gap / 2, card_h,
+                 fill=C_CARD, border=C_CARD_BORDER)
+        add_rect(slide, x, y, 0.03, card_h, fill=C_TEAL)
+        add_text(slide, title,
+            x + 0.1, y + 0.06, CONTENT_W / 2 - 0.2, 0.25,
+            size=8.5, bold=True, color=C_WHITE)
+        add_text(slide, desc,
+            x + 0.1, y + 0.34, CONTENT_W / 2 - 0.2, 0.36,
+            size=7.5, color=C_MUTED)
+
+    add_footer(slide)
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SLIDE 18 — CTA / NEXT STEPS (Pattern A)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+def build_slide_18(prs, logo, images):
+    slide = new_slide(prs)
+    add_bg(slide)
+    add_pattern_a_image(slide, images.get("photo-1473341304170-971dccb5ac1e"))
+    add_logo(slide, logo)
+    add_slide_tag(slide, "NEXT STEPS")
+    add_headline(slide,
+        "Let's Build India's\nCircular Oil Economy Together",
+        top=0.45, size=21)
+
+    steps = [
+        ("1", "Site Visit",
+         "IOCL team visits Ghaziabad plant — inspect commissioning progress & technology"),
+        ("2", "Technical Review",
+         "Share DPR, lab data, REVA process docs with IOCL R&D (Faridabad)"),
+        ("3", "MOU / Letter of Intent",
+         "Non-binding MOU covering RRBO offtake volumes, feedstock, investment framework"),
+        ("4", "Commercial Agreement",
+         "Binding offtake agreement, pricing formula, EPR transfer mechanism — target Q2 FY26"),
+    ]
+    step_h = 0.85
+    step_y0 = 1.55
+    for i, (num, title, desc) in enumerate(steps):
+        y = step_y0 + i * (step_h + 0.1)
+        add_rect(slide, CONTENT_X, y, CONTENT_W, step_h, fill=C_CARD, border=C_CARD_BORDER)
+        # Number badge
+        badge = slide.shapes.add_shape(9,
+            Inches(CONTENT_X + 0.1), Inches(y + 0.17),
+            Inches(0.48), Inches(0.48))
+        badge.fill.solid(); badge.fill.fore_color.rgb = C_TEAL
+        badge.line.fill.background()
+        add_text(slide, num,
+            CONTENT_X + 0.1, y + 0.17, 0.48, 0.48,
+            size=13, bold=True, color=C_BG, align=PP_ALIGN.CENTER)
+        add_text(slide, title,
+            CONTENT_X + 0.72, y + 0.1, CONTENT_W - 0.82, 0.28,
+            size=10, bold=True, color=C_WHITE)
+        add_text(slide, desc,
+            CONTENT_X + 0.72, y + 0.42, CONTENT_W - 0.82, 0.38,
+            size=8.5, color=C_MUTED)
+
+    # Contact block
+    contact_y = step_y0 + 4 * (step_h + 0.1) + 0.1
+    add_rect(slide, CONTENT_X, contact_y, CONTENT_W, 0.85,
+             fill=RGBColor(0x04, 0x2a, 0x1e), border=C_TEAL)
+    add_text(slide, "Lalit Bindal — Managing Director",
+        CONTENT_X + 0.15, contact_y + 0.08, CONTENT_W - 0.3, 0.26,
+        size=10, bold=True, color=C_WHITE)
+    add_text(slide,
+        "santoshgzb@yahoo.com   ·   +91 98101 21438   ·   www.santosh-petrochemical.com",
+        CONTENT_X + 0.15, contact_y + 0.38, CONTENT_W - 0.3, 0.38,
+        size=8.5, color=C_MUTED)
+
+    add_footer(slide)

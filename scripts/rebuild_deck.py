@@ -331,3 +331,172 @@ def build_slide_04(prs, logo, images):
 
     add_footer(slide)
 
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SLIDE 5 — THE OPPORTUNITY (Pattern A)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+def build_slide_05(prs, logo, images):
+    slide = new_slide(prs)
+    add_bg(slide)
+    add_pattern_a_image(slide, images.get("photo-1611273426858-450d8e3c9fce"))
+    add_logo(slide, logo)
+    add_slide_tag(slide, "MARKET OPPORTUNITY")
+    add_headline(slide, "India's Used Oil Crisis —\nA ₹28,000 Cr Market", top=0.55, size=21)
+
+    # 2×2 stat grid
+    stats = [
+        ("1.3 MMT", "Used lubricating oil generated in India annually"),
+        ("<15%", "Formally recycled — rest burned or dumped"),
+        ("257", "CPCB-registered re-refiners in India"),
+        ("~0", "Group II+ RRBO producers in North India"),
+    ]
+    chip_w = (CONTENT_W - 0.1) / 2
+    chip_h = 1.0
+    gap = 0.1
+    grid_y = 1.72
+    for i, (val, lbl) in enumerate(stats):
+        col = i % 2; row = i // 2
+        x = CONTENT_X + col * (chip_w + gap)
+        y = grid_y + row * (chip_h + gap)
+        bdr = C_TEAL if i in (0, 3) else C_CARD_BORDER
+        add_rect(slide, x, y, chip_w, chip_h, fill=C_CARD, border=bdr)
+        add_text(slide, val,
+            x + 0.12, y + 0.1, chip_w - 0.24, 0.42,
+            size=22, bold=True,
+            color=C_TEAL if i in (0, 3) else C_WHITE)
+        add_text(slide, lbl,
+            x + 0.12, y + 0.52, chip_w - 0.24, 0.42,
+            size=8.5, color=C_MUTED)
+
+    # Insight callout
+    ins_y = grid_y + 2 * (chip_h + gap) + 0.12
+    add_rect(slide, CONTENT_X, ins_y, CONTENT_W, 0.82,
+             fill=RGBColor(0x04, 0x2a, 0x1e), border=C_TEAL)
+    add_text(slide, "THE SANTOSH ADVANTAGE",
+        CONTENT_X + 0.12, ins_y + 0.07, CONTENT_W - 0.24, 0.22,
+        size=8, bold=True, color=C_TEAL)
+    add_text(slide,
+        "Only Group II+ producer in North India. Hydrotreating eliminates sulfur to "
+        "<300 ppm — competitors (IFP) stuck at Group I via adsorption. EPR-compliant output.",
+        CONTENT_X + 0.12, ins_y + 0.30, CONTENT_W - 0.24, 0.46,
+        size=9, color=C_MUTED)
+
+    add_footer(slide)
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SLIDE 6 — MARKET SIZE & GROWTH (Pattern A)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+def build_slide_06(prs, logo, images):
+    slide = new_slide(prs)
+    add_bg(slide)
+    add_pattern_a_image(slide, images.get("photo-1486325212027-8081e485255e"))
+    add_logo(slide, logo)
+    add_slide_tag(slide, "MARKET ANALYSIS")
+    add_headline(slide, "High Growth,\nPolicy-Backed Market", top=0.55, size=24)
+
+    # 4 KPI chips (2×2)
+    kpis = [
+        ("USD 3.38B", "India waste oil market (2025)"),
+        ("~7.9% CAGR", "Growth to USD 6.22B by 2033"),
+        ("4.2 MMT", "India lubricant market (FY22)"),
+        ("5–6 MMT", "Projected lubricant market FY31"),
+    ]
+    chip_w = (CONTENT_W - 0.1) / 2
+    chip_h = 0.85
+    for i, (val, lbl) in enumerate(kpis):
+        col = i % 2; row = i // 2
+        x = CONTENT_X + col * (chip_w + 0.1)
+        y = 1.68 + row * (chip_h + 0.1)
+        add_kpi_chip(slide, val, lbl, x, y, width=chip_w, height=chip_h)
+
+    # Market drivers
+    drivers = [
+        ("Regulatory Push", "EPR mandate drives formal collection; informal burning criminalised"),
+        ("Rising Vehicle Ownership", "Auto sector growth = more used oil generated annually"),
+        ("Import Substitution", "Group II+ RRBO replaces costly virgin base oil imports"),
+        ("IOCL-Re MOU (Mar 2026)", "India's first national Group II+ RRBO circular economy framework"),
+    ]
+    driver_y = 1.68 + 2 * (chip_h + 0.1) + 0.15
+    for i, (title, desc) in enumerate(drivers):
+        add_bullet_row(slide, "•", title, desc,
+                       top=driver_y + i * 0.56,
+                       icon_color=C_TEAL if i < 2 else RGBColor(0x00, 0x6e, 0x56))
+
+    add_footer(slide)
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SLIDE 8 — PLANT & INFRASTRUCTURE (Pattern A)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+def build_slide_08(prs, logo, images):
+    slide = new_slide(prs)
+    add_bg(slide)
+    add_pattern_a_image(slide, images.get("photo-1518709268805-4e9042af9f23"))
+    add_logo(slide, logo)
+    add_slide_tag(slide, "INFRASTRUCTURE")
+    add_headline(slide, "World-Class Plant —\nSCADA-Controlled, CPCB-Compliant", top=0.55, size=20)
+
+    sections = [
+        ("A. Distillation", "Dehydration column, vacuum distillation, WFE (REVA), asphalt collector"),
+        ("B. Hydrotreating", "3 reactors with metallic catalysts, heat exchangers, H₂ recycle compressor"),
+        ("C. Fractionation", "Fractionation column, pre-heaters, pressure vessels, pumps & coolers"),
+        ("D. Tank Farm", "Storage: 1000 KL×2, 500 KL×2, 200 KL×2, 100 KL×2 + vapor recovery"),
+        ("E. Utilities", "Thermal oil heater, cooling tower, compressed air, 4 chemical injection systems"),
+        ("F. Control System", "SCADA + PLC plant-wide, remote monitoring, VFDs on all pumps"),
+    ]
+    row_h = 0.62
+    row_y0 = 1.62
+    for i, (sec, desc) in enumerate(sections):
+        y = row_y0 + i * (row_h + 0.06)
+        fill = RGBColor(0x12, 0x1e, 0x2c) if i % 2 == 0 else C_CARD
+        add_rect(slide, CONTENT_X, y, CONTENT_W, row_h, fill=fill)
+        add_rect(slide, CONTENT_X, y, 0.04, row_h, fill=C_TEAL)
+        add_text(slide, sec,
+            CONTENT_X + 0.14, y + 0.07, 1.65, 0.26,
+            size=9, bold=True, color=C_TEAL)
+        add_text(slide, desc,
+            CONTENT_X + 0.14, y + 0.33, CONTENT_W - 0.24, 0.26,
+            size=8.5, color=C_MUTED)
+
+    add_footer(slide)
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SLIDE 9 — LOCATION STRATEGY (Pattern A)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+def build_slide_09(prs, logo, images):
+    slide = new_slide(prs)
+    add_bg(slide)
+    add_pattern_a_image(slide, images.get("photo-1567427017947-545c5f8d16ad"))
+    add_logo(slide, logo)
+    add_slide_tag(slide, "LOCATION STRATEGY")
+    add_headline(slide, "Ghaziabad — Heart of India's\nIndustrial Lubricant Belt", top=0.55, size=20)
+    add_subheadline(slide,
+        "Proximity to NCR, Western UP, and major lubricant blending hubs",
+        top=1.42)
+
+    points = [
+        ("NCR Proximity",
+         "Delhi-Meerut corridor — access to India's largest auto & industrial cluster"),
+        ("IOCL Distribution Network",
+         "Existing 6-district SERVO network = immediate feedstock & customer reach"),
+        ("Western UP Industrial Belt",
+         "Ghaziabad, Meerut, Muzaffarnagar, Baghpat — consistent used oil volumes"),
+        ("Highway Connectivity",
+         "NH-58 & NH-9 — excellent tanker logistics for inbound feedstock & outbound RRBO"),
+        ("Used Oil Catchment",
+         "30M+ vehicles in NCR alone; 200,000+ KL used oil/yr in catchment area"),
+        ("Competitor Gap",
+         "IFP (Sahibabad) is only re-refiner nearby — cannot produce Group II+"),
+    ]
+    pt_y = 1.75
+    for title, desc in points:
+        add_bullet_row(slide, "•", title, desc, top=pt_y)
+        pt_y += 0.55
+
+    add_footer(slide)

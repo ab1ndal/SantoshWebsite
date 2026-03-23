@@ -67,28 +67,26 @@
 
 ## Traceability
 
-*(Filled by roadmapper)*
-
 | REQ-ID | Phase | Plan |
 |--------|-------|------|
-| SEO-01 | — | — |
-| SEO-02 | — | — |
-| SEO-03 | — | — |
-| SEO-04 | — | — |
-| SEO-05 | — | — |
-| SEO-06 | — | — |
-| ANL-01 | — | — |
-| ANL-02 | — | — |
-| ANL-03 | — | — |
-| ANL-04 | — | — |
-| ANL-05 | — | — |
-| EML-01 | — | — |
-| EML-02 | — | — |
-| EML-03 | — | — |
-| EML-04 | — | — |
-| HND-01 | — | — |
-| HND-02 | — | — |
-| CNT-01 | — | — |
-| CNT-02 | — | — |
-| CNT-03 | — | — |
-| CNT-04 | — | — |
+| SEO-01 | Phase 6 | — |
+| SEO-02 | Phase 6 | — |
+| SEO-03 | Phase 6 | — |
+| SEO-04 | Phase 6 | — |
+| SEO-05 | Phase 10 | — |
+| SEO-06 | Phase 6 | — |
+| ANL-01 | Phase 7 | — |
+| ANL-02 | Phase 7 | — |
+| ANL-03 | Phase 7 | — |
+| ANL-04 | Phase 7 | — |
+| ANL-05 | Phase 7 | — |
+| EML-01 | Phase 8 | — |
+| EML-02 | Phase 8 | — |
+| EML-03 | Phase 8 | — |
+| EML-04 | Phase 8 | — |
+| HND-01 | Phase 9 | — |
+| HND-02 | Phase 9 | — |
+| CNT-01 | Phase 9 | — |
+| CNT-02 | Phase 9 | — |
+| CNT-03 | Phase 9 | — |
+| CNT-04 | Phase 9 | — |

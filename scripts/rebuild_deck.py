@@ -500,3 +500,231 @@ def build_slide_09(prs, logo, images):
         pt_y += 0.55
 
     add_footer(slide)
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SLIDE 10 — PROJECT TIMELINE (Pattern B — Full-Width)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+PHASES = [
+    ("Pre-Project", "Year 1", "COMPLETE", [
+        "Company incorporation & DPR",
+        "Technology partner (REVA) selected",
+    ], True),
+    ("Construction", "Year 2", "COMPLETE", [
+        "Civil works, foundations, buildings",
+        "REVA plant equipment ordered & delivered",
+    ], True),
+    ("Commissioning", "Year 3 — NOW", "IN PROGRESS", [
+        "Plant commissioning underway",
+        "CPCB registration & QC lab (27 instruments)",
+    ], False),
+    ("Full Operations", "Year 4", "PLANNED", [
+        "65 KL/day full capacity",
+        "Revenue target: ₹169 Cr+",
+    ], False),
+    ("Scale-Up", "Year 5–7", "PLANNED", [
+        "Expand to 200 TPD capacity",
+        "Pan-India RRBO supply capability",
+    ], False),
+]
+
+def build_slide_10(prs, logo, images):
+    slide = new_slide(prs)
+    add_bg(slide)
+    add_logo(slide, logo)
+    add_text(slide, "PROJECT STATUS",
+        0.35, 0.22, 10.0, 0.25, size=8, bold=True, color=C_TEAL)
+    add_text(slide, "Commissioning in Progress — Production Imminent",
+        0.35, 0.50, 12.0, 0.55, size=22, bold=True, color=C_WHITE)
+
+    phase_w = (W - 0.7) / 5 - 0.08
+    phase_h = 4.6
+    phase_y = 1.2
+    px0 = 0.35
+
+    for i, (name, period, status, bullets, done) in enumerate(PHASES):
+        px = px0 + i * (phase_w + 0.08)
+        active = (status == "IN PROGRESS")
+
+        # Top status bar color
+        bar_color = C_TEAL if done else (RGBColor(0x00, 0x6e, 0x56) if active else C_CARD_BORDER)
+        add_rect(slide, px, phase_y, phase_w, 0.07, fill=bar_color)
+
+        # Phase box
+        box_fill = RGBColor(0x09, 0x2e, 0x22) if active else C_CARD
+        add_rect(slide, px, phase_y + 0.07, phase_w, phase_h - 0.07,
+                 fill=box_fill,
+                 border=C_TEAL if active else C_CARD_BORDER)
+
+        # Phase name
+        add_text(slide, name,
+            px + 0.1, phase_y + 0.15, phase_w - 0.2, 0.5,
+            size=10, bold=True, color=C_WHITE)
+        add_text(slide, period,
+            px + 0.1, phase_y + 0.65, phase_w - 0.2, 0.25,
+            size=8, color=C_MUTED)
+
+        # Status badge
+        badge_color = C_TEAL if done else (RGBColor(0xf3, 0x9c, 0x12) if active else C_CARD)
+        badge_text_color = C_BG if done else (C_BG if active else C_MUTED)
+        add_rect(slide, px + 0.1, phase_y + 0.95, phase_w - 0.2, 0.3,
+                 fill=badge_color, border=None)
+        add_text(slide, ("✓ " if done else "⟳ " if active else "") + status,
+            px + 0.12, phase_y + 0.97, phase_w - 0.24, 0.26,
+            size=7.5, bold=True, color=badge_text_color, align=PP_ALIGN.CENTER)
+
+        # Bullets
+        for j, b in enumerate(bullets):
+            add_text(slide, f"• {b}",
+                px + 0.1, phase_y + 1.38 + j * 0.68, phase_w - 0.2, 0.65,
+                size=8.5, color=C_MUTED)
+
+        # Connector arrow
+        if i < 4:
+            add_text(slide, "▶",
+                px + phase_w + 0.01, phase_y + phase_h / 2 - 0.1, 0.07, 0.25,
+                size=8, color=C_TEAL, align=PP_ALIGN.CENTER)
+
+    add_footer(slide)
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SLIDE 13 — GROWTH SCALE-UP (Pattern B — Full-Width 3-Phase)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+def build_slide_13(prs, logo, images):
+    slide = new_slide(prs)
+    add_bg(slide)
+    add_logo(slide, logo)
+    add_text(slide, "SCALE-UP PLAN",
+        0.35, 0.22, 10.0, 0.25, size=8, bold=True, color=C_TEAL)
+    add_text(slide, "65 TPD Today  →  200 TPD Tomorrow",
+        0.35, 0.50, 12.0, 0.55, size=24, bold=True, color=C_WHITE)
+    add_text(slide, "Designed for scale from day one — infrastructure ready for 3× expansion",
+        0.35, 1.08, 11.0, 0.28, size=10, color=C_MUTED)
+
+    phases = [
+        ("PHASE 1", "Current", "COMMISSIONING", [
+            ("Feed Capacity", "65 TPD"),
+            ("RRBO Output", "~16,000 KL/yr"),
+            ("Revenue Target", "₹169 Cr by Year 4"),
+        ], True),
+        ("PHASE 2", "Year 5–6", "PLANNED", [
+            ("Feed Capacity", "130 TPD"),
+            ("RRBO Output", "~32,000 KL/yr"),
+            ("Revenue Target", "₹320–340 Cr"),
+        ], False),
+        ("PHASE 3", "Year 7+", "DESIGNED CAPACITY", [
+            ("Feed Capacity", "200 TPD"),
+            ("RRBO Output", "~50,000 KL/yr"),
+            ("Revenue Target", "₹450–500 Cr"),
+        ], False),
+    ]
+    col_w = (W - 0.7) / 3 - 0.12
+    col_h = 4.5
+    col_y = 1.44
+    cx0 = 0.35
+
+    for i, (phase, period, status, rows, active) in enumerate(phases):
+        cx = cx0 + i * (col_w + 0.12)
+        fill = RGBColor(0x09, 0x2e, 0x22) if active else C_CARD
+        border = C_TEAL if active else C_CARD_BORDER
+        top_fill = C_TEAL if active else RGBColor(0x00, 0x3d, 0x2e)
+        add_rect(slide, cx, col_y, col_w, 0.07, fill=top_fill)
+        add_rect(slide, cx, col_y + 0.07, col_w, col_h, fill=fill, border=border)
+        add_text(slide, phase,
+            cx + 0.15, col_y + 0.16, col_w - 0.3, 0.35,
+            size=13, bold=True, color=C_TEAL if active else C_WHITE)
+        add_text(slide, period,
+            cx + 0.15, col_y + 0.52, col_w - 0.3, 0.25,
+            size=9, color=C_MUTED)
+        add_text(slide, status,
+            cx + 0.15, col_y + 0.82, col_w - 0.3, 0.25,
+            size=8, bold=True, color=C_TEAL if active else C_MUTED)
+        for j, (lbl, val) in enumerate(rows):
+            y = col_y + 1.22 + j * 1.0
+            add_text(slide, lbl,
+                cx + 0.15, y, col_w - 0.3, 0.26,
+                size=8.5, color=C_MUTED)
+            add_text(slide, val,
+                cx + 0.15, y + 0.28, col_w - 0.3, 0.42,
+                size=16, bold=True, color=C_TEAL if active else C_WHITE)
+        if i < 2:
+            add_text(slide, "→",
+                cx + col_w + 0.02, col_y + col_h / 2 - 0.1, 0.1, 0.3,
+                size=14, bold=True, color=C_TEAL)
+
+    # EPR callout bar
+    epr_y = col_y + col_h + 0.18
+    add_rect(slide, 0.35, epr_y, W - 0.7, 0.52,
+             fill=RGBColor(0x04, 0x1d, 0x13), border=C_CARD_BORDER)
+    add_text(slide,
+        "EPR mandate scaling from 5% (FY25) → 50% (FY31) will create demand for 650,000+ KL "
+        "of RRBO annually — far exceeding current formal supply. Santosh is positioned to be "
+        "North India's primary Group II+ supplier.",
+        0.48, epr_y + 0.09, W - 1.0, 0.35,
+        size=8.5, color=C_MUTED)
+
+    add_footer(slide)
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SLIDE 16 — PARTNERSHIP PROPOSAL / ASK (Pattern B — Full-Width 3-col)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+def build_slide_16(prs, logo, images):
+    slide = new_slide(prs)
+    add_bg(slide)
+    add_logo(slide, logo)
+    add_text(slide, "IOCL PARTNERSHIP ASK",
+        0.35, 0.22, 12.0, 0.25, size=8, bold=True, color=C_TEAL)
+    add_text(slide, "Three Strategic Pillars of Partnership",
+        0.35, 0.50, 11.5, 0.55, size=24, bold=True, color=C_WHITE)
+    add_text(slide,
+        "Together: India's first integrated Group II+ RRBO circular economy in North India",
+        0.35, 1.08, 11.5, 0.28, size=10, color=C_MUTED)
+
+    pillars = [
+        ("01", "Offtake Agreement\n— RRBO Supply", [
+            "Preferred supplier for Group II+ RRBO to IOCL blending plants",
+            "3–5 year structured offtake, volume-tiered, aligned to EPR ramp",
+            "SN 150, SN 500, Bright Stock grades available",
+            "Enables IOCL SERVO to meet CPCB EPR mandates",
+        ]),
+        ("02", "Feedstock Collection\n— Used Oil Network", [
+            "Leverage IOCL SERVO dealer network as used oil collection points",
+            "IOCL dealers earn collection incentives; IOCL earns EPR credit",
+            "Santosh provides containers, logistics, EPR certificates",
+            "Formalised, traceable feedstock pipeline — replaces informal burning",
+        ]),
+        ("03", "Strategic Investment\n& Technical Support", [
+            "IOCL equity or debt participation to accelerate 200 TPD scale-up",
+            "Technical validation from IOCL R&D (Faridabad)",
+            "Joint branding: IOCL-certified Group II+ RRBO",
+            "LOI/MOU to unlock bank financing at preferential rates",
+        ]),
+    ]
+    col_w = (W - 0.7) / 3 - 0.1
+    col_h = 5.0
+    col_y = 1.44
+    cx0 = 0.35
+
+    for i, (num, title, bullets) in enumerate(pillars):
+        cx = cx0 + i * (col_w + 0.1)
+        add_rect(slide, cx, col_y, col_w, 0.07, fill=C_TEAL)
+        add_rect(slide, cx, col_y + 0.07, col_w, col_h, fill=C_CARD, border=C_CARD_BORDER)
+        add_text(slide, num,
+            cx + 0.15, col_y + 0.16, col_w - 0.3, 0.45,
+            size=22, bold=True, color=C_TEAL)
+        add_text(slide, title,
+            cx + 0.15, col_y + 0.62, col_w - 0.3, 0.75,
+            size=11, bold=True, color=C_WHITE)
+        add_rect(slide, cx + 0.15, col_y + 1.44, col_w - 0.3, 0.03,
+                 fill=C_CARD_BORDER)
+        for j, b in enumerate(bullets):
+            add_text(slide, f"• {b}",
+                cx + 0.15, col_y + 1.55 + j * 0.78, col_w - 0.3, 0.72,
+                size=9, color=C_MUTED)
+
+    add_footer(slide)

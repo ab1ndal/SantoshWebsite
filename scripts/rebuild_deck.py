@@ -494,7 +494,7 @@ def build_slide_09(prs, logo, images):
         ("Competitor Gap",
          "IFP (Sahibabad) is only re-refiner nearby — cannot produce Group II+"),
     ]
-    pt_y = 1.75
+    pt_y = 1.90
     for title, desc in points:
         add_bullet_row(slide, "•", title, desc, top=pt_y)
         pt_y += 0.55

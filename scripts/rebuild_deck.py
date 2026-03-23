@@ -520,7 +520,7 @@ PHASES = [
         "CPCB registration & QC lab (27 instruments)",
     ], False),
     ("Full Operations", "Year 4", "PLANNED", [
-        "65 KL/day full capacity",
+        "65 TPD full capacity",
         "Revenue target: ₹169 Cr+",
     ], False),
     ("Scale-Up", "Year 5–7", "PLANNED", [
@@ -570,7 +570,7 @@ def build_slide_10(prs, logo, images):
         badge_text_color = C_BG if done else (C_BG if active else C_MUTED)
         add_rect(slide, px + 0.1, phase_y + 0.95, phase_w - 0.2, 0.3,
                  fill=badge_color, border=None)
-        add_text(slide, ("✓ " if done else "⟳ " if active else "") + status,
+        add_text(slide, ("✓ " if done else "> " if active else "") + status,
             px + 0.12, phase_y + 0.97, phase_w - 0.24, 0.26,
             size=7.5, bold=True, color=badge_text_color, align=PP_ALIGN.CENTER)
 

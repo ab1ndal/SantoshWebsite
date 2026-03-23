@@ -749,7 +749,7 @@ def build_slide_11(prs, logo, images):
         ("Working Capital Loan", "70% of WC", "₹14.00 Cr", "Operational working capital"),
     ]
     card_h = 1.1
-    card_y0 = 1.90
+    card_y0 = 2.00  # shifted from 1.90 to avoid overlap with subheadline (0.02" gap)
     for i, (title, pct, amount, note) in enumerate(sources):
         y = card_y0 + i * (card_h + 0.12)
         add_rect(slide, CONTENT_X, y, CONTENT_W, card_h, fill=C_CARD, border=C_CARD_BORDER)
@@ -1023,7 +1023,7 @@ def build_slide_18(prs, logo, images):
          "Binding offtake agreement, pricing formula, EPR transfer mechanism — target Q2 FY26"),
     ]
     step_h = 0.85
-    step_y0 = 1.55
+    step_y0 = 1.65  # shifted from 1.55 to avoid touching headline bottom (0" gap)
     for i, (num, title, desc) in enumerate(steps):
         y = step_y0 + i * (step_h + 0.1)
         add_rect(slide, CONTENT_X, y, CONTENT_W, step_h, fill=C_CARD, border=C_CARD_BORDER)
@@ -1056,3 +1056,84 @@ def build_slide_18(prs, logo, images):
         size=8.5, color=C_MUTED)
 
     add_footer(slide)
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MAIN
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# All Unsplash photo IDs used in the deck
+IMAGE_IDS = [
+    "photo-1565008576549-57569a49371d",  # slide 01: refinery aerial
+    "photo-1504328345606-18bbc8c9d7d1",  # slide 02: LPG tanker/ops
+    "photo-1518709268805-4e9042af9f23",  # slides 03, 08: industrial plant
+    "photo-1611273426858-450d8e3c9fce",  # slide 05: oil drums
+    "photo-1486325212027-8081e485255e",  # slide 06: industrial growth
+    "photo-1567427017947-545c5f8d16ad",  # slide 09: NCR highway/aerial
+    "photo-1611532736597-de2d4265fba3",  # slide 11: finance/industry
+    "photo-1519003722824-194d4455a60c",  # slide 14: oil tanker truck
+    "photo-1450101499163-c8848c66ca85",  # slide 15: handshake
+    "photo-1558618666-fcd25c85cd64",     # slide 17: lubricant/blending
+    "photo-1473341304170-971dccb5ac1e",  # slide 18: circular economy
+]
+
+SLIDE_BUILDERS = [
+    build_slide_01, build_slide_02, build_slide_03, build_slide_04,
+    build_slide_05, build_slide_06, build_slide_07, build_slide_08,
+    build_slide_09, build_slide_10, build_slide_11, build_slide_12,
+    build_slide_13, build_slide_14, build_slide_15, build_slide_16,
+    build_slide_17, build_slide_18,
+]
+
+OUTPUT_PATH = "asset/Santosh_IOCL_Pitch_Deck_v2.pptx"
+
+
+def verify_output(path):
+    """Sanity-check the generated deck."""
+    from pptx import Presentation as _Prs
+    prs = _Prs(path)
+    assert len(prs.slides) == 18, f"Expected 18 slides, got {len(prs.slides)}"
+    assert abs(prs.slide_width.inches - 13.3) < 0.1
+    assert abs(prs.slide_height.inches - 7.5) < 0.1
+    for i, slide in enumerate(prs.slides):
+        assert len(slide.shapes) >= 3, f"Slide {i+1} has too few shapes ({len(slide.shapes)})"
+    print("✅ 18 slides verified")
+    print("✅ Dimensions 13.3\" × 7.5\" verified")
+    print("✅ All slides have content shapes")
+
+
+def main():
+    print("=== IOCL Pitch Deck Rebuilder ===\n")
+
+    # 1. Convert logo
+    print("Converting logo...")
+    logo = get_logo_bytes()
+
+    # 2. Download images
+    print("\nDownloading images...")
+    images = {}
+    for pid in IMAGE_IDS:
+        images[pid] = download_image(pid)
+
+    # 3. Build presentation
+    print("\nBuilding slides...")
+    prs = Presentation()
+    prs.slide_width = Inches(W)
+    prs.slide_height = Inches(H)
+
+    for i, builder in enumerate(SLIDE_BUILDERS):
+        print(f"  Slide {i+1:02d}: {builder.__name__}")
+        builder(prs, logo, images)
+
+    # 4. Save
+    prs.save(OUTPUT_PATH)
+    print(f"\nSaved: {OUTPUT_PATH}")
+
+    # 5. Verify
+    print("\nVerifying...")
+    verify_output(OUTPUT_PATH)
+    print(f"\n✅ Done! Open with: open \"{OUTPUT_PATH}\"")
+
+
+if __name__ == "__main__":
+    main()

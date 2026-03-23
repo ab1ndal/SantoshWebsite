@@ -161,7 +161,7 @@ def build_slide_07(prs, logo, images):
         bg = C_TEAL if i == 0 else C_CARD
         fg = C_BG if i == 0 else C_MUTED
         pill_w = 1.8 if i == 0 else 1.45
-        px = 1.42 + i * 1.55
+        px = 1.42 + i * 1.90
         add_rect(slide, px, strip_y + 0.09, pill_w, 0.35,
                  fill=bg, border=None)
         add_text(slide, out,

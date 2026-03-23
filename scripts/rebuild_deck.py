@@ -171,3 +171,163 @@ def build_slide_07(prs, logo, images):
     add_footer(slide)
 
 
+# ═══════════════════════════════════════════════════════════════════════════════
+# SLIDE 2 — ABOUT US / GROUP HISTORY (Pattern A)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+def build_slide_02(prs, logo, images):
+    slide = new_slide(prs)
+    add_bg(slide)
+    add_pattern_a_image(slide, images.get("photo-1504328345606-18bbc8c9d7d1"))
+    add_logo(slide, logo)
+    add_slide_tag(slide, "GROUP HISTORY")
+    add_headline(slide, "Two Decades of Partnership\nwith India's Oil Majors", top=0.55, size=22)
+
+    cards = [
+        ("IOCL SSI Stockist  (Est. 2003)",
+         ["SERVO lubricants distributor across 6 districts of Western UP",
+          "One of IOCL's longest-standing petroleum product partners"]),
+        ("HPCL LPG Bottling  (Since Dec 2018)",
+         ["Private bottler at Amroha, UP — 30 TMT/yr cylinder bottling",
+          "Distributing for HPCL dealers across Amroha region"]),
+        ("HPCL O&M Contract  (Sitarganj Plant)",
+         ["5-year O&M contract for HPCL Sitarganj LPG Plant",
+          "340 TMT total bottling across contract tenure"]),
+    ]
+    card_h = 1.35
+    card_y0 = 1.85
+    for i, (title, lines) in enumerate(cards):
+        add_card(slide, CONTENT_X, card_y0 + i * (card_h + 0.12),
+                 CONTENT_W, card_h, title, lines,
+                 title_size=10, line_size=9)
+
+    add_footer(slide)
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SLIDE 3 — ABOUT THE COMPANY (Pattern A)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+def build_slide_03(prs, logo, images):
+    slide = new_slide(prs)
+    add_bg(slide)
+    add_pattern_a_image(slide, images.get("photo-1518709268805-4e9042af9f23"))
+    add_logo(slide, logo)
+    add_slide_tag(slide, "COMPANY OVERVIEW")
+    add_headline(slide, "India's Next-Gen\nGroup II+ RRBO Producer", top=0.55, size=22)
+
+    facts = [
+        ("Company", "Santosh Petrochemical Innovations Pvt. Ltd."),
+        ("Technology", "REVA Process Technologies, Pune (European)"),
+        ("Plant Location", "Western Uttar Pradesh (Ghaziabad)"),
+        ("Capacity", "65 TPD feed (designed for 200 TPD expansion)"),
+        ("Output", "API Group II+ Re-Refined Base Oil (RRBO/LOBS)"),
+        ("By-products", "Fuel oil, Asphalt Extender (Residue)"),
+    ]
+    row_h = 0.42
+    row_y0 = 1.70
+    for i, (label, value) in enumerate(facts):
+        y = row_y0 + i * row_h
+        # Subtle row separator
+        if i % 2 == 0:
+            add_rect(slide, CONTENT_X, y, CONTENT_W, row_h,
+                     fill=RGBColor(0x12, 0x1e, 0x2c))
+        add_text(slide, label,
+            CONTENT_X + 0.1, y + 0.08, 1.4, row_h - 0.1,
+            size=8.5, bold=True, color=C_TEAL)
+        add_text(slide, value,
+            CONTENT_X + 1.55, y + 0.08, CONTENT_W - 1.65, row_h - 0.1,
+            size=8.5, color=C_WHITE)
+
+    # EPR callout
+    epr_y = row_y0 + len(facts) * row_h + 0.18
+    add_rect(slide, CONTENT_X, epr_y, CONTENT_W, 0.72,
+             fill=RGBColor(0x04, 0x2a, 0x1e), border=C_TEAL)
+    add_text(slide, "EPR MANDATE TAILWIND",
+        CONTENT_X + 0.12, epr_y + 0.06, CONTENT_W - 0.24, 0.22,
+        size=8, bold=True, color=C_TEAL)
+    add_text(slide,
+        "CPCB mandates 5% RRBO blending in FY25, scaling to 50% by FY31. "
+        "Santosh Group II+ RRBO is purpose-built to fulfil this mandate.",
+        CONTENT_X + 0.12, epr_y + 0.28, CONTENT_W - 0.24, 0.38,
+        size=8.5, color=C_MUTED)
+
+    add_footer(slide)
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SLIDE 4 — OUR PROMOTERS (Pattern C — 4-column grid)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+PROMOTERS = [
+    ("Lalit Bindal", "Founder &\nManaging Director", [
+        "35+ years in oil & energy sector",
+        "IOCL SSI Stockist since 2003",
+        "6-district SERVO network, Western UP",
+    ]),
+    ("Abhinav Bindal", "Director —\nEngineering & Operations", [
+        "Structural Engineer, Nabih Youseef Associates, LA",
+        "Expertise in large-scale infrastructure design",
+        "Driving digital & commercial strategy",
+    ]),
+    ("Pooja Bindal", "Director —\nAdministration", [
+        "8 years independent business management",
+        "Proprietor, Bindal Creation (garments & retail)",
+        "Financial oversight & administrative leadership",
+    ]),
+    ("Robin Kumar", "Director —\nOperations", [
+        "Based in Noida, Gautam Budh Nagar",
+        "Operations & logistics management",
+        "Supply chain for feedstock collection",
+    ]),
+]
+
+def build_slide_04(prs, logo, images):
+    slide = new_slide(prs)
+    add_bg(slide)
+    add_logo(slide, logo)
+
+    # Full-width header
+    add_text(slide, "LEADERSHIP TEAM",
+        0.35, 0.22, 10.0, 0.25, size=8, bold=True, color=C_TEAL)
+    add_text(slide, "Experienced Leadership with Deep IOCL Roots",
+        0.35, 0.50, 12.0, 0.55, size=22, bold=True, color=C_WHITE)
+
+    # 4 columns
+    col_w = (W - 0.7) / 4 - 0.1
+    col_y0 = 1.22
+    col_h = H - col_y0 - 0.35
+    cx0 = 0.35
+
+    for i, (name, role, bullets) in enumerate(PROMOTERS):
+        cx = cx0 + i * (col_w + 0.1)
+        add_rect(slide, cx, col_y0, col_w, col_h, fill=C_CARD, border=C_CARD_BORDER)
+
+        # Circular headshot placeholder
+        circle_d = 0.85
+        circle_x = cx + (col_w - circle_d) / 2
+        circle_y = col_y0 + 0.15
+        c = slide.shapes.add_shape(9,
+            Inches(circle_x), Inches(circle_y),
+            Inches(circle_d), Inches(circle_d))
+        c.fill.solid(); c.fill.fore_color.rgb = C_GREY
+        c.line.color.rgb = C_TEAL; c.line.width = Pt(1.5)
+
+        # Name
+        add_text(slide, name,
+            cx + 0.08, col_y0 + 1.1, col_w - 0.16, 0.32,
+            size=10.5, bold=True, color=C_WHITE, align=PP_ALIGN.CENTER)
+        # Role
+        add_text(slide, role,
+            cx + 0.08, col_y0 + 1.42, col_w - 0.16, 0.5,
+            size=8.5, color=C_TEAL, align=PP_ALIGN.CENTER)
+        # Teal divider
+        add_rect(slide, cx + 0.25, col_y0 + 1.96, col_w - 0.5, 0.03, fill=C_TEAL)
+        # Bullets
+        for j, b in enumerate(bullets):
+            add_text(slide, f"• {b}",
+                cx + 0.1, col_y0 + 2.06 + j * 0.52, col_w - 0.2, 0.5,
+                size=8.5, color=C_MUTED)
+
+    add_footer(slide)
+
